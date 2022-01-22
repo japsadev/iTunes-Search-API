@@ -16,7 +16,10 @@
 		2E48B848279C2F6C00455FF1 /* CustomiTunesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B847279C2F6C00455FF1 /* CustomiTunesUITestsLaunchTests.swift */; };
 		2E48B859279C30A200455FF1 /* ItunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B858279C30A200455FF1 /* ItunesClient.swift */; };
 		2E48B85B279C331800455FF1 /* UnHandledData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B85A279C331800455FF1 /* UnHandledData.swift */; };
-		2E48B85D279C333500455FF1 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B85C279C333500455FF1 /* Song.swift */; };
+		2E913074279C831E00DF180B /* TabControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E913073279C831E00DF180B /* TabControllerView.swift */; };
+		2E913076279C832D00DF180B /* TabBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E913075279C832D00DF180B /* TabBarButtonView.swift */; };
+		2EF5EBF5279C849A00970D5C /* TabBarWideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF5EBF4279C849A00970D5C /* TabBarWideView.swift */; };
+		2EF5EBF9279C899200970D5C /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF5EBF8279C899200970D5C /* PopularViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +52,10 @@
 		2E48B847279C2F6C00455FF1 /* CustomiTunesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomiTunesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2E48B858279C30A200455FF1 /* ItunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesClient.swift; sourceTree = "<group>"; };
 		2E48B85A279C331800455FF1 /* UnHandledData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnHandledData.swift; sourceTree = "<group>"; };
-		2E48B85C279C333500455FF1 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		2E913073279C831E00DF180B /* TabControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControllerView.swift; sourceTree = "<group>"; };
+		2E913075279C832D00DF180B /* TabBarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButtonView.swift; sourceTree = "<group>"; };
+		2EF5EBF4279C849A00970D5C /* TabBarWideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarWideView.swift; sourceTree = "<group>"; };
+		2EF5EBF8279C899200970D5C /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +106,11 @@
 		2E48B829279C2F6B00455FF1 /* CustomiTunes */ = {
 			isa = PBXGroup;
 			children = (
+				2E913070279C823200DF180B /* App */,
 				2E48B857279C309100455FF1 /* Client */,
 				2E48B856279C308300455FF1 /* Views */,
 				2E48B855279C307900455FF1 /* ViewModels */,
 				2E48B854279C307400455FF1 /* Models */,
-				2E48B82A279C2F6B00455FF1 /* CustomiTunesApp.swift */,
-				2E48B82C279C2F6B00455FF1 /* ContentView.swift */,
 				2E48B82E279C2F6C00455FF1 /* Assets.xcassets */,
 				2E48B830279C2F6C00455FF1 /* Preview Content */,
 			);
@@ -141,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				2E48B85A279C331800455FF1 /* UnHandledData.swift */,
-				2E48B85C279C333500455FF1 /* Song.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,6 +153,7 @@
 		2E48B855279C307900455FF1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				2EF5EBF8279C899200970D5C /* PopularViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -156,6 +161,8 @@
 		2E48B856279C308300455FF1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2EF5EBFB279C89BD00970D5C /* Pages */,
+				2EF5EBFA279C899A00970D5C /* TabView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,6 +173,32 @@
 				2E48B858279C30A200455FF1 /* ItunesClient.swift */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		2E913070279C823200DF180B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2E48B82A279C2F6B00455FF1 /* CustomiTunesApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2EF5EBFA279C899A00970D5C /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				2E913073279C831E00DF180B /* TabControllerView.swift */,
+				2E913075279C832D00DF180B /* TabBarButtonView.swift */,
+				2EF5EBF4279C849A00970D5C /* TabBarWideView.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
+		2EF5EBFB279C89BD00970D5C /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				2E48B82C279C2F6B00455FF1 /* ContentView.swift */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,11 +331,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF5EBF9279C899200970D5C /* PopularViewModel.swift in Sources */,
+				2E913076279C832D00DF180B /* TabBarButtonView.swift in Sources */,
 				2E48B859279C30A200455FF1 /* ItunesClient.swift in Sources */,
+				2EF5EBF5279C849A00970D5C /* TabBarWideView.swift in Sources */,
 				2E48B82D279C2F6B00455FF1 /* ContentView.swift in Sources */,
 				2E48B82B279C2F6B00455FF1 /* CustomiTunesApp.swift in Sources */,
 				2E48B85B279C331800455FF1 /* UnHandledData.swift in Sources */,
-				2E48B85D279C333500455FF1 /* Song.swift in Sources */,
+				2E913074279C831E00DF180B /* TabControllerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

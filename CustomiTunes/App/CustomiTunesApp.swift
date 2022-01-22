@@ -11,7 +11,7 @@ import SwiftUI
 struct CustomiTunesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabControllerView()
         }
     }
 }
