@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject private var popular = PopularViewClient()
     var body: some View {
         ScrollView{
             ForEach(self.popular.songs) { song in

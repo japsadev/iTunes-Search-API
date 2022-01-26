@@ -12,9 +12,9 @@ struct TabBarWideView: View {
     var body: some View {
         HStack(spacing:0){
             TabBarButtonView(title: "Popular", image: "star", currentTab: self.$selection)
-            TabBarButtonView(title: "Search", image: "magnifyingglass", currentTab: self.$selection)
-            TabBarButtonView(title: "Movie", image: "film", currentTab: self.$selection)
-            TabBarButtonView(title: "Music", image: "guitars", currentTab: self.$selection)
+//            TabBarButtonView(title: "Search", image: "magnifyingglass", currentTab: self.$selection)
+//            TabBarButtonView(title: "Movie", image: "film", currentTab: self.$selection)
+//            TabBarButtonView(title: "Music", image: "guitars", currentTab: self.$selection)
         }
 
     }

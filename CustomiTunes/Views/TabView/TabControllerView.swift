@@ -11,14 +11,14 @@ struct TabControllerView: View {
     @State private var selection = "Popular"
     var body: some View {
         TabView(selection: self.$selection){
-            ContentView()
+            PopularView()
                 .tag("Popular")
-            ContentView()
-                .tag("Search")
-            ContentView()
-                .tag("Movie")
-            ContentView()
-                .tag("Music")
+//            ContentView()
+//                .tag("Search")
+//            ContentView()
+//                .tag("Movie")
+//            ContentView()
+//                .tag("Music")
         }.overlay(
             TabBarWideView(selection: self.$selection)
                 .padding(.vertical,5)
