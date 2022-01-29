@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct SongsScrollView: View {
-    @ObservedObject private var pageclient = PopularSongClient()
+    @ObservedObject private var pageClient = PopularSongClient()
     var body: some View {
         
-        if self.pageclient.popularSongs.isEmpty{
+        if self.pageClient.popularSongs.isEmpty{
             ProgressView()
         }else{
             ScrollView(.horizontal){
-                HStack{
-                    ForEach(self.pageclient.popularSongs) { song in
+                HStack(spacing:13){
+                    ForEach(self.pageClient.popularSongs) { song in
                         LitteSongView(song: song)
                     }
-                }
+                }.padding(.bottom)
             }.padding(.leading)
         }
     }

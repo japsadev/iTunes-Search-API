@@ -13,7 +13,7 @@ class ItunesClient{
         
         let urlSearchKey = searchKey.replacingOccurrences(of: " ", with: "+")
         
-        guard let url = URL(string: "https://itunes.apple.com/search?term=\(urlSearchKey)&limit=5&entity=song")else{
+        guard let url = URL(string: "https://itunes.apple.com/search?term=\(urlSearchKey)&limit=1&entity=song&country=TR")else{
             return completion(.failure(.wrongUrl))
         }
 

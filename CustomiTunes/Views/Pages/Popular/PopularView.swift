@@ -11,36 +11,8 @@ struct PopularView: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                VStack{
-                    HStack{
-                        Text("Music")
-                            .font(.title)
-                            .bold()
-                            .padding(.leading)
-                        Spacer()
-                    }
-                    SongsScrollView()
-                }
-                VStack{
-                    HStack{
-                        Text("Movie")
-                            .font(.title)
-                            .bold()
-                            .padding(.leading)
-                        Spacer()
-                    }
-                    SongsScrollView()
-                }
-                VStack{
-                    HStack{
-                        Text("Ebook")
-                            .font(.title)
-                            .bold()
-                            .padding(.leading)
-                        Spacer()
-                    }
-                    SongsScrollView()
-                }
+                HScrollSpecialView()
+                HScroolWithTitleView(title: "Music")
             }.navigationTitle("Popular Content")
             
         }
