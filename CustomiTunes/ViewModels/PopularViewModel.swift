@@ -23,7 +23,10 @@ class PopularSongClient : ObservableObject{
         "Bul Beni",
         "Alaz Alaz",
         "Blinding Lights",
-        "Beggin",
+        "Ariyorum",
+        "Dunyanin En Guzel Kizi",
+        "Pare",
+        "1 gr eksik",
         "Easy On Me",
         "Kim",
         "Bonita",
@@ -49,7 +52,7 @@ class PopularSongClient : ObservableObject{
     }
     
     func searchPopularSinger(for singer : String){
-        iTunesClient.search(for: singer) { (response) in
+        iTunesClient.searchForName(for: singer) { (response) in
             switch response{
             case.failure(_):
                print("Hata")
@@ -62,7 +65,7 @@ class PopularSongClient : ObservableObject{
                                                  songName: song.trackName!,
                                                  singerName: song.artistName!,
                                                  trackExplicitness: song.trackExplicitness ?? "",
-                                                 songImage: URL(string: song.artworkUrl100!)!
+                                                 songImage: URL(string: song.artworkUrl250!)!
                                                 )
                             )
                         }

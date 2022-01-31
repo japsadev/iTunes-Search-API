@@ -25,6 +25,20 @@ struct UnHandleData : Codable {
     var artworkUrl30 : String?
     var artworkUrl60 : String?
     var artworkUrl100 : String?
+    var artworkUrl250 : String?{
+        if let artworkUrl100 = artworkUrl100 {
+            return artworkUrl100.replacingOccurrences(of: "100x100", with: "250x250")
+        }else{
+            return nil
+        }
+    }
+    var artworkUrl1000 : String?{
+        if let artworkUrl100 = artworkUrl100 {
+            return artworkUrl100.replacingOccurrences(of: "100x100", with: "1000x1000")
+        }else{
+            return nil
+        }
+    }
     var collectionPrice : Double?
     var trackPrice : Double?
     var releaseDate : String?

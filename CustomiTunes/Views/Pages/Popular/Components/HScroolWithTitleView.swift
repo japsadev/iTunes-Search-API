@@ -25,9 +25,7 @@ struct HScroolWithTitleView: View {
                         Text("Detail")
                         Image(systemName: "chevron.right")
                             .font(.callout)
-                            
                     }
-                    
                 }.padding(.trailing)
                     .foregroundColor(.red)
             }
