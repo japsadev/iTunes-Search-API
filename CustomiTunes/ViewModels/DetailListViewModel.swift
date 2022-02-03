@@ -12,10 +12,10 @@ class DetailListSongClient : ObservableObject{
     let iTunesClient = ItunesClient()
     @Published var artistSongs = [DetailListViewModel]()
     
-    func searchPopularSinger(for singer : String){
+    func searchBySingerID(for singerID : Double){
         
         
-        iTunesClient.searchForName(for: singer , limit: 10) { (response) in
+        iTunesClient.searchForSingerID(for: singerID , limit: 20) { (response) in
             switch response{
             case.failure(let error):
                 print(error)
@@ -23,14 +23,27 @@ class DetailListSongClient : ObservableObject{
                 if let nonOData = data{
                     for song in nonOData{
                         DispatchQueue.main.async {
-                            self.artistSongs.append(
-                                DetailListViewModel(id: song.trackId!,
-                                                 songName: song.trackName!,
-                                                 singerName: song.artistName!,
-                                                 trackExplicitness: song.trackExplicitness ?? "",
-                                                 songImage: URL(string: song.artworkUrl250!)!
-                                                )
-                            )
+                            if song.kind == "song"{
+                                var count = 0
+                                for compareSong in self.artistSongs{
+                                    if song.trackId == compareSong.id{
+                                        count += 1
+                                    }else if song.trackName == compareSong.songName{
+                                        count += 1
+                                    }
+                                }
+                                if count == 0{
+                                    self.artistSongs.append(
+                                        DetailListViewModel(
+                                            id: song.trackId!,
+                                            songName: song.trackName!,
+                                            singerName: song.artistName!,
+                                            trackExplicitness: song.trackExplicitness ?? "",
+                                            songImage: URL(string: song.artworkUrl250!)!
+                                        )
+                                    )
+                                }
+                            }
                             self.artistSongs.shuffle()
                         }
                     }

@@ -38,6 +38,26 @@ class ItunesClient{
     }
     
     
+    func searchForSingerID (for singerID : Double ,limit : Int, completion : @escaping(Result<[UnHandleData]? , DownloadError>) -> Void) -> Void{
+        
+        let urlSearchKey = Int(singerID)
+        
+        guard let url = URL(string: "https://itunes.apple.com/lookup?id=\(urlSearchKey)&entity=song&limit=\(limit)&sort=recent&country=TR")else{
+            return completion(.failure(.wrongUrl))
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, errors in
+            guard let data = data else {
+                return completion(.failure(.unload))
+            }
+            guard let finalResult = try? JSONDecoder().decode(SearchData.self,from:data) else{
+                return completion(.failure(.unbuild))
+            }
+            completion(.success(finalResult.results))
+        }.resume()
+        
+    }
+    
     func detailForID (for songID : Double, completion : @escaping(Result<UnHandleData? , DownloadError>) -> Void) -> Void{
         guard let url = URL(string:"https://itunes.apple.com/lookup?id=\(Int(songID))&entity=song&country=TR")else{
             return completion(.failure(.wrongUrl))

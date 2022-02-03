@@ -10,7 +10,7 @@ import AVFoundation
 
 struct MusicPlayerView: View {
     var detailedSong : DetailViewModel
-    @State private var rotation = 0.0
+    @State var rotation = 0.0
     @Environment(\.colorScheme) var colorScheme
     @State private var isPlayed = false
     @Binding var player : AVQueuePlayer
@@ -39,6 +39,7 @@ struct MusicPlayerView: View {
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
                                 self.isPlayed = false
+                                self.rotation = 0
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                 withAnimation(.linear(duration: 30)) {
@@ -76,6 +77,7 @@ struct MusicPlayerView: View {
                 withAnimation {
                     self.rotation = 0
                 }
+                self.isPlayed = false
             }
     }
 }

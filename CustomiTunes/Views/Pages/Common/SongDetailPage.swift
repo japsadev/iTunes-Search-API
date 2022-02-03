@@ -46,7 +46,7 @@ struct SongDetailPage: View {
                 }.offset(y:-30)
                     .padding(.horizontal)
                     .onAppear {
-                        self.moreThanClient.searchPopularSinger(for: self.pageClient.detailedSong.singerName)
+                        self.moreThanClient.searchBySingerID(for: self.pageClient.detailedSong.artistID)
                     }
             }
         }.navigationBarTitleDisplayMode(.inline)
