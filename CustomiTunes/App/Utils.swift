@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension Double{
     var responsiveW: Double { return (UIScreen.main.bounds.size.width * self) / 100}

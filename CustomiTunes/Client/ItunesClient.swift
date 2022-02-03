@@ -9,14 +9,22 @@ import Foundation
 
 class ItunesClient{
     
-    func searchForName (for searchKey : String ,completion : @escaping(Result<[UnHandleData]? , DownloadError>) -> Void) -> Void{
+    func searchForName (for searchKey : String ,limit : Int, completion : @escaping(Result<[UnHandleData]? , DownloadError>) -> Void) -> Void{
 
         let urlSearchKey = searchKey.replacingOccurrences(of: " ", with: "+")
         
-        guard let url = URL(string: "https://itunes.apple.com/search?term=\(urlSearchKey)&limit=1&entity=song&sort=recent&country=TR")else{
+        let turkishChar = ["ü" , "ı", "ğ", "ş", "ç" , "ö"]
+        let convertChar = ["u" , "i", "g" , "s", "c" , "o"]
+        
+        var clearSinger = urlSearchKey.lowercased()
+        for i in 0..<turkishChar.count{
+            clearSinger = clearSinger.replacingOccurrences(of: turkishChar[i], with: convertChar[i])
+        }
+        
+        guard let url = URL(string: "https://itunes.apple.com/search?term=\(clearSinger)&limit=\(limit)&entity=song&sort=recent&country=TR")else{
             return completion(.failure(.wrongUrl))
         }
-
+        
         URLSession.shared.dataTask(with: url) { data, response, errors in
             guard let data = data else {
                 return completion(.failure(.unload))

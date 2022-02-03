@@ -20,7 +20,9 @@ class PopularSongClient : ObservableObject{
         
     ]
     let songs = [
+        "wish i loved you in the 90s",
         "Bul Beni",
+        "Bilmem mi?",
         "Alaz Alaz",
         "Blinding Lights",
         "Ariyorum",
@@ -52,10 +54,10 @@ class PopularSongClient : ObservableObject{
     }
     
     func searchPopularSinger(for singer : String){
-        iTunesClient.searchForName(for: singer) { (response) in
+        iTunesClient.searchForName(for: singer , limit: 1) { (response) in
             switch response{
-            case.failure(_):
-               print("Hata")
+            case.failure(let error):
+               print(error)
             case .success(let data):
                 if let nonOData = data{
                     for song in nonOData{
