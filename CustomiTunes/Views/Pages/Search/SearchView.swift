@@ -33,6 +33,7 @@ struct SearchView: View {
                             self.pageClient.getSearchResult(for: self.searchKey)
                         } label: {
                             Text(recommed)
+                                .foregroundColor(Color("ThemeColor"))
                         }
                     }
                 }

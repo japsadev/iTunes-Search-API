@@ -30,6 +30,7 @@ struct SearchBarView: View {
                         }
                     } label: {
                         Image(systemName: "multiply.circle")
+                            .foregroundColor(Color("ThemeColor"))
                     }
                 }
             }.padding()

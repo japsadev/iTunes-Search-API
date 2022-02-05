@@ -23,7 +23,7 @@ struct TabBarButtonView: View {
                     .frame(height: 25)
                 Text(title).font(.caption).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             }
-            .foregroundColor(title == currentTab ? .red : .secondary)
+            .foregroundColor(title == currentTab ? Color("ThemeColor") : .secondary)
             .frame(maxWidth: .infinity)
         }
     }

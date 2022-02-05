@@ -59,7 +59,7 @@ struct MusicPlayerView: View {
                                 .foregroundColor(.primary)
                             Image(systemName: self.isPlayed ? "pause" : "play")
                                 .font(.title2)
-                                .foregroundColor(.red)
+                                .foregroundColor(Color("ThemeColor"))
                         }
                     }.offset(x:-30,y:-30)
                 }

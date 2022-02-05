@@ -27,7 +27,7 @@ struct HScroolWithTitleView: View {
                             .font(.callout)
                     }
                 }.padding(.trailing)
-                    .foregroundColor(.red)
+                    .foregroundColor(Color("ThemeColor"))
             }
             SongsScrollView(contentKey: self.contentKey)
         }
