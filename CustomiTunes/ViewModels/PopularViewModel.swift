@@ -21,6 +21,7 @@ class PopularSongClient : ObservableObject{
     ]
     let songs = [
         "wish i loved you in the 90s",
+        "she's all i wanna be",
         "Bul Beni",
         "Bilmem mi?",
         "Alaz Alaz",

@@ -14,7 +14,7 @@ struct PopularView: View {
                 HScrollSpecialView()
                 HScroolWithTitleView(title: "Music")
             }.navigationTitle("Popular Content")
-            
+                .padding(.bottom,10)
         }
     }
 }

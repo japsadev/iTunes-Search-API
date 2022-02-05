@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State private var searchKey = ""
+    @ObservedObject private var pageClient = SearchViewClient()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            ScrollView{
+                SearchBarView(searchKey: self.$searchKey)
+                if !self.pageClient.searchResult.isEmpty{
+                    ForEach(self.pageClient.searchResult){ song in
+                        SearchListItemView(listSong: song)
+                    }
+                }
+            }.navigationTitle("Search")
+                .padding(.bottom,10)
+        }.onSubmit {
+            Task{
+                self.pageClient.searchResult.removeAll()
+            }
+            self.pageClient.getSearchResult(for: self.searchKey)
+        }
+        
     }
 }
 

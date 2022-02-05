@@ -13,8 +13,8 @@ struct TabControllerView: View {
         TabView(selection: self.$selection){
             PopularView()
                 .tag("Popular")
-//            SearchView()
-//                .tag("Search")
+            SearchView()
+                .tag("Search")
 //            ContentView()
 //                .tag("Movie")
 //            ContentView()
