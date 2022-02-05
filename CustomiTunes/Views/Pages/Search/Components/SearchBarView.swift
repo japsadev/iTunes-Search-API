@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchBarView: View {
     @Binding var searchKey : String
+    @ObservedObject var pageClient : SearchViewClient
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10)
@@ -20,6 +21,17 @@ struct SearchBarView: View {
                     .padding(.leading,5)
                 TextField("Search", text: self.$searchKey)
                     .keyboardType(.webSearch)
+                Spacer()
+                if self.searchKey != "" || !self.pageClient.searchResult.isEmpty{
+                    Button {
+                        self.searchKey = ""
+                        Task{
+                            self.pageClient.searchResult.removeAll()
+                        }
+                    } label: {
+                        Image(systemName: "multiply.circle")
+                    }
+                }
             }.padding()
         }
     }
