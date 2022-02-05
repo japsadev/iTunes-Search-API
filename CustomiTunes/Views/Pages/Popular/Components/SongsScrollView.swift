@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct SongsScrollView: View {
-    @ObservedObject private var pageClient = PopularSongClient()
+    @ObservedObject private var pageClient : PopularSongClient
+    
+    init(contentKey: String){
+        self.pageClient = PopularSongClient(contentKey: contentKey)
+    }
     var body: some View {
         
         if self.pageClient.popularSongs.isEmpty{

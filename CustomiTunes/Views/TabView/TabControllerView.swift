@@ -21,7 +21,7 @@ struct TabControllerView: View {
 //                .tag("Music")
         }.overlay(
             TabBarWideView(selection: self.$selection)
-                .padding(.vertical,5)
+                .padding(.top,5)
                 .background(.ultraThinMaterial)
             ,alignment: .bottom
         )

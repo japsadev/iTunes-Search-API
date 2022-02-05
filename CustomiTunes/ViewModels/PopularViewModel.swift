@@ -11,46 +11,75 @@ class PopularSongClient : ObservableObject{
     let iTunesClient = ItunesClient()
     @Published var popularSongs = [PopularViewModel]()
     @Published var popularContentUrls = [
-        "https://is4-ssl.mzstatic.com/image/thumb/Features116/v4/2f/70/c2/2f70c28e-a20f-1df9-a5e5-12496db08033/U0gtTVMtV1ctWmlydmVkZWtpbGVyX1R1zIhya2PMp2VfTWFiZWxfTWF0aXotMDEyODIyLnBuZw.png/1000x611sr-60.jpg",
-        "https://is2-ssl.mzstatic.com/image/thumb/Features116/v4/bc/ee/a2/bceea2d5-507e-ae7c-8da4-fc984cb8b8e5/source/1000x611sr-60.jpg",
-        "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/f2/b4/e0/f2b4e016-0fc1-6ec9-57f5-504350639b59/U0gtTVMtV1ctUHVzdWxhX0NvbG9yXzIwMjEucG5n.png/1000x611sr-60.jpg",
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/66/b8/a3/66b8a357-24a3-bc75-a922-e7fb10a4a8d0/U0gtTVMtV1ctU1BBVElBTC1UaXRsZS5wbmc.png/1000x611sr-60.jpg",
-        "https://is2-ssl.mzstatic.com/image/thumb/Features116/v4/05/45/df/0545df70-f1b1-39ff-361b-78b8ee1fbd55/VTBndFRWTXRWRlZTTFVkdnpJaHJjMlZzTFVoaGEyekVzWGxreExGdVgxTnBibWRzWlM1d2JtYy5wbmc.png/1000x611sr-60.jpg",
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/db/60/2f/db602fd4-e638-55a1-e749-cc9f35c44d11/source/1000x611sr-60.jpg"
-        
+        "firstScrool" : [
+            PopularBigCardModel(contentKey: "turkeySongs", cardURL: URL(string: "https://is4-ssl.mzstatic.com/image/thumb/Features116/v4/2f/70/c2/2f70c28e-a20f-1df9-a5e5-12496db08033/U0gtTVMtV1ctWmlydmVkZWtpbGVyX1R1zIhya2PMp2VfTWFiZWxfTWF0aXotMDEyODIyLnBuZw.png/1000x611sr-60.jpg")!),
+            PopularBigCardModel(contentKey: "globalSongs", cardURL: URL(string: "https://is4-ssl.mzstatic.com/image/thumb/Features116/v4/2f/70/c2/2f70c28e-a20f-1df9-a5e5-12496db08033/U0gtTVMtV1ctWmlydmVkZWtpbGVyX1R1zIhya2PMp2VfTWFiZWxfTWF0aXotMDEyODIyLnBuZw.png/1000x611sr-60.jpg")!),
+        ],
     ]
-    let songs = [
-        "wish i loved you in the 90s",
-        "she's all i wanna be",
-        "Bul Beni",
-        "Bilmem mi?",
-        "Alaz Alaz",
-        "Blinding Lights",
-        "Ariyorum",
-        "Dunyanin En Guzel Kizi",
-        "Pare",
-        "1 gr eksik",
-        "Easy On Me",
-        "Kim",
-        "Bonita",
-        "Bad Habits",
-        "You Right",
-        "Sevmedim Deme",
-        "Seveni Bul Da Gel",
-        "late at night",
-        "Retrograde(Galantis Remix)",
-        "Gravity Glidin",
-        "Astronaut in The Ocean",
-        "Higher Power",
-        "EveryTime I Cry",
-        "By Your Side",
-        "Marlon Brando",
-        "Our Song",
-        "Kanunlar Gibi",
+    
+    let listsBySearchKey = [
+        "turkeySongs" : [
+            "Bul Beni",
+            "Bilmem mi?",
+            "Alaz Alaz",
+            "Blinding Lights",
+            "Ariyorum",
+            "Dunyanin En Guzel Kizi",
+            "Pare",
+            "1 gr eksik",
+            "Easy On Me",
+            "Kim",
+            "Bonita",
+            "Bad Habits",
+            "You Right",
+            "Sevmedim Deme",
+            "Seveni Bul Da Gel",
+            "late at night",
+            "Retrograde(Galantis Remix)",
+            "Gravity Glidin",
+            "Astronaut in The Ocean",
+            "Higher Power",
+            "EveryTime I Cry",
+            "By Your Side",
+            "Marlon Brando",
+            "Our Song",
+            "Kanunlar Gibi",
+        ],
+        "globalSongs" : [
+            "Do We Have A Problem?",
+            "she's all i wanna be",
+            "Super Gremlin",
+            "We don't talk about bruno",
+            "hrs and hrs",
+            "STAY",
+            "don't play that",
+            "cigarettes",
+            "Easy On Me",
+            "P power",
+            "abcdefu",
+            "Heat Waves",
+            "Lost",
+            "Surface Pressure",
+            "i hate u",
+            "shivers",
+            "knife talk",
+            "cold heart(PNAU Remix)",
+            "Fingers Crossed",
+            "Bad Habits",
+            "INDUSTRY BABY",
+            "oh my god",
+            "rumors",
+            "blinding lights",
+            "woman",
+        ]
     ]
-    init(){
-        for song in songs {
-            self.searchPopularSinger(for: song)
+    
+    
+    init(contentKey: String?){
+        if let songs = self.listsBySearchKey[contentKey ?? ""]{
+            for song in songs {
+                self.searchPopularSinger(for: song)
+            }
         }
     }
     
@@ -85,4 +114,10 @@ struct PopularViewModel : Identifiable{
     var singerName : String
     var trackExplicitness : String
     var songImage : URL
+}
+
+struct PopularBigCardModel : Identifiable{
+    var id = UUID()
+    var contentKey : String
+    var cardURL : URL
 }

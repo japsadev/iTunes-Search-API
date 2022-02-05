@@ -11,8 +11,9 @@ struct PopularView: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                HScrollSpecialView()
-                HScroolWithTitleView(title: "Music")
+                HScrollSpecialView(scroolKey: "firstScrool")
+                HScroolWithTitleView(title: "Turkey Risers",contentKey: "turkeySongs")
+                HScroolWithTitleView(title: "Global Hits",contentKey: "globalSongs")
             }.navigationTitle("Popular Content")
                 .padding(.bottom,10)
         }

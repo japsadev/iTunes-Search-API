@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct HScrollSpecialView: View {
-    @ObservedObject private var pageClient = PopularSongClient()
+    var scroolKey : String
+    @ObservedObject private var pageClient = PopularSongClient(contentKey: nil)
     var body: some View {
         if self.pageClient.popularContentUrls.isEmpty{
             ProgressView()
         }else{
             ScrollView(.horizontal){
                 HStack(spacing:13){
-                    ForEach(self.pageClient.popularContentUrls, id: \.self) { contentUrl in
-                        SpecialContentView(contentURL: contentUrl)
+                    if let cards = self.pageClient.popularContentUrls[scroolKey]{
+                        ForEach(cards) { card in
+                            SpecialContentView(contentURL: card.cardURL)
+                        }
                     }
+                    
                 }.padding(.bottom)
             }.padding(.leading)
         }
@@ -26,6 +30,6 @@ struct HScrollSpecialView: View {
 
 struct HScrollSpecialView_Previews: PreviewProvider {
     static var previews: some View {
-        HScrollSpecialView()
+        HScrollSpecialView(scroolKey: "scrool1")
     }
 }

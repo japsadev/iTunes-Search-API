@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HScroolWithTitleView: View {
-   
     let title : String
+    let contentKey : String
     var body: some View {
         VStack{
             HStack{
@@ -29,13 +29,13 @@ struct HScroolWithTitleView: View {
                 }.padding(.trailing)
                     .foregroundColor(.red)
             }
-            SongsScrollView()
+            SongsScrollView(contentKey: self.contentKey)
         }
     }
 }
 
 struct HScroolWithTitleView_Previews: PreviewProvider {
     static var previews: some View {
-        HScroolWithTitleView(title:"Music")
+        HScroolWithTitleView(title:"Music",contentKey: "")
     }
 }
