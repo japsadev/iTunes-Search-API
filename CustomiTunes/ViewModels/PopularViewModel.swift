@@ -12,9 +12,13 @@ class PopularSongClient : ObservableObject{
     @Published var popularSongs = [PopularViewModel]()
     @Published var popularContentUrls = [
         "firstScrool" : [
-            PopularBigCardModel(contentKey: "turkeySongs", cardURL: URL(string: "https://is4-ssl.mzstatic.com/image/thumb/Features116/v4/2f/70/c2/2f70c28e-a20f-1df9-a5e5-12496db08033/U0gtTVMtV1ctWmlydmVkZWtpbGVyX1R1zIhya2PMp2VfTWFiZWxfTWF0aXotMDEyODIyLnBuZw.png/1000x611sr-60.jpg")!),
-            PopularBigCardModel(contentKey: "globalSongs", cardURL: URL(string: "https://is4-ssl.mzstatic.com/image/thumb/Features116/v4/2f/70/c2/2f70c28e-a20f-1df9-a5e5-12496db08033/U0gtTVMtV1ctWmlydmVkZWtpbGVyX1R1zIhya2PMp2VfTWFiZWxfTWF0aXotMDEyODIyLnBuZw.png/1000x611sr-60.jpg")!),
+            PopularBigCardModel(contentKey: "turkeySongs", cardURL: URL(string: "https://is2-ssl.mzstatic.com/image/thumb/Features116/v4/52/e8/92/52e892b0-0e16-cc91-ffd6-85b41c2c51a4/U0gtTVMtV1ctWmlydmVkZWtpbGVyX1R1zIhya2PMp2UtUG9wLUVjZV9TZWPMp2tpbi0wMjA0MjIucG5n.png/1000x611sr-60.jpg")!),
+            PopularBigCardModel(contentKey: "globalSongs", cardURL: URL(string: "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/ed/ae/e4/edaee4bb-9446-ac49-feab-07286b5ef4d4/source/1000x611sr-60.jpg")!),
         ],
+        "secondScrool" : [
+            PopularBigCardModel(contentKey: "globalSongs", cardURL: URL(string: "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/09/07/69/09076916-8bc1-0b1a-2efe-9f9d01f4add1/VTBndFRWTXRWRlZTTFVWalpWOVRaV1BNcDJ0cGJpMVRaVzVmU0dGc1lWOVBjbVJoYzhTeGJsOVRhVzVuYkdVdWNHNW4ucG5n.png/1000x611sr-60.jpg")!),
+            PopularBigCardModel(contentKey: "globalSongs", cardURL: URL(string: "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/f2/b4/e0/f2b4e016-0fc1-6ec9-57f5-504350639b59/U0gtTVMtV1ctUHVzdWxhX0NvbG9yXzIwMjEucG5n.png/1000x611sr-60.jpg")!),
+        ]
     ]
     
     let listsBySearchKey = [
