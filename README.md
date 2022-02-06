@@ -51,3 +51,18 @@ For video click <a href="https://twitter.com/i/status/1489690303044931587">here<
  <img src="https://user-images.githubusercontent.com/74152011/152657406-03f974f9-9f46-433f-a9d6-ffadc51e521d.png" width=240>
 </div>
 
+## What is new in Step 2
++ The app is now localized.
++ Now it has a full theme.
++ Now their content changes according to the user's region.
++ Minor visual changes were made. It should be as pure as possible.
+
+### Pages I updated(2nd) in Step 2
+
+<div>
+ <img src="https://user-images.githubusercontent.com/74152011/152682515-8aade931-9207-4c2a-8b8a-92f4833c3042.png" width=240>
+ <img src="https://user-images.githubusercontent.com/74152011/152682522-d6eebd07-3499-4952-9bc7-31ae649b7274.png" width=240>
+ <img src="https://user-images.githubusercontent.com/74152011/152682524-2a59f8b2-8229-4707-9b8e-00d38aea5348.png" width=240>
+ <img src="https://user-images.githubusercontent.com/74152011/152682534-f93c0620-669a-4636-8365-ae9271255c1e.png" width=240>
+</div>
+
