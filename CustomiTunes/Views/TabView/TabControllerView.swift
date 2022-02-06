@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct TabControllerView: View {
-    @State private var selection = "Popular"
+    @State private var selection = "LOCAL_SEARCH"
     var body: some View {
         TabView(selection: self.$selection){
             PopularView()
-                .tag("Popular")
+                .tag("LOCAL_POPULAR")
             SearchView()
-                .tag("Search")
+                .tag("LOCAL_SEARCH")
 //            ContentView()
 //                .tag("Movie")
 //            ContentView()

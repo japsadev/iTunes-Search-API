@@ -13,7 +13,7 @@ struct HScroolWithTitleView: View {
     var body: some View {
         VStack{
             HStack{
-                Text(title)
+                Text(LocalizedStringKey(title))
                     .font(.title)
                     .bold()
                     .padding(.leading)
@@ -22,7 +22,7 @@ struct HScroolWithTitleView: View {
                     
                 } label: {
                     HStack(alignment:.center,spacing:3){
-                        Text("Detail")
+                        Text("LOCAL_DETAIL")
                         Image(systemName: "chevron.right")
                             .font(.callout)
                     }

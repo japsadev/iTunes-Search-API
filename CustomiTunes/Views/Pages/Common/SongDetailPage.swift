@@ -31,7 +31,7 @@ struct SongDetailPage: View {
                 MusicPlayerView(detailedSong: self.pageClient.detailedSong, player: self.$player)
                 VStack{
                     HStack{
-                        Text("More than " + self.pageClient.detailedSong.singerName)
+                        Text(self.pageClient.getLocalizedText(for: self.pageClient.detailedSong.singerName, with: "LOCAL_CODE"))
                             .font(.title)
                         Spacer()
                     }

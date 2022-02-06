@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  CustomiTunes
+
+  Created by Mehmet Ateş on 6.02.2022.
+  
+*/
+
+
+// For Search
+"LOCAL_CODE" = "US";
+"LOCAL_COUNTRY_LIST_KEY" = "usaSongs";
+"LOCAL_GLOBAL_LIST_KEY" = "globalSongs";
+"LOCAL_FIRST_SCROOL_KEY" = "firstScroolUS";
+"LOCAL_SECOND_SCROOL_KEY" = "secondScroolUS";
+
+// Tabbar texts
+"LOCAL_POPULAR" = "Popular";
+"LOCAL_SEARCH" = "Search";
+
+// Popular view texts
+"LOCAL_POPULAR_CONTENT" = "Popular Content";
+"LOCAL_COUNTRY_RISERS" = "Risers: USA";
+"LOCAL_DETAIL" = "Detail";
+"LOCAL_GLOBAL_HITS" = "Top Hits: Global";
+
+// Detail view texts
+"LOCAL_MORE_THAN" = "More Than ";
+
+// Search Recommends
+"LOCAL_SEARCHTIPS_1" = "future";
+"LOCAL_SEARCHTIPS_2" = "nicki minaj";
+"LOCAL_SEARCHTIPS_3" = "rihanna";
+"LOCAL_SEARCHTIPS_4" = "eminem";
+"LOCAL_SEARCHTIPS_5" = "adele";
+"LOCAL_SEARCHTIPS_6" = "abcdefu";
+"LOCAL_SEARCHTIPS_7" = "drake";
+"LOCAL_SEARCHTIPS_8" = "dua lipa";

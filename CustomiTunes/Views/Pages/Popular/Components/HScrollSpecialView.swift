@@ -16,7 +16,7 @@ struct HScrollSpecialView: View {
         }else{
             ScrollView(.horizontal){
                 HStack(spacing:13){
-                    if let cards = self.pageClient.popularContentUrls[scroolKey]{
+                    if let cards = self.pageClient.popularContentUrls[self.pageClient.hScroolKeyConventer(for: scroolKey)]{
                         ForEach(cards) { card in
                             SpecialContentView(contentURL: card.cardURL)
                         }

@@ -11,13 +11,14 @@ struct SearchView: View {
     @State private var searchKey = ""
     @ObservedObject private var pageClient = SearchViewClient()
     let recommendedList  = [
-        "ece seçkin",
-        "zeynep bastık",
-        "reynmen",
-        "ezhel",
-        "sefo",
-        "edis",
-        "yüzyüzeyken konuşuruz",
+        "LOCAL_SEARCHTIPS_1",
+        "LOCAL_SEARCHTIPS_2",
+        "LOCAL_SEARCHTIPS_3",
+        "LOCAL_SEARCHTIPS_4",
+        "LOCAL_SEARCHTIPS_5",
+        "LOCAL_SEARCHTIPS_6",
+        "LOCAL_SEARCHTIPS_7",
+        "LOCAL_SEARCHTIPS_8",
     ]
     var body: some View {
         NavigationView{
@@ -26,13 +27,13 @@ struct SearchView: View {
                 if self.pageClient.searchResult.isEmpty{
                     ForEach(self.recommendedList, id: \.self){ recommed in
                         Button {
-                            self.searchKey = recommed
+                            self.searchKey = NSLocalizedString(recommed, comment: "searchKeys")
                             Task{
                                 self.pageClient.searchResult.removeAll()
                             }
                             self.pageClient.getSearchResult(for: self.searchKey)
                         } label: {
-                            Text(recommed)
+                            Text(LocalizedStringKey(recommed))
                                 .foregroundColor(Color("ThemeColor"))
                         }
                     }
@@ -42,7 +43,7 @@ struct SearchView: View {
                         SearchListItemView(listSong: song)
                     }
                 }
-            }.navigationTitle("Search")
+            }.navigationTitle("LOCAL_SEARCH")
                 .padding(.bottom,10)
         }.onSubmit {
             Task{

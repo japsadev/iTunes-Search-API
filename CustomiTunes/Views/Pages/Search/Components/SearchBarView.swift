@@ -13,13 +13,13 @@ struct SearchBarView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10)
-                .frame(width: 95.0.responsiveW, height: 7.0.responsiveH, alignment: .center)
+                .frame(width: 95.0.responsiveW, height: 5.0.responsiveH, alignment: .center)
                 .foregroundColor(.gray.opacity(0.3))
             HStack{
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.secondary)
                     .padding(.leading,5)
-                TextField("Search", text: self.$searchKey)
+                TextField("LOCAL_SEARCH", text: self.$searchKey)
                     .keyboardType(.webSearch)
                 Spacer()
                 if self.searchKey != "" || !self.pageClient.searchResult.isEmpty{
@@ -33,7 +33,7 @@ struct SearchBarView: View {
                             .foregroundColor(Color("ThemeColor"))
                     }
                 }
-            }.padding()
+            }.padding(.horizontal)
         }
     }
 }

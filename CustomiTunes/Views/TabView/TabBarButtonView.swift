@@ -21,7 +21,7 @@ struct TabBarButtonView: View {
             VStack(spacing : 5) {
                 Image(systemName: image).font(.title2)
                     .frame(height: 25)
-                Text(title).font(.caption).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                Text(LocalizedStringKey(title)).font(.caption).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             }
             .foregroundColor(title == currentTab ? Color("ThemeColor") : .secondary)
             .frame(maxWidth: .infinity)

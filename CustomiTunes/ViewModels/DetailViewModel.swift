@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class DetailSongClient : ObservableObject{
     let iTunesClient = ItunesClient()
@@ -31,6 +32,19 @@ class DetailSongClient : ObservableObject{
                     }
                 }
             }
+        }
+    }
+    
+    func getLocalizedText(for singer : String , with localKey : String) -> String{
+        let key = NSLocalizedString(localKey, comment: "for county code")
+        
+        switch key{
+        case "TR":
+            return singer + NSLocalizedString("LOCAL_MORE_THAN", comment: "for order")
+        case "US":
+            return NSLocalizedString("LOCAL_MORE_THAN", comment: "for order") + singer
+        default :
+            return NSLocalizedString("LOCAL_MORE_THAN", comment: "for order") + singer
         }
     }
 }
