@@ -51,7 +51,7 @@ For video click <a href="https://twitter.com/i/status/1489690303044931587">here<
  <img src="https://user-images.githubusercontent.com/74152011/152657406-03f974f9-9f46-433f-a9d6-ffadc51e521d.png" width=240>
 </div>
 
-## What is new in Step 2
+## What is new in Step 2 (update 1)
 + The app is now localized.
 + Now it has a full theme.
 + Now their content changes according to the user's region.
@@ -65,4 +65,25 @@ For video click <a href="https://twitter.com/i/status/1489690303044931587">here<
  <img src="https://user-images.githubusercontent.com/74152011/152682524-2a59f8b2-8229-4707-9b8e-00d38aea5348.png" width=240>
  <img src="https://user-images.githubusercontent.com/74152011/152682534-f93c0620-669a-4636-8365-ae9271255c1e.png" width=240>
 </div>
+
+## What is new in Step 2(update 2)
++ You can now add songs as favorites
++ New detail screen design
++ We now have a webview
++ Now it can play music in silent mode.
++ Placeholders are more useful now.
++ Now you can share the music with whoever you want.
++ A minor change to the big card view.
++ We now have an account screen.
++ User saves your data to the application using default. And it does this every second you change it.
+
+### Pages I updated(3nd) in Step 2
+
+<div>
+ <img src="https://user-images.githubusercontent.com/74152011/152856925-4e432c63-3e56-4c4f-b809-e24efa1ca967.png" width=240>
+ <img src="https://user-images.githubusercontent.com/74152011/152856904-b8a1b586-b044-4fa6-828a-e275b39a0a57.png" width=240>
+ <img src="https://user-images.githubusercontent.com/74152011/152856920-ffb9baa2-546d-45b1-a240-2ef456dc2882.png" width=240>
+ <img src="https://user-images.githubusercontent.com/74152011/152856937-ca03bb7b-541c-4f64-894d-947e480776ad.png" width=240>
+</div>
+
 
