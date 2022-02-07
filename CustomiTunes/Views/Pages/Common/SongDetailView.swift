@@ -44,9 +44,7 @@ struct SongDetailView: View {
                             song in ListSongView(listSong: song)
                         }
                     }
-                    
-                }.offset(y:-30)
-                    .padding(.horizontal)
+                }.padding(.horizontal)
                     .onAppear {
                         self.moreThanClient.searchBySingerID(for: self.pageClient.detailedSong.artistID)
                     }

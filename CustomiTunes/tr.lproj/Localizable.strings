@@ -26,6 +26,11 @@
 
 // Detail view texts
 "LOCAL_MORE_THAN" = "'den Daha Fazla";
+"LOCAL_FAVORITE_ACTIVE" = "Kaldır";
+"LOCAL_FAVORITE_DEACTIVE" = "Ekle";
+"LOCAL_PLAY" = "Oynat";
+"LOCAL_PAUSE" = "Durdur";
+"LOCAL_WEB_VIEW" = "Web'de Görüntüle";
 
 // Search Recommends
 "LOCAL_SEARCHTIPS_1" = "güneş";

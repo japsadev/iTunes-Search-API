@@ -13,7 +13,16 @@ struct MusicPlayerView: View {
     @State var rotation = 0.0
     @Environment(\.colorScheme) var colorScheme
     @State private var isPlayed = false
+    @State private var isFavorite = false
+    @State private var isWebView = false
     @Binding var player : AVQueuePlayer
+    
+    @State var favoriteList = [Double](){
+        didSet{
+            self.isFavorite = favoriteList.contains(self.detailedSong.id)
+        }
+    }
+    let defaults = UserDefaults.standard
     
     var body: some View {
         AsyncImage(url: self.detailedSong.songImage) { image in
@@ -25,9 +34,20 @@ struct MusicPlayerView: View {
                     .rotationEffect(.degrees(self.rotation))
                     .overlay(Circle().frame(width: 6.0.responsiveW, alignment: .center).foregroundColor(self.colorScheme == ColorScheme.dark ? .black : .white))
                     .shadow(radius: 5)
+                
                 HStack{
-                    Spacer()
-                    Button {
+                    ActionButtonView(buttonAction: {
+                        withAnimation {
+                            if isFavorite{
+                                self.favoriteList.remove(at: self.favoriteList.firstIndex(of: self.detailedSong.id)!)
+                            }else{
+                                self.favoriteList.append(self.detailedSong.id)
+                            }
+                            self.defaults.set(self.favoriteList, forKey: "favoriteList")
+                        }
+                    }, isValue: self.$isFavorite, activeIcon: "heart.fill", disActiveIcon: "heart", disActiveTitle: "LOCAL_FAVORITE_DEACTIVE", activeTitle: "LOCAL_FAVORITE_ACTIVE")
+                    
+                    ActionButtonView(buttonAction: {
                         withAnimation {
                             self.isPlayed.toggle()
                         }
@@ -57,17 +77,17 @@ struct MusicPlayerView: View {
                                 self.rotation = 0
                             }
                         }
-                    } label: {
-                        ZStack{
-                            Circle()
-                                .frame(width: 15.0.responsiveW,height: 15.0.responsiveW , alignment: .center)
-                                .foregroundColor(.primary)
-                            Image(systemName: self.isPlayed ? "pause" : "play")
-                                .font(.title2)
-                                .foregroundColor(Color("ThemeColor"))
+                    }, isValue: self.$isPlayed, activeIcon: "pause", disActiveIcon: "play", disActiveTitle: "LOCAL_PLAY", activeTitle: "LOCAL_PAUSE")
+                    
+                    ActionButtonView(buttonAction: {
+                        self.isWebView.toggle()
+                    }, isValue: self.$isWebView, activeIcon: "safari", disActiveIcon: "safari", disActiveTitle: "LOCAL_WEB_VIEW", activeTitle: "LOCAL_WEB_VIEW")
+                        .sheet(isPresented: self.$isWebView, onDismiss: nil) {
+                            WebView(url: self.detailedSong.trackURL)
                         }
-                    }.offset(x:-30,y:-30)
-                }
+
+                        
+                }.padding(.top,10)
             }
         } placeholder: {
             VStack{
@@ -83,6 +103,15 @@ struct MusicPlayerView: View {
                     self.rotation = 0
                 }
                 self.isPlayed = false
+            }.onAppear {
+                self.favoriteList = self.defaults.object(forKey: "favoriteList") as? [Double] ?? []
             }
+            
+    }
+}
+
+struct MusicPlayerView_Preview: PreviewProvider {
+    static var previews: some View {
+        SongDetailView(detailSongId: 1598031515.0)
     }
 }
