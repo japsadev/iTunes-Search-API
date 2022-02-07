@@ -36,3 +36,17 @@
 "LOCAL_SEARCHTIPS_6" = "abcdefu";
 "LOCAL_SEARCHTIPS_7" = "drake";
 "LOCAL_SEARCHTIPS_8" = "dua lipa";
+
+// Acoount view text
+"LOCAL_ACCOUNT_TITLE" = "Your Account";
+"LOCAL_ACCOUNT_INFO" = "Account Information";
+"LOCAL_ACCOUNT_NAME" = "Your Name: ";
+"LOCAL_ACCOUNT_SURNAME" = "Your Surname: ";
+"LOCAL_ACCOUNT_NAME_HINT" = "Name";
+"LOCAL_ACCOUNT_SURNAME_HINT" = "Surname";
+"LOCAL_ACCOUNT_EMAIL" = "Your e-mail adreess: ";
+"LOCAL_ACCOUNT_EMAIL_HINT" = "E-mail";
+"LOCAL_ACCOUNT_SETTINGS" = "Account Settings";
+"LOCAL_ACOOUNT_NOTIFICATION" = "Open notifications";
+"LOCAL_ACCOUNT_PRIVACY" = "Privacy Settings";
+"LOCAL_ACCOUNT_SHARE_DATA" = "Share account informations";

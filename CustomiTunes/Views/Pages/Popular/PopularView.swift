@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PopularView: View {
+    @State private var isHide = false
+    
     var body: some View {
         NavigationView{
             ScrollView{
@@ -17,6 +19,18 @@ struct PopularView: View {
                 HScrollSpecialView(scroolKey: "LOCAL_SECOND_SCROOL_KEY")
             }.navigationTitle("LOCAL_POPULAR_CONTENT")
                 .padding(.bottom,10)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            self.isHide.toggle()
+                        } label: {
+                            Image(systemName: "person.circle")
+                                .foregroundColor(Color("ThemeColor"))
+                        }.sheet(isPresented: self.$isHide, onDismiss: nil) {
+                            AccountView(isHide: self.$isHide)
+                        }
+                    }
+                }
         }
     }
 }

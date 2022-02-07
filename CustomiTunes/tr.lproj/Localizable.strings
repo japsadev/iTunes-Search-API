@@ -36,3 +36,17 @@
 "LOCAL_SEARCHTIPS_6" = "ece seçkin";
 "LOCAL_SEARCHTIPS_7" = "sefo";
 "LOCAL_SEARCHTIPS_8" = "edis";
+
+// Acoount view text
+"LOCAL_ACCOUNT_TITLE" = "Hesabınız";
+"LOCAL_ACCOUNT_INFO" = "Hesap Bilgileri";
+"LOCAL_ACCOUNT_NAME" = "İsminiz: ";
+"LOCAL_ACCOUNT_SURNAME" = "Soy İsminiz: ";
+"LOCAL_ACCOUNT_NAME_HINT" = "İsim";
+"LOCAL_ACCOUNT_SURNAME_HINT" = "Soyisim";
+"LOCAL_ACCOUNT_EMAIL" = "E-posta Adresiniz: ";
+"LOCAL_ACCOUNT_EMAIL_HINT" = "E-posta";
+"LOCAL_ACCOUNT_SETTINGS" = "Hesap Ayarları";
+"LOCAL_ACOOUNT_NOTIFICATION" = "Bildirimleri aç";
+"LOCAL_ACCOUNT_PRIVACY" = "Gizlilik Ayarları";
+"LOCAL_ACCOUNT_SHARE_DATA" = "Hesap bilgileri paylaş";

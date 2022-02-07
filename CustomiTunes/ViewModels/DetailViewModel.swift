@@ -10,7 +10,7 @@ import SwiftUI
 
 class DetailSongClient : ObservableObject{
     let iTunesClient = ItunesClient()
-    @Published var detailedSong = DetailViewModel(id: 0.0, songName: "Song Name", singerName: "Singer Name", trackExplicitness: "exclipt", songImage: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png")!,songPreview: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png")!,artistID: 0)
+    @Published var detailedSong = DetailViewModel(id: 0, songName: "Name", singerName: "Singer", trackExplicitness: "", songImage: URL(string: "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!, songPreview: URL(string: "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!, artistID: 0, trackURL: URL(string: "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!)
     
     func getSong(for songID : Double){
         iTunesClient.detailForID(for: songID) { (response) in
@@ -27,7 +27,8 @@ class DetailSongClient : ObservableObject{
                             trackExplicitness: song.trackExplicitness!,
                             songImage: URL(string: song.artworkUrl1000!)!,
                             songPreview: URL(string: song.previewUrl!)!,
-                            artistID: song.artistID!
+                            artistID: song.artistID!,
+                            trackURL: URL(string: song.trackViewUrl!)!
                         )
                     }
                 }
@@ -58,4 +59,5 @@ struct DetailViewModel : Identifiable{
     var songImage : URL
     var songPreview : URL
     var artistID : Double
+    var trackURL : URL
 }

@@ -11,7 +11,7 @@ struct ListSongView: View {
     var listSong : DetailListViewModel
     var body: some View {
         NavigationLink {
-            SongDetailPage(detailSongId: listSong.id)
+            SongDetailView(detailSongId: listSong.id)
         } label: {
             VStack(alignment:.leading,spacing:5){
                 Divider()
