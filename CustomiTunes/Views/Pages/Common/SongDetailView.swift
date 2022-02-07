@@ -7,15 +7,17 @@
 
 import SwiftUI
 import AVFoundation
+import UIKit
 
 
-struct SongDetailPage: View {
+struct SongDetailView: View {
     private var detailSongId : Double
     
     @ObservedObject private var pageClient = DetailSongClient()
     @ObservedObject private var moreThanClient = DetailListSongClient()
     @Environment(\.colorScheme) var colorScheme
     @State var player = AVQueuePlayer()
+    @State private var isHide = false
     
     init (detailSongId : Double){
         self.detailSongId = detailSongId
@@ -50,16 +52,28 @@ struct SongDetailPage: View {
                     }
             }
         }.navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(self.pageClient.detailedSong.songName)
-        .onDisappear {
-            self.player.removeAllItems()
-        }
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        let shareMusic = UIActivityViewController(activityItems: [self.pageClient.detailedSong.trackURL], applicationActivities: nil)
+                        if let vc = UIApplication.shared.windows.first?.rootViewController{
+                            vc.present(shareMusic,animated: true)
+                        }
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                }
+            }
+            .navigationTitle(self.pageClient.detailedSong.songName)
+            .onDisappear {
+                self.player.removeAllItems()
+            }
     }
 }
 
 struct SongDetailPage_Previews: PreviewProvider {
     static var previews: some View {
-        SongDetailPage(detailSongId: 1598031515.0)
+        SongDetailView(detailSongId: 1598031515.0)
     }
 }
 

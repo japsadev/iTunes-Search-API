@@ -15,12 +15,14 @@ struct SpecialContentView: View {
                 .frame(width: 90.0.responsiveW, height: 55.0.responsiveW, alignment: .center)
                 .foregroundColor(.primary.opacity(0.1))
                 
+            
             AsyncImage(url: self.contentURL) { image in
                 image.resizable()
                     .aspectRatio( contentMode: .fit)
-                    .cornerRadius(10)
                     .frame(width: 90.0.responsiveW, height: 55.0.responsiveW, alignment: .center)
-                    .shadow(radius: 5)
+                    .cornerRadius(10)
+                    .shadow(radius: 4, x: 3, y: 10)
+                    
             } placeholder: {
                 ProgressView()
             }
