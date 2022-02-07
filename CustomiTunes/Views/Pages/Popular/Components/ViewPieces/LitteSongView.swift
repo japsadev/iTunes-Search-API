@@ -23,7 +23,13 @@ struct LitteSongView: View {
                         .cornerRadius(5)
                         .shadow(radius: 5, x: 0, y: 0)
                 } placeholder: {
-                    ProgressView()
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 100, height: 100, alignment: .center)
+                            .foregroundColor(.primary.opacity(0.1))
+                            .cornerRadius(5)
+                        ProgressView()
+                    }
                 }
                 VStack(alignment:.leading, spacing:4){
                     HStack(alignment:.top){
@@ -35,7 +41,6 @@ struct LitteSongView: View {
                         Spacer()
                         ExplicitView(explicitState: song.trackExplicitness)
                     }
-                    
                     Text(self.song.singerName)
                         .font(.caption2)
                         .foregroundColor(.secondary)

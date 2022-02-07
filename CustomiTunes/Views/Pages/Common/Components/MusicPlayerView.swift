@@ -35,6 +35,11 @@ struct MusicPlayerView: View {
                             DispatchQueue.main.async {
                                 player.removeAllItems()
                                 player.insert(AVPlayerItem(url: self.detailedSong.songPreview),after: nil)
+                                do {
+                                    try AVAudioSession.sharedInstance().setCategory(.playback)
+                                } catch(let error) {
+                                    print(error.localizedDescription)
+                                }
                                 player.play()
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
