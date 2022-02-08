@@ -18,8 +18,8 @@ struct HScroolWithTitleView: View {
                     .bold()
                     .padding(.leading)
                 Spacer()
-                Button {
-                    
+                NavigationLink {
+                    SongsExpandedView(contentKey: self.contentKey, pageTitle: self.title)
                 } label: {
                     HStack(alignment:.center,spacing:3){
                         Text("LOCAL_DETAIL")

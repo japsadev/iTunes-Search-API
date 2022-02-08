@@ -26,7 +26,7 @@ class DetailSongClient : ObservableObject{
                             singerName: song.artistName!,
                             trackExplicitness: song.trackExplicitness!,
                             songImage: URL(string: song.artworkUrl1000!)!,
-                            songPreview: URL(string: song.previewUrl!)!,
+                            songPreview: URL(string: song.previewUrl ?? "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!,
                             artistID: song.artistID!,
                             trackURL: URL(string: song.trackViewUrl!)!
                         )
