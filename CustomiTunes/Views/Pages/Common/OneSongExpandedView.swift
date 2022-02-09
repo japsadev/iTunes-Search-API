@@ -41,6 +41,7 @@ struct OneSongExpandedView: View {
                     if !self.inList{
                         Image(systemName: "chevron.right")
                             .foregroundColor(Color("ThemeColor"))
+                            .padding(.trailing)
                     }
                 }
                 if !self.inList{

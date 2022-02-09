@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E0506DE27B43903008B73E4 /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E0506DD27B43903008B73E4 /* SplashView.storyboard */; };
 		2E4715E827B31335007C564B /* SongsExpandedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4715E727B31335007C564B /* SongsExpandedViewModel.swift */; };
 		2E4715EB27B31674007C564B /* OneSongExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4715EA27B31674007C564B /* OneSongExpandedView.swift */; };
 		2E48B82B279C2F6B00455FF1 /* CustomiTunesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B82A279C2F6B00455FF1 /* CustomiTunesApp.swift */; };
@@ -67,9 +68,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E0506DD27B43903008B73E4 /* SplashView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
 		2E4715E727B31335007C564B /* SongsExpandedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsExpandedViewModel.swift; sourceTree = "<group>"; };
 		2E4715EA27B31674007C564B /* OneSongExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSongExpandedView.swift; sourceTree = "<group>"; };
-		2E48B827279C2F6B00455FF1 /* CustomiTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomiTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E48B827279C2F6B00455FF1 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E48B82A279C2F6B00455FF1 /* CustomiTunesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomiTunesApp.swift; sourceTree = "<group>"; };
 		2E48B82E279C2F6C00455FF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E48B831279C2F6C00455FF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -151,7 +153,7 @@
 		2E48B828279C2F6B00455FF1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2E48B827279C2F6B00455FF1 /* CustomiTunes.app */,
+				2E48B827279C2F6B00455FF1 /* iMusic.app */,
 				2E48B837279C2F6C00455FF1 /* CustomiTunesTests.xctest */,
 				2E48B841279C2F6C00455FF1 /* CustomiTunesUITests.xctest */,
 			);
@@ -224,6 +226,7 @@
 			children = (
 				2EF5EBFB279C89BD00970D5C /* Pages */,
 				2EF5EBFA279C899A00970D5C /* TabView */,
+				2E0506DD27B43903008B73E4 /* SplashView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,7 +399,7 @@
 			);
 			name = CustomiTunes;
 			productName = CustomiTunes;
-			productReference = 2E48B827279C2F6B00455FF1 /* CustomiTunes.app */;
+			productReference = 2E48B827279C2F6B00455FF1 /* iMusic.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2E48B836279C2F6C00455FF1 /* CustomiTunesTests */ = {
@@ -486,6 +489,7 @@
 			files = (
 				2E48B832279C2F6C00455FF1 /* Preview Assets.xcassets in Resources */,
 				2EE75DE527AFE571003ADB70 /* Localizable.strings in Resources */,
+				2E0506DE27B43903008B73E4 /* SplashView.storyboard in Resources */,
 				2E48B82F279C2F6C00455FF1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +727,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -731,7 +736,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devmehmetates.CustomiTunes;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iMusic;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -752,6 +757,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -760,7 +766,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devmehmetates.CustomiTunes;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iMusic;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
