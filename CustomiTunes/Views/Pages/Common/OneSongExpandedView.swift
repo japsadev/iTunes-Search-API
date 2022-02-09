@@ -10,12 +10,12 @@ import SwiftUI
 struct OneSongExpandedView: View {
     var listSong : SongsExpandedViewModel
     var index : Int
+    var inList : Bool
     var body: some View {
         NavigationLink {
             SongDetailView(detailSongId: listSong.id)
         } label: {
             VStack(alignment:.leading,spacing:5){
-                Divider()
                 HStack{
                     Text(String(self.index + 1))
                         .frame(width: 7.0.responsiveW)
@@ -38,10 +38,15 @@ struct OneSongExpandedView: View {
                         Spacer()
                     }
                     Spacer()
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(Color("ThemeColor"))
+                    if !self.inList{
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(Color("ThemeColor"))
+                    }
                 }
-            }.frame(width: 95.0.responsiveW, height: 15.0.responsiveW, alignment: .center)
+                if !self.inList{
+                    Divider()
+                }
+            }.frame(width: !self.inList ? 95.0.responsiveW : 80.0.responsiveW, height: 15.0.responsiveW, alignment: .center)
                 .foregroundColor(.primary)
         }
     }

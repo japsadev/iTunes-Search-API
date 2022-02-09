@@ -21,7 +21,7 @@ struct SongsExpandedView: View {
         }else{
             ScrollView{
                 ForEach(0..<self.pageClient.listSongs.count){ i in
-                    OneSongExpandedView(listSong: self.pageClient.listSongs[i], index: i)
+                    OneSongExpandedView(listSong: self.pageClient.listSongs[i], index: i, inList: false)
                 }
             }.navigationTitle(LocalizedStringKey(self.pageTitle))
         }

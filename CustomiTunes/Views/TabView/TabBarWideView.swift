@@ -14,7 +14,7 @@ struct TabBarWideView: View {
         HStack(spacing:0){
             TabBarButtonView(title: "LOCAL_POPULAR", image: "star", currentTab: self.$selection)
             TabBarButtonView(title: "LOCAL_SEARCH", image: "magnifyingglass", currentTab: self.$selection)
-//            TabBarButtonView(title: "Movie", image: "film", currentTab: self.$selection)
+            TabBarButtonView(title: "LOCAL_FAVORITE", image: "heart", currentTab: self.$selection)
 //            TabBarButtonView(title: "Music", image: "guitars", currentTab: self.$selection)
         }
 

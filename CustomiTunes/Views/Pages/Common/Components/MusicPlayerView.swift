@@ -16,6 +16,7 @@ struct MusicPlayerView: View {
     @State private var isFavorite = false
     @State private var isWebView = false
     @Binding var player : AVQueuePlayer
+    @ObservedObject private var favoriteClient = FavoriteListClient()
     
     @State var favoriteList = [Double](){
         didSet{
@@ -44,6 +45,7 @@ struct MusicPlayerView: View {
                                 self.favoriteList.append(self.detailedSong.id)
                             }
                             self.defaults.set(self.favoriteList, forKey: "favoriteList")
+                            self.favoriteClient.updateSongs()
                         }
                     }, isValue: self.$isFavorite, activeIcon: "heart.fill", disActiveIcon: "heart", disActiveTitle: "LOCAL_FAVORITE_DEACTIVE", activeTitle: "LOCAL_FAVORITE_ACTIVE")
                     

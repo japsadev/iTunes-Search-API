@@ -15,8 +15,8 @@ struct TabControllerView: View {
                 .tag("LOCAL_POPULAR")
             SearchView()
                 .tag("LOCAL_SEARCH")
-//            ContentView()
-//                .tag("Movie")
+            FavoriteListView()
+                .tag("LOCAL_FAVORITE")
 //            ContentView()
 //                .tag("Music")
         }.overlay(

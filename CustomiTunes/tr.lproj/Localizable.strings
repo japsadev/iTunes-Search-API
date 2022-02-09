@@ -55,3 +55,8 @@
 "LOCAL_ACOOUNT_NOTIFICATION" = "Bildirimleri aç";
 "LOCAL_ACCOUNT_PRIVACY" = "Gizlilik Ayarları";
 "LOCAL_ACCOUNT_SHARE_DATA" = "Hesap bilgileri paylaş";
+
+// Favorite view text
+"LOCAL_FAVORITE" = "Favoriler";
+"LOCAL_FAVORITE_TITLE" = "Favori Şarkılar";
+"LOCAL_FAVORITE_EMPTY" = "Hiç favori şarkınız yok";

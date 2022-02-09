@@ -55,3 +55,8 @@
 "LOCAL_ACOOUNT_NOTIFICATION" = "Open notifications";
 "LOCAL_ACCOUNT_PRIVACY" = "Privacy Settings";
 "LOCAL_ACCOUNT_SHARE_DATA" = "Share account informations";
+
+// Favorite view text
+"LOCAL_FAVORITE" = "Favorites";
+"LOCAL_FAVORITE_TITLE" = "Favorite Songs";
+"LOCAL_FAVORITE_EMPTY" = "You don't have any favorite song";
