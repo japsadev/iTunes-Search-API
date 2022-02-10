@@ -9,12 +9,17 @@ import Foundation
 
 struct UnHandleData : Codable {
     var wrapperType : String?
+    var artistType : String?
+    var artistLinkUrl : String?
+    var amgArtistId : Double?
+    var primaryGenreId : Double?
     var kind : String?
     var artistID : Double?
     var collectionId : Double?
     var trackId : Double?
     var artistName : String?
     var collectionName : String?
+    var collectionType : String?
     var trackName : String?
     var collectionCensoredName : String?
     var trackCensoredName : String?
@@ -54,15 +59,21 @@ struct UnHandleData : Codable {
     var primaryGenreName : String?
     var contentAdvisoryRating : String?
     var isStreamable : Bool?
+    var copyright : String?
     
     private enum CodingKeys : String ,CodingKey{
         case wrapperType = "wrapperType"
+        case artistType = "artistType"
+        case artistLinkUrl = "artistLinkUrl"
+        case amgArtistId = "amgArtistId"
+        case primaryGenreId = "primaryGenreId"
         case kind = "kind"
         case artistID = "artistId"
         case collectionId = "collectionId"
         case trackId = "trackId"
         case artistName = "artistName"
         case collectionName = "collectionName"
+        case collectionType = "collectionType"
         case trackName = "trackName"
         case collectionCensoredName = "collectionCensoredName"
         case trackCensoredName = "trackCensoredName"
@@ -88,6 +99,7 @@ struct UnHandleData : Codable {
         case primaryGenreName = "primaryGenreName"
         case contentAdvisoryRating = "contentAdvisoryRating"
         case isStreamable =  "isStreamable"
+        case copyright = "copyright"
     }
 }
 
@@ -100,4 +112,3 @@ struct SearchData : Codable{
         case resultCount = "resultCount"
     }
 }
-

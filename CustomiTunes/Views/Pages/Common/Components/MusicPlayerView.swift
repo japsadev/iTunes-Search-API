@@ -117,3 +117,6 @@ struct MusicPlayerView_Preview: PreviewProvider {
         SongDetailView(detailSongId: 1598031515.0)
     }
 }
+
+
+

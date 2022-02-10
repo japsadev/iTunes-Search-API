@@ -33,8 +33,13 @@ struct SongDetailView: View {
                 MusicPlayerView(detailedSong: self.pageClient.detailedSong, player: self.$player)
                 VStack{
                     HStack{
-                        Text(self.pageClient.getLocalizedText(for: self.pageClient.detailedSong.singerName, with: "LOCAL_CODE"))
-                            .font(.title)
+                        NavigationLink {
+                            ArtistDetailView(artistID: self.pageClient.detailedSong.artistID, artistName: self.pageClient.detailedSong.singerName)
+                        } label: {
+                            Text(self.pageClient.getLocalizedText(for: self.pageClient.detailedSong.singerName, with: "LOCAL_CODE"))
+                                .font(.title)
+                                .lineLimit(1)
+                        }
                         Spacer()
                     }
                     if self.moreThanClient.artistSongs.isEmpty{
@@ -46,7 +51,7 @@ struct SongDetailView: View {
                     }
                 }.padding(.horizontal)
                     .onAppear {
-                        self.moreThanClient.searchBySingerID(for: self.pageClient.detailedSong.artistID)
+                        self.moreThanClient.searchBySingerID(for: self.pageClient.detailedSong.artistID,limit: 10)
                     }
             }
         }.navigationBarTitleDisplayMode(.inline)

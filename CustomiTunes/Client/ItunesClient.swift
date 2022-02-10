@@ -73,6 +73,26 @@ class ItunesClient{
             completion(.success(finalResult.results![0]))
         }.resume()
     }
+    
+    func artistAlbumsForArtistID (for artistID : Double, completion : @escaping(Result<[UnHandleData]? , DownloadError>) -> Void) -> Void{
+    
+   
+        guard let url = URL(string:"https://itunes.apple.com/lookup?id=\(Int(artistID))&entity=album&sort=recent")else{
+            return completion(.failure(.wrongUrl))
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, errors in
+            guard let data = data else {
+                return completion(.failure(.unload))
+            }
+            
+            guard let finalResult = try? JSONDecoder().decode(SearchData.self,from:data) else{
+                return completion(.failure(.unbuild))
+            }
+            completion(.success(finalResult.results))
+        }.resume()
+    }
+    
 }
 
 enum DownloadError : Error {

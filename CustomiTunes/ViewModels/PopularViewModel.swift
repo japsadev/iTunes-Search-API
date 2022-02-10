@@ -56,12 +56,14 @@ class PopularSongClient : ObservableObject{
                     for song in nonOData{
                         DispatchQueue.main.async {
                             self.popularSongs.append(
-                                PopularViewModel(id: song.trackId!,
-                                                 songName: song.trackName!,
-                                                 singerName: song.artistName!,
-                                                 trackExplicitness: song.trackExplicitness ?? "",
-                                                 songImage: URL(string: song.artworkUrl250!)!
-                                                )
+                                PopularViewModel(
+                                    id: song.trackId!,
+                                    songName: song.trackName!,
+                                    singerName: song.artistName!,
+                                    trackExplicitness: song.trackExplicitness ?? "",
+                                    songImage: URL(string: song.artworkUrl250!)!,
+                                    artistID: song.artistID!
+                                )
                             )
                         }
                     }
@@ -77,6 +79,7 @@ struct PopularViewModel : Identifiable{
     var singerName : String
     var trackExplicitness : String
     var songImage : URL
+    var artistID : Double
 }
 
 struct PopularBigCardModel : Identifiable{

@@ -60,3 +60,9 @@
 "LOCAL_FAVORITE" = "Favoriler";
 "LOCAL_FAVORITE_TITLE" = "Favori Şarkılar";
 "LOCAL_FAVORITE_EMPTY" = "Hiç favori şarkınız yok";
+
+// Artist detail view text
+"LOCAL_ARTIST_ALL_1" = "İşte ";
+"LOCAL_ARTIST_ALL_2" = "'den tüm şarkılar";
+"LOCAL_ARTIST_WEB_VIEW" = "Web'de Görüntüle";
+"LOCAL_ARTIST_SHARE" = "Paylaş";

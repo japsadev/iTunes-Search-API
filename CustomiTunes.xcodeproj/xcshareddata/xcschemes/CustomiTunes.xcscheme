@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E48B826279C2F6B00455FF1"
-               BuildableName = "CustomiTunes.app"
+               BuildableName = "iMusic.app"
                BlueprintName = "CustomiTunes"
                ReferencedContainer = "container:CustomiTunes.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E48B826279C2F6B00455FF1"
-            BuildableName = "CustomiTunes.app"
+            BuildableName = "iMusic.app"
             BlueprintName = "CustomiTunes"
             ReferencedContainer = "container:CustomiTunes.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E48B826279C2F6B00455FF1"
-            BuildableName = "CustomiTunes.app"
+            BuildableName = "iMusic.app"
             BlueprintName = "CustomiTunes"
             ReferencedContainer = "container:CustomiTunes.xcodeproj">
          </BuildableReference>

@@ -30,7 +30,7 @@
 "LOCAL_FAVORITE_DEACTIVE" = "Add";
 "LOCAL_PLAY" = "Play";
 "LOCAL_PAUSE" = "Pause";
-"LOCAL_WEB_VIEW" = "See on Web";
+"LOCAL_WEB_VIEW" = "Wiew on Web";
 
 // Search Recommends
 "LOCAL_SEARCHTIPS_1" = "future";
@@ -60,3 +60,9 @@
 "LOCAL_FAVORITE" = "Favorites";
 "LOCAL_FAVORITE_TITLE" = "Favorite Songs";
 "LOCAL_FAVORITE_EMPTY" = "You don't have any favorite song";
+
+// Artist detail view text
+"LOCAL_ARTIST_ALL_1" = "Here, All songs by ";
+"LOCAL_ARTIST_ALL_2" = "";
+"LOCAL_ARTIST_WEB_VIEW" = "Wiew on Web";
+"LOCAL_ARTIST_SHARE" = "Share";

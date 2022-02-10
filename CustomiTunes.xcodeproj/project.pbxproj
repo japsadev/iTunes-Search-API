@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2E0506DE27B43903008B73E4 /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E0506DD27B43903008B73E4 /* SplashView.storyboard */; };
+		2E0506E027B44100008B73E4 /* ArtistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0506DF27B44100008B73E4 /* ArtistDetailView.swift */; };
+		2E0506E427B450AD008B73E4 /* ArtistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0506E327B450AD008B73E4 /* ArtistDetailViewModel.swift */; };
 		2E4715E827B31335007C564B /* SongsExpandedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4715E727B31335007C564B /* SongsExpandedViewModel.swift */; };
 		2E4715EB27B31674007C564B /* OneSongExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4715EA27B31674007C564B /* OneSongExpandedView.swift */; };
 		2E48B82B279C2F6B00455FF1 /* CustomiTunesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B82A279C2F6B00455FF1 /* CustomiTunesApp.swift */; };
@@ -69,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		2E0506DD27B43903008B73E4 /* SplashView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
+		2E0506DF27B44100008B73E4 /* ArtistDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailView.swift; sourceTree = "<group>"; };
+		2E0506E327B450AD008B73E4 /* ArtistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewModel.swift; sourceTree = "<group>"; };
 		2E4715E727B31335007C564B /* SongsExpandedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsExpandedViewModel.swift; sourceTree = "<group>"; };
 		2E4715EA27B31674007C564B /* OneSongExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSongExpandedView.swift; sourceTree = "<group>"; };
 		2E48B827279C2F6B00455FF1 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +221,7 @@
 				2EB45B8E27AEB99E00C1DF44 /* SearchViewModel.swift */,
 				2E4715E727B31335007C564B /* SongsExpandedViewModel.swift */,
 				2EB39A3D27B40C2100461CE3 /* FavoriteListViewModel.swift */,
+				2E0506E327B450AD008B73E4 /* ArtistDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				2EA8A81727A85F9A00AECC37 /* SongDetailView.swift */,
 				2EFB358827B19F8A007D64F9 /* WebView.swift */,
 				2E4715EA27B31674007C564B /* OneSongExpandedView.swift */,
+				2E0506DF27B44100008B73E4 /* ArtistDetailView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -516,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EF5EBF9279C899200970D5C /* PopularViewModel.swift in Sources */,
+				2E0506E027B44100008B73E4 /* ArtistDetailView.swift in Sources */,
 				2EF1083127A594BD00D358E0 /* SpecialContentView.swift in Sources */,
 				2EF1083A27A5A6F900D358E0 /* HScrollSpecialView.swift in Sources */,
 				2E7C247627A0651E0049E518 /* PopularView.swift in Sources */,
@@ -538,6 +545,7 @@
 				2EB45B8F27AEB99E00C1DF44 /* SearchViewModel.swift in Sources */,
 				2E48B82B279C2F6B00455FF1 /* CustomiTunesApp.swift in Sources */,
 				2EA8A81A27A85FBE00AECC37 /* DetailViewModel.swift in Sources */,
+				2E0506E427B450AD008B73E4 /* ArtistDetailViewModel.swift in Sources */,
 				2EB08F2427AAF5ED00F0FC32 /* DetailListViewModel.swift in Sources */,
 				2EFB358927B19F8A007D64F9 /* WebView.swift in Sources */,
 				2ECE598427B00B2F000A9D1E /* AccountView.swift in Sources */,

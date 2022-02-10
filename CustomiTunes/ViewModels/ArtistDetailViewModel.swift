@@ -1,16 +1,38 @@
 //
-//  DetailListViewModel.swift
+//  ArtistDetailViewModel.swift
 //  CustomiTunes
 //
-//  Created by Mehmet Ateş on 2.02.2022.
+//  Created by Mehmet Ateş on 9.02.2022.
 //
 
 import Foundation
 
-
-class DetailListSongClient : ObservableObject{
+class ArtistDetailClient : ObservableObject{
     let iTunesClient = ItunesClient()
     @Published var artistSongs = [DetailListViewModel]()
+    @Published var artistAlbum = [ArtistDetailViewModel]()
+    
+    func getArtistImage(for ID : Double){
+        iTunesClient.artistAlbumsForArtistID(for: ID) { (response) in
+            switch response{
+            case.failure(let error):
+                print(error)
+            case.success(let data):
+                if let albums = data{
+                    DispatchQueue.main.async {
+                        for (index,album) in albums.enumerated() {
+                            if index == 0{
+                                continue
+                            }
+                            self.artistAlbum.append(ArtistDetailViewModel(
+                                artistImage: URL(string: album.artworkUrl1000 ?? "https://ichef.bbci.co.uk/news/1024/cpsprodpb/C218/production/_117688694_croppedpressimage3.jpg")!
+                            ))
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     func searchBySingerID(for singerID : Double, limit : Int){
         iTunesClient.searchForSingerID(for: singerID , limit: limit) { (response) in
@@ -52,12 +74,7 @@ class DetailListSongClient : ObservableObject{
     }
 }
 
-
-struct DetailListViewModel : Identifiable{
-    var id : Double
-    var songName : String
-    var singerName : String
-    var trackExplicitness : String
-    var songImage : URL
-    var artistPreview : URL
+struct ArtistDetailViewModel : Identifiable{
+    var id = UUID()
+    var artistImage : URL
 }
