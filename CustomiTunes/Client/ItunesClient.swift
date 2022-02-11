@@ -9,8 +9,8 @@ import Foundation
 
 class ItunesClient{
     
-    func searchForName (for searchKey : String ,limit : Int, completion : @escaping(Result<[UnHandleData]? , DownloadError>) -> Void) -> Void{
-
+    func searchForName (for searchKey : String ,limit : Int, completion : @escaping(Result<[SongData]? , DownloadError>) -> Void) -> Void{
+        
         let urlSearchKey = searchKey.replacingOccurrences(of: " ", with: "+")
         
         let turkishChar = ["ü" , "ı", "ğ", "ş", "ç" , "ö"]
@@ -29,7 +29,8 @@ class ItunesClient{
             guard let data = data else {
                 return completion(.failure(.unload))
             }
-            guard let finalResult = try? JSONDecoder().decode(SearchData.self,from:data) else{
+            guard let finalResult = try? JSONDecoder().decode(SearchSongData.self,from:data) else{
+                print(url)
                 return completion(.failure(.unbuild))
             }
             completion(.success(finalResult.results))
@@ -38,7 +39,7 @@ class ItunesClient{
     }
     
     
-    func searchForSingerID (for singerID : Double ,limit : Int, completion : @escaping(Result<[UnHandleData]? , DownloadError>) -> Void) -> Void{
+    func searchForSingerID (for singerID : Double ,limit : Int, completion : @escaping(Result<[SongData]? , DownloadError>) -> Void) -> Void{
         
         let urlSearchKey = Int(singerID)
         
@@ -50,7 +51,7 @@ class ItunesClient{
             guard let data = data else {
                 return completion(.failure(.unload))
             }
-            guard let finalResult = try? JSONDecoder().decode(SearchData.self,from:data) else{
+            guard let finalResult = try? JSONDecoder().decode(SearchSongData.self,from:data) else{
                 return completion(.failure(.unbuild))
             }
             completion(.success(finalResult.results))
@@ -58,7 +59,7 @@ class ItunesClient{
         
     }
     
-    func detailForID (for songID : Double, completion : @escaping(Result<UnHandleData? , DownloadError>) -> Void) -> Void{
+    func detailForID (for songID : Double, completion : @escaping(Result<SongData? , DownloadError>) -> Void) -> Void{
         guard let url = URL(string:"https://itunes.apple.com/lookup?id=\(Int(songID))&entity=song&country=TR")else{
             return completion(.failure(.wrongUrl))
         }
@@ -67,15 +68,14 @@ class ItunesClient{
             guard let data = data else {
                 return completion(.failure(.unload))
             }
-            guard let finalResult = try? JSONDecoder().decode(SearchData.self,from:data) else{
+            guard let finalResult = try? JSONDecoder().decode(SearchSongData.self,from:data) else{
                 return completion(.failure(.unbuild))
             }
             completion(.success(finalResult.results![0]))
         }.resume()
     }
     
-    func artistAlbumsForArtistID (for artistID : Double, completion : @escaping(Result<[UnHandleData]? , DownloadError>) -> Void) -> Void{
-    
+    func artistAlbumsForArtistID (for artistID : Double, completion : @escaping(Result<[AlbumData]? , DownloadError>) -> Void) -> Void{
    
         guard let url = URL(string:"https://itunes.apple.com/lookup?id=\(Int(artistID))&entity=album&sort=recent")else{
             return completion(.failure(.wrongUrl))
@@ -86,7 +86,7 @@ class ItunesClient{
                 return completion(.failure(.unload))
             }
             
-            guard let finalResult = try? JSONDecoder().decode(SearchData.self,from:data) else{
+            guard let finalResult = try? JSONDecoder().decode(SearchAlbumData.self,from:data) else{
                 return completion(.failure(.unbuild))
             }
             completion(.success(finalResult.results))

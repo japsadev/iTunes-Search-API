@@ -10,6 +10,7 @@
 		2E0506DE27B43903008B73E4 /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E0506DD27B43903008B73E4 /* SplashView.storyboard */; };
 		2E0506E027B44100008B73E4 /* ArtistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0506DF27B44100008B73E4 /* ArtistDetailView.swift */; };
 		2E0506E427B450AD008B73E4 /* ArtistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0506E327B450AD008B73E4 /* ArtistDetailViewModel.swift */; };
+		2E0680B127B6C86A001B3FD9 /* SongData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0680B027B6C86A001B3FD9 /* SongData.swift */; };
 		2E4715E827B31335007C564B /* SongsExpandedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4715E727B31335007C564B /* SongsExpandedViewModel.swift */; };
 		2E4715EB27B31674007C564B /* OneSongExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4715EA27B31674007C564B /* OneSongExpandedView.swift */; };
 		2E48B82B279C2F6B00455FF1 /* CustomiTunesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B82A279C2F6B00455FF1 /* CustomiTunesApp.swift */; };
@@ -19,7 +20,7 @@
 		2E48B846279C2F6C00455FF1 /* CustomiTunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B845279C2F6C00455FF1 /* CustomiTunesUITests.swift */; };
 		2E48B848279C2F6C00455FF1 /* CustomiTunesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B847279C2F6C00455FF1 /* CustomiTunesUITestsLaunchTests.swift */; };
 		2E48B859279C30A200455FF1 /* ItunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B858279C30A200455FF1 /* ItunesClient.swift */; };
-		2E48B85B279C331800455FF1 /* UnHandledData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B85A279C331800455FF1 /* UnHandledData.swift */; };
+		2E48B85B279C331800455FF1 /* AlbumData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B85A279C331800455FF1 /* AlbumData.swift */; };
 		2E7C247627A0651E0049E518 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7C247527A0651E0049E518 /* PopularView.swift */; };
 		2E7C247A27A070C20049E518 /* SongsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7C247927A070C20049E518 /* SongsScrollView.swift */; };
 		2E913074279C831E00DF180B /* TabControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E913073279C831E00DF180B /* TabControllerView.swift */; };
@@ -73,6 +74,7 @@
 		2E0506DD27B43903008B73E4 /* SplashView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
 		2E0506DF27B44100008B73E4 /* ArtistDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailView.swift; sourceTree = "<group>"; };
 		2E0506E327B450AD008B73E4 /* ArtistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewModel.swift; sourceTree = "<group>"; };
+		2E0680B027B6C86A001B3FD9 /* SongData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongData.swift; sourceTree = "<group>"; };
 		2E4715E727B31335007C564B /* SongsExpandedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsExpandedViewModel.swift; sourceTree = "<group>"; };
 		2E4715EA27B31674007C564B /* OneSongExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSongExpandedView.swift; sourceTree = "<group>"; };
 		2E48B827279C2F6B00455FF1 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +87,7 @@
 		2E48B845279C2F6C00455FF1 /* CustomiTunesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomiTunesUITests.swift; sourceTree = "<group>"; };
 		2E48B847279C2F6C00455FF1 /* CustomiTunesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomiTunesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2E48B858279C30A200455FF1 /* ItunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesClient.swift; sourceTree = "<group>"; };
-		2E48B85A279C331800455FF1 /* UnHandledData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnHandledData.swift; sourceTree = "<group>"; };
+		2E48B85A279C331800455FF1 /* AlbumData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumData.swift; sourceTree = "<group>"; };
 		2E7C247527A0651E0049E518 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
 		2E7C247927A070C20049E518 /* SongsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsScrollView.swift; sourceTree = "<group>"; };
 		2E913073279C831E00DF180B /* TabControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControllerView.swift; sourceTree = "<group>"; };
@@ -207,7 +209,8 @@
 		2E48B854279C307400455FF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2E48B85A279C331800455FF1 /* UnHandledData.swift */,
+				2E48B85A279C331800455FF1 /* AlbumData.swift */,
+				2E0680B027B6C86A001B3FD9 /* SongData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -552,10 +555,11 @@
 				2EA8A81527A85F4E00AECC37 /* SearchView.swift in Sources */,
 				2EB45B8D27AEADE500C1DF44 /* SearchBarView.swift in Sources */,
 				2ECE598727B00D03000A9D1E /* SongsExpandedView.swift in Sources */,
-				2E48B85B279C331800455FF1 /* UnHandledData.swift in Sources */,
+				2E48B85B279C331800455FF1 /* AlbumData.swift in Sources */,
 				2EF900C727A1BDAD0005E54B /* LitteSongView.swift in Sources */,
 				2EEB313627B05AB2000EF2AB /* InformationFieldsView.swift in Sources */,
 				2E913074279C831E00DF180B /* TabControllerView.swift in Sources */,
+				2E0680B127B6C86A001B3FD9 /* SongData.swift in Sources */,
 				2EB39A3C27B40B2000461CE3 /* FavoriteListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UnHandleData : Codable {
+struct AlbumData : Codable {
     var wrapperType : String?
     var artistType : String?
     var artistLinkUrl : String?
@@ -103,12 +103,14 @@ struct UnHandleData : Codable {
     }
 }
 
-struct SearchData : Codable{
+struct SearchAlbumData : Codable{
     var resultCount : Int
-    var results : [UnHandleData]?
+    var results : [AlbumData]?
     
     private enum CodingKeys : String ,CodingKey{
         case results = "results"
         case resultCount = "resultCount"
     }
 }
+
+
