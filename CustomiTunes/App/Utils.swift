@@ -100,7 +100,6 @@ struct StaticAppData{
             "25k jacket",
             "she's all i wanna be",
             "the family madrigal",
-            "rumors",
             "me or sum",
             "who want smoke??",
             "kingpen ghostwriter",
@@ -147,7 +146,6 @@ struct StaticAppData{
             "Bad Habits",
             "INDUSTRY BABY",
             "oh my god",
-            "rumors",
             "blinding lights",
             "woman",
         ]
