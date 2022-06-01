@@ -22,36 +22,66 @@ struct SearchView: View {
     ]
     var body: some View {
         NavigationView{
-            ScrollView{
-                SearchBarView(searchKey: self.$searchKey,pageClient: self.pageClient)
-                if self.pageClient.searchResult.isEmpty{
-                    ForEach(self.recommendedList, id: \.self){ recommed in
-                        Button {
-                            self.searchKey = NSLocalizedString(recommed, comment: "searchKeys")
-                            Task{
-                                self.pageClient.searchResult.removeAll()
-                            }
-                            self.pageClient.getSearchResult(for: self.searchKey)
-                        } label: {
-                            Text(LocalizedStringKey(recommed))
-                                .foregroundColor(Color("ThemeColor"))
-                        }
+            List{
+                if self.pageClient.searchResult.isEmpty && !searchKey.isEmpty{
+                    ProgressView()
+                }else{
+                    ForEach(self.pageClient.searchResult) { result in
+                        SearchListItemView(listSong: result)
                     }
                 }
-                if !self.pageClient.searchResult.isEmpty{
-                    ForEach(self.pageClient.searchResult){ song in
-                        SearchListItemView(listSong: song)
+            }.searchable(text: $searchKey){
+                ForEach(self.recommendedList, id: \.self){ recommed in
+                    Button {
+                        self.searchKey = NSLocalizedString(recommed, comment: "searchKeys")
+                        Task{
+                            self.pageClient.searchResult.removeAll()
+                        }
+                        self.pageClient.getSearchResult(for: self.searchKey)
+                    } label: {
+                        Text(LocalizedStringKey(recommed))
+                            .foregroundColor(Color("ThemeColor"))
                     }
                 }
             }.navigationTitle("LOCAL_SEARCH")
-                .padding(.bottom,10)
-        }.onSubmit {
-            Task{
+            
+//            ScrollView{
+//                SearchBarView(searchKey: self.$searchKey,pageClient: self.pageClient)
+//                if self.pageClient.searchResult.isEmpty{
+//                    ForEach(self.recommendedList, id: \.self){ recommed in
+//                        Button {
+//                            self.searchKey = NSLocalizedString(recommed, comment: "searchKeys")
+//                            Task{
+//                                self.pageClient.searchResult.removeAll()
+//                            }
+//                            self.pageClient.getSearchResult(for: self.searchKey)
+//                        } label: {
+//                            Text(LocalizedStringKey(recommed))
+//                                .foregroundColor(Color("ThemeColor"))
+//                        }
+//                    }
+//                }
+//                if !self.pageClient.searchResult.isEmpty{
+//                    ForEach(self.pageClient.searchResult){ song in
+//                        SearchListItemView(listSong: song)
+//                    }
+//                }
+//            }
+//                .padding(.bottom,10)
+        }.onChange(of: searchKey, perform: { newValue in
+            if newValue.isEmpty{
                 self.pageClient.searchResult.removeAll()
+            }else{
+                Task{
+                    self.pageClient.getSearchResult(for: newValue)
+                }
             }
-            self.pageClient.getSearchResult(for: self.searchKey)
+        })
+        .onSubmit {
+            Task{
+                self.pageClient.getSearchResult(for: self.searchKey)
+            }
         }
-        
     }
 }
 

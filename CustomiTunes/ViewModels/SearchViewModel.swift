@@ -8,6 +8,7 @@
 import Foundation
 
 class SearchViewClient : ObservableObject{
+    
     @Published var searchResult = [SearchViewModel]()
     let iTunesClient = ItunesClient()
     
