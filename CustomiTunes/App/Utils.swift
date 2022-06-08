@@ -14,6 +14,12 @@ extension Double{
     var responsiveH: Double { return (UIScreen.main.bounds.size.height * self) / 100}
 }
 
+enum DownloadError : Error {
+    case wrongUrl
+    case unload
+    case unbuild
+}
+
 struct StaticAppData{
     let listsBySearchKey = [
         "turkeySongs" : [

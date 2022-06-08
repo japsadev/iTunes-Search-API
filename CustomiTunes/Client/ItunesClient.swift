@@ -94,9 +94,3 @@ class ItunesClient{
     }
     
 }
-
-enum DownloadError : Error {
-    case wrongUrl
-    case unload
-    case unbuild
-}

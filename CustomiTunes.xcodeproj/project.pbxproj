@@ -51,6 +51,7 @@
 		2EF900C727A1BDAD0005E54B /* LitteSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF900C627A1BDAC0005E54B /* LitteSongView.swift */; };
 		2EFB358727B1908D007D64F9 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB358627B1908D007D64F9 /* ActionButtonView.swift */; };
 		2EFB358927B19F8A007D64F9 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB358827B19F8A007D64F9 /* WebView.swift */; };
+		C02BA2D928514C87008022AF /* iTunesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BA2D828514C87008022AF /* iTunesServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		2EF900C627A1BDAC0005E54B /* LitteSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitteSongView.swift; sourceTree = "<group>"; };
 		2EFB358627B1908D007D64F9 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		2EFB358827B19F8A007D64F9 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		C02BA2D828514C87008022AF /* iTunesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,8 +171,8 @@
 		2E48B829279C2F6B00455FF1 /* CustomiTunes */ = {
 			isa = PBXGroup;
 			children = (
-				2EE75DE727AFE571003ADB70 /* Localizable.strings */,
 				2E913070279C823200DF180B /* App */,
+				C02BA2D728514C59008022AF /* Services */,
 				2E48B857279C309100455FF1 /* Client */,
 				2E48B856279C308300455FF1 /* Views */,
 				2E48B855279C307900455FF1 /* ViewModels */,
@@ -270,6 +272,7 @@
 		2E913070279C823200DF180B /* App */ = {
 			isa = PBXGroup;
 			children = (
+				2EE75DE727AFE571003ADB70 /* Localizable.strings */,
 				2E48B82A279C2F6B00455FF1 /* CustomiTunesApp.swift */,
 				2EF1083727A5A26A00D358E0 /* Utils.swift */,
 			);
@@ -389,6 +392,14 @@
 				2EFB358627B1908D007D64F9 /* ActionButtonView.swift */,
 			);
 			path = MusicPlayerComponets;
+			sourceTree = "<group>";
+		};
+		C02BA2D728514C59008022AF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C02BA2D828514C87008022AF /* iTunesServices.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,6 +566,7 @@
 				2EA8A81527A85F4E00AECC37 /* SearchView.swift in Sources */,
 				2EB45B8D27AEADE500C1DF44 /* SearchBarView.swift in Sources */,
 				2ECE598727B00D03000A9D1E /* SongsExpandedView.swift in Sources */,
+				C02BA2D928514C87008022AF /* iTunesServices.swift in Sources */,
 				2E48B85B279C331800455FF1 /* AlbumData.swift in Sources */,
 				2EF900C727A1BDAD0005E54B /* LitteSongView.swift in Sources */,
 				2EEB313627B05AB2000EF2AB /* InformationFieldsView.swift in Sources */,
