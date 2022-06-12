@@ -10,23 +10,13 @@ import SwiftUI
 struct ExplicitView: View {
     let explicitState : String
     var body: some View {
-        if explicitState.first!.lowercased() == "e"{
-            ZStack{
-                RoundedRectangle(cornerRadius: 2)
-                    .frame(width: 15, height: 15, alignment: .center)
-                    .foregroundColor(.secondary)
-                Text("E")
+        if let firstLabel = explicitState.first?.uppercased(){
+            if firstLabel == "E" || firstLabel == "C"{
+                Text(firstLabel)
                     .font(.caption2)
                     .foregroundColor(.primary)
-            }
-        }else if explicitState.first!.lowercased() == "c"{
-            ZStack{
-                RoundedRectangle(cornerRadius: 2)
-                    .frame(width: 15, height: 15, alignment: .center)
-                    .foregroundColor(.secondary)
-                Text("C")
-                    .font(.caption2)
-                    .foregroundColor(.primary)
+                    .frame(width: 4.5.responsiveW, height: 4.5.responsiveW, alignment: .center)
+                    .background(RoundedRectangle(cornerRadius: 2).foregroundColor(.secondary))
             }
         }
     }

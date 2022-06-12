@@ -17,7 +17,6 @@ struct PopularView: View {
                 HScroolWithTitleView(title: "LOCAL_GLOBAL_HITS",contentKey: "LOCAL_GLOBAL_LIST_KEY")
                 HScrollSpecialView(scroolKey: "LOCAL_SECOND_SCROOL_KEY")
             }.navigationTitle("LOCAL_POPULAR_CONTENT")
-                .padding(.bottom,10)
         }
     }
 }

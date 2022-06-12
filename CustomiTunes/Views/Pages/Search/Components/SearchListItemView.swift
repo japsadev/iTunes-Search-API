@@ -29,7 +29,7 @@ struct SearchListItemView: View {
                                 .font(.title3)
                             ExplicitView(explicitState: listSong.trackExplicitness)
                         }
-                        Text(listSong.singerName)
+                        Text(listSong.artistName)
                             .font(.callout)
                             .foregroundColor(.secondary)
                         Spacer()

@@ -19,7 +19,6 @@
 		2E48B83C279C2F6C00455FF1 /* CustomiTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B83B279C2F6C00455FF1 /* CustomiTunesTests.swift */; };
 		2E48B846279C2F6C00455FF1 /* CustomiTunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B845279C2F6C00455FF1 /* CustomiTunesUITests.swift */; };
 		2E48B848279C2F6C00455FF1 /* CustomiTunesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B847279C2F6C00455FF1 /* CustomiTunesUITestsLaunchTests.swift */; };
-		2E48B859279C30A200455FF1 /* ItunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B858279C30A200455FF1 /* ItunesClient.swift */; };
 		2E48B85B279C331800455FF1 /* AlbumData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48B85A279C331800455FF1 /* AlbumData.swift */; };
 		2E7C247627A0651E0049E518 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7C247527A0651E0049E518 /* PopularView.swift */; };
 		2E7C247A27A070C20049E518 /* SongsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7C247927A070C20049E518 /* SongsScrollView.swift */; };
@@ -52,6 +51,8 @@
 		2EFB358727B1908D007D64F9 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB358627B1908D007D64F9 /* ActionButtonView.swift */; };
 		2EFB358927B19F8A007D64F9 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB358827B19F8A007D64F9 /* WebView.swift */; };
 		C02BA2D928514C87008022AF /* iTunesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BA2D828514C87008022AF /* iTunesServices.swift */; };
+		C0D4BBB7285606B000DE9E2C /* AnimatedAsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */; };
+		C0D4BBB928561CC000DE9E2C /* SongDetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4BBB828561CC000DE9E2C /* SongDetailView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +88,6 @@
 		2E48B841279C2F6C00455FF1 /* CustomiTunesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomiTunesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E48B845279C2F6C00455FF1 /* CustomiTunesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomiTunesUITests.swift; sourceTree = "<group>"; };
 		2E48B847279C2F6C00455FF1 /* CustomiTunesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomiTunesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2E48B858279C30A200455FF1 /* ItunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesClient.swift; sourceTree = "<group>"; };
 		2E48B85A279C331800455FF1 /* AlbumData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumData.swift; sourceTree = "<group>"; };
 		2E7C247527A0651E0049E518 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
 		2E7C247927A070C20049E518 /* SongsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsScrollView.swift; sourceTree = "<group>"; };
@@ -121,6 +121,8 @@
 		2EFB358627B1908D007D64F9 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		2EFB358827B19F8A007D64F9 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		C02BA2D828514C87008022AF /* iTunesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesServices.swift; sourceTree = "<group>"; };
+		C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedAsyncImageView.swift; sourceTree = "<group>"; };
+		C0D4BBB828561CC000DE9E2C /* SongDetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongDetailView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				2E4715E727B31335007C564B /* SongsExpandedViewModel.swift */,
 				2EB39A3D27B40C2100461CE3 /* FavoriteListViewModel.swift */,
 				2E0506E327B450AD008B73E4 /* ArtistDetailViewModel.swift */,
+				C0D4BBB828561CC000DE9E2C /* SongDetailView-ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 		2E48B856279C308300455FF1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C0D4BBB52856069700DE9E2C /* CommonComponents */,
 				2EF5EBFB279C89BD00970D5C /* Pages */,
 				2EF5EBFA279C899A00970D5C /* TabView */,
 				2E0506DD27B43903008B73E4 /* SplashView.storyboard */,
@@ -244,7 +248,6 @@
 		2E48B857279C309100455FF1 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				2E48B858279C30A200455FF1 /* ItunesClient.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -293,7 +296,6 @@
 			children = (
 				2EB08F2027AAF31C00F0FC32 /* Components */,
 				2EA8A81727A85F9A00AECC37 /* SongDetailView.swift */,
-				2EFB358827B19F8A007D64F9 /* WebView.swift */,
 				2E4715EA27B31674007C564B /* OneSongExpandedView.swift */,
 				2E0506DF27B44100008B73E4 /* ArtistDetailView.swift */,
 			);
@@ -400,6 +402,15 @@
 				C02BA2D828514C87008022AF /* iTunesServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		C0D4BBB52856069700DE9E2C /* CommonComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2EFB358827B19F8A007D64F9 /* WebView.swift */,
+				C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */,
+			);
+			path = CommonComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -537,6 +548,7 @@
 			files = (
 				2EF5EBF9279C899200970D5C /* PopularViewModel.swift in Sources */,
 				2E0506E027B44100008B73E4 /* ArtistDetailView.swift in Sources */,
+				C0D4BBB7285606B000DE9E2C /* AnimatedAsyncImageView.swift in Sources */,
 				2EF1083127A594BD00D358E0 /* SpecialContentView.swift in Sources */,
 				2EF1083A27A5A6F900D358E0 /* HScrollSpecialView.swift in Sources */,
 				2E7C247627A0651E0049E518 /* PopularView.swift in Sources */,
@@ -546,7 +558,6 @@
 				2EB08F2227AAF32A00F0FC32 /* MusicPlayerView.swift in Sources */,
 				2EFB358727B1908D007D64F9 /* ActionButtonView.swift in Sources */,
 				2EB45B9127AEBED500C1DF44 /* SearchListItemView.swift in Sources */,
-				2E48B859279C30A200455FF1 /* ItunesClient.swift in Sources */,
 				2EEB313827B05F53000EF2AB /* ToogleSettingsView.swift in Sources */,
 				2E7C247A27A070C20049E518 /* SongsScrollView.swift in Sources */,
 				2E4715E827B31335007C564B /* SongsExpandedViewModel.swift in Sources */,
@@ -573,6 +584,7 @@
 				2E913074279C831E00DF180B /* TabControllerView.swift in Sources */,
 				2E0680B127B6C86A001B3FD9 /* SongData.swift in Sources */,
 				2EB39A3C27B40B2000461CE3 /* FavoriteListView.swift in Sources */,
+				C0D4BBB928561CC000DE9E2C /* SongDetailView-ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

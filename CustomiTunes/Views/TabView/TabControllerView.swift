@@ -20,7 +20,7 @@ struct TabControllerView: View {
         }.overlay(
             TabBarWideView(selection: self.$selection)
                 .padding(.top,5)
-                .background(.ultraThinMaterial)
+//                .background(.ultraThinMaterial)
             ,alignment: .bottom
         )
     }
