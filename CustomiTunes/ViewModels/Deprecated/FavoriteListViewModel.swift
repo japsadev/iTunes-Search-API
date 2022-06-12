@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(*, deprecated, message: "It will be soon move")
 class FavoriteListClient : ObservableObject{
     let iTunesService = ItunesServices()
     @Published var favoriteSongs = [SongsExpandedViewModel]()
@@ -34,7 +35,7 @@ class FavoriteListClient : ObservableObject{
                     DispatchQueue.main.async {
                         self.favoriteSongs.append(
                             SongsExpandedViewModel(
-                                id: song.id,
+                                id: song.wrappedId,
                                 songName: song.wrappedTrackName,
                                 singerName: song.wrappedArtistName,
                                 trackExplicitness: song.wrappedTrackExplicitness,

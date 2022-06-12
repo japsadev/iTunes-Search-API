@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(*, deprecated, message: "It will be soon move")
 class SearchViewClient : ObservableObject{
     @Published var searchResult = [SearchViewModel]()
     private let iTunesService = ItunesServices()
@@ -21,7 +22,7 @@ class SearchViewClient : ObservableObject{
                     for song in nonOData{
                         DispatchQueue.main.async {
                             self.searchResult.append(
-                                SearchViewModel(id: song.id,
+                                SearchViewModel(id: song.wrappedId,
                                                 songName: song.wrappedTrackName,
                                                 artistName: song.wrappedArtistName,
                                                 trackExplicitness: song.wrappedTrackExplicitness,

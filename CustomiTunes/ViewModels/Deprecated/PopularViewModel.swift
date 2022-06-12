@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(*, deprecated, message: "It will be soon move")
 class PopularSongClient : ObservableObject{
     private let iTunesService = ItunesServices()
     @Published var popularSongs = [PopularViewModel]()
@@ -57,12 +58,12 @@ class PopularSongClient : ObservableObject{
                         DispatchQueue.main.async {
                             self.popularSongs.append(
                                 PopularViewModel(
-                                    id: song.id,
+                                    id: song.wrappedId,
                                     songName: song.wrappedTrackName,
                                     singerName: song.wrappedArtistName,
                                     trackExplicitness: song.wrappedTrackExplicitness,
                                     songImage: song.smallImageURL,
-                                    artistID: song.artistID
+                                    artistID: song.artistId
                                 )
                             )
                         }

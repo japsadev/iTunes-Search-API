@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@available(*, deprecated, message: "Moved to SongDetailViewModel")
 class DetailSongClient : ObservableObject{
     private let iTunesService = ItunesServices()
     @Published var detailedSong = DetailViewModel(id: 0, songName: "Name", singerName: "Singer", trackExplicitness: "", songImage: URL(string: "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!, songPreview: URL(string: "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!, artistID: 0, trackURL: URL(string: "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!)
@@ -22,13 +23,13 @@ class DetailSongClient : ObservableObject{
                     let song = songList[0]
                     DispatchQueue.main.async {
                         self.detailedSong = DetailViewModel(
-                            id: song.id,
+                            id: song.wrappedId,
                             songName: song.wrappedTrackName,
                             singerName: song.wrappedArtistName,
                             trackExplicitness: song.wrappedTrackExplicitness,
                             songImage: song.bigImageURL,
                             songPreview: song.wrappedTrackPreview,
-                            artistID: song.artistID,
+                            artistID: song.artistId,
                             trackURL: song.wrappedTrackViewURL
                         )
                     }

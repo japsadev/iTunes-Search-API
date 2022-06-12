@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+@available(*, deprecated, message: "It will be soon move")
 class SongsExpandedClient : ObservableObject{
     let iTunesService = ItunesServices()
     @Published var listSongs = [SongsExpandedViewModel]()
@@ -40,7 +40,7 @@ class SongsExpandedClient : ObservableObject{
                     for song in nonOData{
                         DispatchQueue.main.async {
                             self.listSongs.append(
-                                SongsExpandedViewModel(id: song.id,
+                                SongsExpandedViewModel(id: song.wrappedId,
                                                songName: song.wrappedTrackName,
                                                        singerName: song.wrappedArtistName,
                                                        trackExplicitness: song.wrappedTrackExplicitness,
