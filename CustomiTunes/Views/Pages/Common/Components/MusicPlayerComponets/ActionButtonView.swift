@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct ActionButtonView: View {
-    var buttonAction: () -> Void
-    @Binding var isValue: Bool
-    var activeIcon: String
-    var disActiveIcon: String
-    var disActiveTitle: String
-    var activeTitle : String
-    var buttonWidth : CGFloat? = 29.0.responsiveW
+    @Binding private var isValue: Bool
+    private var activeIcon: String
+    private var disActiveIcon: String
+    private var activeTitle : String
+    private var disActiveTitle: String
+    private var buttonWidth : CGFloat
+    private var buttonAction: () -> Void
+    
+    init(isValue: Binding<Bool>? = .constant(true), activeIcon: String, disActiveIcon: String? = "", activeTitle: String, disActiveTitle: String? = "", buttonWidth: CGFloat? = 29.0.responsiveW, buttonAction: @escaping () -> Void){
+        self._isValue = isValue!
+        self.activeIcon = activeIcon
+        self.disActiveIcon = disActiveIcon!
+        self.activeTitle = activeTitle
+        self.disActiveTitle = disActiveTitle!
+        self.buttonWidth = buttonWidth!
+        self.buttonAction = buttonAction
+    }
     
     var body: some View {
         Button(action: buttonAction) {
@@ -22,7 +32,7 @@ struct ActionButtonView: View {
                 Text(self.isValue ? LocalizedStringKey(activeTitle) : LocalizedStringKey(disActiveTitle))
                 Image(systemName: self.isValue ? activeIcon : disActiveIcon)
             }.padding(10)
-                .frame(width: self.buttonWidth,height: 5.0.responsiveH)
+                .frame(width: self.buttonWidth, height: 5.0.responsiveH)
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke())
         }
     }
