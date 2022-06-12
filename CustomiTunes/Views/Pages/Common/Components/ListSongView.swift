@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(*, deprecated, message: "It will be soon moved to a new page" )
 struct ListSongView: View {
     var listSong : DetailListViewModel
     var body: some View {
@@ -16,7 +17,7 @@ struct ListSongView: View {
             VStack(alignment:.leading,spacing:5){
                 Divider()
                 HStack{
-                    AsyncImage(url:listSong.songImage) { image in
+                    AsyncImage(url:listSong.trackImage) { image in
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
                             .cornerRadius(10)
@@ -25,11 +26,11 @@ struct ListSongView: View {
                     }.frame(width: 15.0.responsiveW, height: 15.0.responsiveW, alignment: .center)
                     VStack(alignment:.leading){
                         HStack{
-                            Text(listSong.songName)
+                            Text(listSong.trackName)
                                 .font(.title3)
                             ExplicitView(explicitState: listSong.trackExplicitness)
                         }
-                        Text(listSong.singerName)
+                        Text(listSong.artistName)
                             .font(.callout)
                             .foregroundColor(.secondary)
                         Spacer()
