@@ -41,19 +41,20 @@ struct ArtistDetailView: View {
                     }
                 }
                 HStack{
-                    ActionButtonView(buttonAction: {
-                        self.isShow.toggle()
-                        print(self.pageClient.artistSongs[0])
-                    }, isValue: self.$isShow, activeIcon: "safari", disActiveIcon: "safari", disActiveTitle: "LOCAL_ARTIST_WEB_VIEW", activeTitle: "LOCAL_ARTIST_WEB_VIEW",buttonWidth: 45.0.responsiveW)
-                        .sheet(isPresented: self.$isShow, onDismiss: nil) {
-                            WebView(url: self.pageClient.artistSongs[0].artistPreview)
-                        }
-                    ActionButtonView(buttonAction: {
-                        let shareMusic = UIActivityViewController(activityItems: [self.pageClient.artistSongs[0].artistPreview], applicationActivities: nil)
-                        if let vc = UIApplication.shared.windows.first?.rootViewController{
-                            vc.present(shareMusic,animated: true)
-                        }
-                    }, isValue: self.$isShow, activeIcon: "square.and.arrow.up", disActiveIcon: "square.and.arrow.up", disActiveTitle: "LOCAL_ARTIST_SHARE", activeTitle: "LOCAL_ARTIST_SHARE",buttonWidth: 45.0.responsiveW)
+//                    
+//                    ActionButtonView(isValue: {
+//                        self.isShow.toggle()
+//                        print(self.pageClient.artistSongs[0])
+//                    }, activeIcon: self.$isShow, disActiveIcon: "safari", disActiveTitle: "safari", activeTitle: "LOCAL_ARTIST_WEB_VIEW", buttonWidth: "LOCAL_ARTIST_WEB_VIEW",buttonAction: 45.0.responsiveW)
+//                        .sheet(isPresented: self.$isShow, onDismiss: nil) {
+//                            WebView(url: self.pageClient.artistSongs[0].artistPreview)
+//                        }
+//                    ActionButtonView(buttonAction: {
+//                        let shareMusic = UIActivityViewController(activityItems: [self.pageClient.artistSongs[0].artistPreview], applicationActivities: nil)
+//                        if let vc = UIApplication.shared.windows.first?.rootViewController{
+//                            vc.present(shareMusic,animated: true)
+//                        }
+//                    }, isValue: self.$isShow, activeIcon: "square.and.arrow.up", disActiveIcon: "square.and.arrow.up", disActiveTitle: "LOCAL_ARTIST_SHARE", activeTitle: "LOCAL_ARTIST_SHARE",buttonWidth: 45.0.responsiveW)
                 }.padding(.bottom,5)
                 
                 ForEach(self.pageClient.artistSongs){ song in
