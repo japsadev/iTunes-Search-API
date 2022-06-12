@@ -15,9 +15,9 @@ extension Double{
 }
 
 enum DownloadError : Error {
-    case wrongUrl
-    case unload
-    case unbuild
+    case wrongUrl(url: String)
+    case unload(url: String)
+    case unbuild(url: String)
 }
 
 struct StaticAppData{
