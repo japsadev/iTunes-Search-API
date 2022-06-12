@@ -14,10 +14,16 @@ extension Double{
     var responsiveH: Double { return (UIScreen.main.bounds.size.height * self) / 100}
 }
 
-enum DownloadError : Error {
+enum DownloadError: Error {
     case wrongUrl(url: String)
     case unload(url: String)
     case unbuild(url: String)
+}
+
+enum PageLoadingState{
+    case loading
+    case failed
+    case successful
 }
 
 struct StaticAppData{
