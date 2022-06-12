@@ -36,21 +36,26 @@ struct ItunesServices{
         if let id = id {
             let formattedId = Int(id)
             let query: String = isAblum! ? "?id=\(formattedId)&entity=album&limit=\(limit!)&sort=recent&country=TR" : "?id=\(formattedId)&entity=song&limit=\(limit!)&sort=recent&country=TR"
-            guard let handledURL = createRequestUrl(endpoint: "/lookup", query: query) else { return completion(.failure(.wrongUrl(url: requestURL?.path ?? "")))}
+            guard let handledURL = createRequestUrl(endpoint: "/lookup", query: query) else { return completion(.failure(.wrongUrl(url: requestURL?.query ?? "")))}
             requestURL = handledURL
         }else{
             let handledName = handleProperties(nameOrId)
-            guard let handledURL = createRequestUrl(endpoint: "/search", query: "?term=\(handledName)&limit=\(limit!)&entity=song&sort=recent&country=TR") else { return completion(.failure(.wrongUrl(url: requestURL?.path ?? "")))}
+            guard let handledURL = createRequestUrl(endpoint: "/search", query: "?term=\(handledName)&limit=\(limit!)&entity=song&sort=recent&country=TR") else { return completion(.failure(.wrongUrl(url: requestURL?.query ?? "")))}
             requestURL = handledURL
         }
         
         URLSession.shared.dataTask(with: requestURL!) { responseData, response, error in
-            guard let responseData = responseData else { return completion(.failure(.unload(url: requestURL?.path ?? ""))) }
+            guard let responseData = responseData else { return completion(.failure(.unload(url: requestURL?.query ?? ""))) }
+            
             if isAblum!{
-                guard let handledData = try? JSONDecoder().decode(SearchAlbumData.self, from: responseData) else { return completion(.failure(.unbuild(url: requestURL?.path ?? "")))}
+                guard let handledData = try? JSONDecoder().decode(SearchAlbumData.self, from: responseData) else {
+                    return completion(.failure(.unbuild(url: requestURL?.query ?? "")))
+                }
                 return completion(.success(handledData.results))
             }else{
-                guard let handledData = try? JSONDecoder().decode(SearchSongData.self, from: responseData) else { return completion(.failure(.unbuild(url: requestURL?.path ?? "")))}
+                guard let handledData = try? JSONDecoder().decode(SearchSongData.self, from: responseData) else {
+                    return completion(.failure(.unbuild(url: requestURL?.query ?? "")))
+                }
                 return completion(.success(handledData.results))
             }
         }.resume()
