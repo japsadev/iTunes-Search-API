@@ -8,25 +8,24 @@
 import Foundation
 
 class SearchViewClient : ObservableObject{
-    
     @Published var searchResult = [SearchViewModel]()
-    let iTunesClient = ItunesClient()
+    private let iTunesService = ItunesServices()
     
     func getSearchResult(for searchKey : String){
-        self.iTunesClient.searchForName(for: searchKey, limit: 20) { searchResult in
+        iTunesService.searchByNameOrId(searchKey, limit: 20) { searchResult in
             switch searchResult{
             case .failure(let error):
                 print(error)
             case .success(let data):
-                if let nonOData = data{
+                if let nonOData = data as? [SongData]{
                     for song in nonOData{
                         DispatchQueue.main.async {
                             self.searchResult.append(
-                                SearchViewModel(id: song.trackId!,
-                                                songName: song.trackName!,
-                                                singerName: song.artistName!,
-                                                trackExplicitness: song.trackExplicitness ?? "",
-                                                songImage: URL(string: song.artworkUrl250!)!
+                                SearchViewModel(id: song.id,
+                                                songName: song.wrappedTrackName,
+                                                artistName: song.wrappedArtistName,
+                                                trackExplicitness: song.wrappedTrackExplicitness,
+                                                songImage: song.smallImageURL
                                                )
                             )
                         }
@@ -43,7 +42,7 @@ class SearchViewClient : ObservableObject{
 struct SearchViewModel : Identifiable{
     var id : Double
     var songName : String
-    var singerName : String
+    var artistName : String
     var trackExplicitness : String
     var songImage : URL
 }

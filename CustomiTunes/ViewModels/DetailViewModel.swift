@@ -9,26 +9,27 @@ import Foundation
 import SwiftUI
 
 class DetailSongClient : ObservableObject{
-    let iTunesClient = ItunesClient()
+    private let iTunesService = ItunesServices()
     @Published var detailedSong = DetailViewModel(id: 0, songName: "Name", singerName: "Singer", trackExplicitness: "", songImage: URL(string: "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!, songPreview: URL(string: "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!, artistID: 0, trackURL: URL(string: "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!)
     
     func getSong(for songID : Double){
-        iTunesClient.detailForID(for: songID) { (response) in
+        iTunesService.searchByNameOrId(String(songID)) { (response) in
             switch response{
             case.failure(_):
                 print("ID hata")
             case.success(let data):
-                if let song = data{
+                if let songList = data as? [SongData]{
+                    let song = songList[0]
                     DispatchQueue.main.async {
                         self.detailedSong = DetailViewModel(
-                            id: song.trackId!,
-                            songName: song.trackName!,
-                            singerName: song.artistName!,
-                            trackExplicitness: song.trackExplicitness!,
-                            songImage: URL(string: song.artworkUrl1000!)!,
-                            songPreview: URL(string: song.previewUrl ?? "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!,
-                            artistID: song.artistID!,
-                            trackURL: URL(string: song.trackViewUrl!)!
+                            id: song.id,
+                            songName: song.wrappedTrackName,
+                            singerName: song.wrappedArtistName,
+                            trackExplicitness: song.wrappedTrackExplicitness,
+                            songImage: song.bigImageURL,
+                            songPreview: song.wrappedTrackPreview,
+                            artistID: song.artistID,
+                            trackURL: song.wrappedTrackViewURL
                         )
                     }
                 }

@@ -9,7 +9,7 @@ import Foundation
 
 
 class SongsExpandedClient : ObservableObject{
-    let iTunesClient = ItunesClient()
+    let iTunesService = ItunesServices()
     @Published var listSongs = [SongsExpandedViewModel]()
 
     let staticAppData = StaticAppData()
@@ -31,20 +31,20 @@ class SongsExpandedClient : ObservableObject{
     }
     
     func searchPopularSinger(for singer : String){
-        iTunesClient.searchForName(for: singer , limit: 1) { (response) in
+        iTunesService.searchByNameOrId(singer , limit: 1) { (response) in
             switch response{
             case.failure(let error):
                 print(error)
             case .success(let data):
-                if let nonOData = data{
+                if let nonOData = data as? [SongData]{
                     for song in nonOData{
                         DispatchQueue.main.async {
                             self.listSongs.append(
-                                SongsExpandedViewModel(id: song.trackId!,
-                                                 songName: song.trackName!,
-                                                 singerName: song.artistName!,
-                                                 trackExplicitness: song.trackExplicitness ?? "",
-                                                 songImage: URL(string: song.artworkUrl250!)!
+                                SongsExpandedViewModel(id: song.id,
+                                               songName: song.wrappedTrackName,
+                                                       singerName: song.wrappedArtistName,
+                                                       trackExplicitness: song.wrappedTrackExplicitness,
+                                                       songImage: song.middleImageURL
                                                 )
                             )
                         }

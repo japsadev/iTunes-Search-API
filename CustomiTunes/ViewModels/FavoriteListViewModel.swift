@@ -8,7 +8,7 @@
 import Foundation
 
 class FavoriteListClient : ObservableObject{
-    let iTunesClient = ItunesClient()
+    let iTunesService = ItunesServices()
     @Published var favoriteSongs = [SongsExpandedViewModel]()
     
     let staticAppData = StaticAppData()
@@ -24,20 +24,21 @@ class FavoriteListClient : ObservableObject{
     }
     
     func searchPopularSinger(for songID : Double){
-        iTunesClient.detailForID(for: songID) { (response) in
+        iTunesService.searchByNameOrId(String(songID)) { (response) in
             switch response{
             case.failure(let error):
                 print(error)
             case .success(let data):
-                if let song = data{
+                if let songResult = data as? [SongData]{
+                    let song = songResult[0]
                     DispatchQueue.main.async {
                         self.favoriteSongs.append(
                             SongsExpandedViewModel(
-                                id: song.trackId!,
-                                songName: song.trackName!,
-                                singerName: song.artistName!,
-                                trackExplicitness: song.trackExplicitness ?? "",
-                                songImage: URL(string: song.artworkUrl250!)!
+                                id: song.id,
+                                songName: song.wrappedTrackName,
+                                singerName: song.wrappedArtistName,
+                                trackExplicitness: song.wrappedTrackExplicitness,
+                                songImage: song.middleImageURL
                             )
                         )
                     }

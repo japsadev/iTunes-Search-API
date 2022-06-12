@@ -8,7 +8,7 @@
 import Foundation
 
 class PopularSongClient : ObservableObject{
-    let iTunesClient = ItunesClient()
+    private let iTunesService = ItunesServices()
     @Published var popularSongs = [PopularViewModel]()
     @Published var popularContentUrls = [
         "firstScroolTR" : [
@@ -47,22 +47,22 @@ class PopularSongClient : ObservableObject{
     }
     
     func searchPopularSinger(for singer : String){
-        iTunesClient.searchForName(for: singer , limit: 1) { (response) in
+        iTunesService.searchByNameOrId(singer, limit: 1) { (response) in
             switch response{
             case.failure(let error):
                print(error)
             case .success(let data):
-                if let nonOData = data{
+                if let nonOData = data as? [SongData]{
                     for song in nonOData{
                         DispatchQueue.main.async {
                             self.popularSongs.append(
                                 PopularViewModel(
-                                    id: song.trackId!,
-                                    songName: song.trackName!,
-                                    singerName: song.artistName!,
-                                    trackExplicitness: song.trackExplicitness ?? "",
-                                    songImage: URL(string: song.artworkUrl250!)!,
-                                    artistID: song.artistID!
+                                    id: song.id,
+                                    songName: song.wrappedTrackName,
+                                    singerName: song.wrappedArtistName,
+                                    trackExplicitness: song.wrappedTrackExplicitness,
+                                    songImage: song.smallImageURL,
+                                    artistID: song.artistID
                                 )
                             )
                         }

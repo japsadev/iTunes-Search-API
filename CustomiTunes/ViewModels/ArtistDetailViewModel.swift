@@ -8,17 +8,17 @@
 import Foundation
 
 class ArtistDetailClient : ObservableObject{
-    let iTunesClient = ItunesClient()
+    private let iTunesService = ItunesServices()
     @Published var artistSongs = [DetailListViewModel]()
     @Published var artistAlbum = [ArtistDetailViewModel]()
     
     func getArtistImage(for ID : Double){
-        iTunesClient.artistAlbumsForArtistID(for: ID) { (response) in
+        iTunesService.searchByNameOrId(String(ID)) { (response) in
             switch response{
             case.failure(let error):
                 print(error)
             case.success(let data):
-                if let albums = data{
+                if let albums = data as? [AlbumData]{
                     DispatchQueue.main.async {
                         for (index,album) in albums.enumerated() {
                             if index == 0{
@@ -35,32 +35,32 @@ class ArtistDetailClient : ObservableObject{
     }
     
     func searchBySingerID(for singerID : Double, limit : Int){
-        iTunesClient.searchForSingerID(for: singerID , limit: limit) { (response) in
+        iTunesService.searchByNameOrId(String(singerID), limit: limit) { (response) in
             switch response{
             case.failure(let error):
                 print(error)
             case .success(let data):
-                if let nonOData = data{
+                if let nonOData = data as? [SongData]{
                     for song in nonOData{
                         DispatchQueue.main.async {
-                            if song.kind == "song"{
+                            if song.wrappedTrackKind == "song"{
                                 var count = 0
                                 for compareSong in self.artistSongs{
-                                    if song.trackId == compareSong.id{
+                                    if song.id == compareSong.id{
                                         count += 1
-                                    }else if song.trackName == compareSong.songName{
+                                    }else if song.wrappedTrackName == compareSong.trackName{
                                         count += 1
                                     }
                                 }
                                 if count == 0{
                                     self.artistSongs.append(
                                         DetailListViewModel(
-                                            id: song.trackId!,
-                                            songName: song.trackName!,
-                                            singerName: song.artistName!,
-                                            trackExplicitness: song.trackExplicitness ?? "",
-                                            songImage: URL(string: song.artworkUrl250!)!,
-                                            artistPreview: URL(string: song.artistViewUrl ?? "https://ichef.bbci.co.uk/news/1024/cpsprodpb/C218/production/_117688694_croppedpressimage3.jpg")!
+                                            id: song.id,
+                                            trackName: song.wrappedTrackName,
+                                            artistName: song.wrappedArtistName,
+                                            trackExplicitness: song.wrappedTrackExplicitness,
+                                            trackImage: song.bigImageURL,
+                                            artistPreview: song.wrappedArtistViewURL
                                         )
                                     )
                                 }
