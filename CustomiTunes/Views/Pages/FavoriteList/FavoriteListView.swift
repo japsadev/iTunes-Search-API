@@ -20,7 +20,7 @@ struct FavoriteListView: View {
                             .font(.title2)
                         Image(systemName: "heart.slash")
                             .font(.title2)
-                            .foregroundColor(Color("ThemeColor"))
+                            .foregroundColor(.accentColor)
                     }.padding(.vertical,35.0.responsiveH)
                 }.navigationTitle(LocalizedStringKey("LOCAL_FAVORITE_TITLE"))
                     .toolbar {
@@ -29,7 +29,7 @@ struct FavoriteListView: View {
                                 self.isHide.toggle()
                             } label: {
                                 Image(systemName: "person.circle")
-                                    .foregroundColor(Color("ThemeColor"))
+                                    .foregroundColor(.accentColor)
                             }.sheet(isPresented: self.$isHide, onDismiss: nil) {
                                 AccountView(isHide: self.$isHide)
                             }
@@ -52,7 +52,7 @@ struct FavoriteListView: View {
                                 self.isHide.toggle()
                             } label: {
                                 Image(systemName: "person.circle")
-                                    .foregroundColor(Color("ThemeColor"))
+                                    .foregroundColor(.accentColor)
                             }.sheet(isPresented: self.$isHide, onDismiss: nil) {
                                 AccountView(isHide: self.$isHide)
                             }

@@ -40,7 +40,7 @@ struct SearchView: View {
                         self.pageClient.getSearchResult(for: self.searchKey)
                     } label: {
                         Text(LocalizedStringKey(recommed))
-                            .foregroundColor(Color("ThemeColor"))
+                            .foregroundColor(.accentColor)
                     }
                 }
             }.navigationTitle("LOCAL_SEARCH")

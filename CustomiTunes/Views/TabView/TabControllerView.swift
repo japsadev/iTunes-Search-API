@@ -17,8 +17,6 @@ struct TabControllerView: View {
                 .tag("LOCAL_SEARCH")
             FavoriteListView()
                 .tag("LOCAL_FAVORITE")
-//            ContentView()
-//                .tag("Music")
         }.overlay(
             TabBarWideView(selection: self.$selection)
                 .padding(.top,5)

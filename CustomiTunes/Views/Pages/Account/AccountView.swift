@@ -39,7 +39,7 @@ struct AccountView: View {
                         self.isHide.toggle()
                     } label: {
                         Image(systemName: "multiply.circle")
-                            .foregroundColor(Color("ThemeColor"))
+                            .foregroundColor(.accentColor)
                     }
                 }
         }
