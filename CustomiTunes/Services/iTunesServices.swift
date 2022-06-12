@@ -29,12 +29,13 @@ struct ItunesServices{
     }
     
     // MARK: Request methods
-    func searchByNameOrId(_ nameOrId: String, limit: Int? = 10, completion: @escaping(Result<Any?, DownloadError>) -> Void){
+    func searchByNameOrId(_ nameOrId: String, limit: Int? = 10, isAblum: Bool? = false, completion: @escaping(Result<Any?, DownloadError>) -> Void){
         let id: Double? = Double(nameOrId)
         var requestURL: URL?
         
         if let id = id {
-            guard let handledURL = createRequestUrl(endpoint: "/lookup", query: "?id=\(id)&entity=song&limit=\(limit!)&sort=recent&country=TR") else { return completion(.failure(.wrongUrl))}
+            let query: String = isAblum! ? "?id=\(id)&entity=album&limit=\(limit!)&sort=recent&country=TR" : "?id=\(id)&entity=song&limit=\(limit!)&sort=recent&country=TR"
+            guard let handledURL = createRequestUrl(endpoint: "/lookup", query: query) else { return completion(.failure(.wrongUrl))}
             requestURL = handledURL
         }else{
             let handledName = handleProperties(nameOrId)
@@ -44,8 +45,13 @@ struct ItunesServices{
         
         URLSession.shared.dataTask(with: requestURL!) { responseData, response, error in
             guard let responseData = responseData else { return completion(.failure(.unload)) }
-            guard let handledData = try? JSONDecoder().decode(SearchSongData.self, from: responseData) else { return completion(.failure(.unbuild))}
-            return completion(.success(handledData.results))
+            if isAblum!{
+                guard let handledData = try? JSONDecoder().decode(SearchAlbumData.self, from: responseData) else { return completion(.failure(.unbuild))}
+                return completion(.success(handledData.results))
+            }else{
+                guard let handledData = try? JSONDecoder().decode(SearchSongData.self, from: responseData) else { return completion(.failure(.unbuild))}
+                return completion(.success(handledData.results))
+            }
         }.resume()
     }
 }
