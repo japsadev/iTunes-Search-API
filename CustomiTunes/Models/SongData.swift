@@ -8,10 +8,10 @@
 import Foundation
 
 struct SongData : Codable, Identifiable {
-    
     // MARK: Wrapped Properties (Useful properties on views)
-    var id: Double
-    var artistID : Double
+    var id: Double?
+    var wrappedId: Double { id ?? -1}
+    var artistId: Double
     var wrappedTrackName: String { trackName ?? "LOCAL_UNKNOWED" }
     var wrappedArtistName: String { artistName ?? "LOCAL_UNKNOWED" }
     var wrappedTrackExplicitness: String { trackExplicitness ?? "" }
@@ -75,7 +75,7 @@ struct SongData : Codable, Identifiable {
         case id = "trackId"
         case wrapperType = "wrapperType"
         case kind = "kind"
-        case artistID = "artistId"
+        case artistId = "artistId"
         case collectionId = "collectionId"
         case artistName = "artistName"
         case collectionName = "collectionName"
