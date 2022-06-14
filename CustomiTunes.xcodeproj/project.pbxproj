@@ -278,16 +278,6 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		2EA8A81627A85F8D00AECC37 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				C08C85B02858D45400E7BFFC /* SongDetailView */,
-				2E4715EA27B31674007C564B /* OneSongExpandedView.swift */,
-				2E0506DF27B44100008B73E4 /* ArtistDetailView.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		2EB08F2027AAF31C00F0FC32 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,12 +354,8 @@
 		2EF5EBFB279C89BD00970D5C /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				2EB39A3A27B40B0300461CE3 /* FavoriteList */,
-				2ECE598227B00B21000A9D1E /* Account */,
-				2EA8A81627A85F8D00AECC37 /* Common */,
-				2EA8A81327A85F4200AECC37 /* Search */,
-				2ECE598527B00C1B000A9D1E /* SongLists */,
-				2E7C247727A065240049E518 /* Popular */,
+				C08C85B02858D45400E7BFFC /* SongDetailView */,
+				C08C85B12858D76400E7BFFC /* Old */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -411,6 +397,20 @@
 				2EA8A81727A85F9A00AECC37 /* SongDetailView.swift */,
 			);
 			path = SongDetailView;
+			sourceTree = "<group>";
+		};
+		C08C85B12858D76400E7BFFC /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				2E4715EA27B31674007C564B /* OneSongExpandedView.swift */,
+				2E0506DF27B44100008B73E4 /* ArtistDetailView.swift */,
+				2E7C247727A065240049E518 /* Popular */,
+				2ECE598527B00C1B000A9D1E /* SongLists */,
+				2EA8A81327A85F4200AECC37 /* Search */,
+				2EB39A3A27B40B0300461CE3 /* FavoriteList */,
+				2ECE598227B00B21000A9D1E /* Account */,
+			);
+			path = Old;
 			sourceTree = "<group>";
 		};
 		C0D4BBB52856069700DE9E2C /* CommonComponents */ = {

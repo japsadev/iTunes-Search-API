@@ -1,22 +1,22 @@
 //
-//  SearchListItemView.swift
+//  ListSongView.swift
 //  CustomiTunes
 //
-//  Created by Mehmet Ateş on 5.02.2022.
+//  Created by Mehmet Ateş on 2.02.2022.
 //
 
 import SwiftUI
 
-struct SearchListItemView: View {
-    var listSong : SearchViewModel
+struct ListSongView: View {
+    var songData : SongData
+    
     var body: some View {
         NavigationLink {
-            SongDetailView(detailSongId: listSong.id)
+            SongDetailView(songId: songData.wrappedId)
         } label: {
             VStack(alignment:.leading,spacing:5){
-                Divider()
                 HStack{
-                    AsyncImage(url:listSong.songImage) { image in
+                    AsyncImage(url: songData.smallImageURL) { image in
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
                             .cornerRadius(10)
@@ -25,19 +25,19 @@ struct SearchListItemView: View {
                     }.frame(width: 15.0.responsiveW, height: 15.0.responsiveW, alignment: .center)
                     VStack(alignment:.leading){
                         HStack{
-                            Text(listSong.songName)
+                            Text(songData.wrappedTrackName)
                                 .font(.title3)
-                            ExplicitView(explicitState: listSong.trackExplicitness)
+                            ExplicitView(explicitState: songData.wrappedTrackExplicitness)
                         }
-                        Text(listSong.artistName)
+                        Text(songData.wrappedArtistName)
                             .font(.callout)
                             .foregroundColor(.secondary)
                         Spacer()
                     }
                 }
+                Divider()
             }.frame(width: 90.0.responsiveW, height: 15.0.responsiveW, alignment: .center)
                 .foregroundColor(.primary)
         }
     }
 }
-

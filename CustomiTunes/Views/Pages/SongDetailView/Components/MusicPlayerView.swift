@@ -58,11 +58,9 @@ struct MusicPlayerView: View {
 
 struct MusicPlayerView_Preview: PreviewProvider {
     static var previews: some View {
-        SongDetailView(detailSongId: 1621475284.0)
+        SongDetailView(songId: 1621475284.0)
     }
 }
-
-
 
 struct ClearCircle: View{
     @Environment(\.colorScheme) private var colorScheme

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(*, deprecated, message: "Deprecated")
 struct ArtistDetailView: View {
     @ObservedObject private var pageClient = ArtistDetailClient()
     
@@ -57,9 +58,9 @@ struct ArtistDetailView: View {
 //                    }, isValue: self.$isShow, activeIcon: "square.and.arrow.up", disActiveIcon: "square.and.arrow.up", disActiveTitle: "LOCAL_ARTIST_SHARE", activeTitle: "LOCAL_ARTIST_SHARE",buttonWidth: 45.0.responsiveW)
                 }.padding(.bottom,5)
                 
-                ForEach(self.pageClient.artistSongs){ song in
-                    ListSongView(listSong: song)
-                }
+//                ForEach(self.pageClient.artistSongs){ song in
+//                    ListSongView(listSong: $0)
+//                }
             }else{
                 ProgressView()
             }

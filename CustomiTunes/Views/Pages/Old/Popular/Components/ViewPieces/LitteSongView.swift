@@ -14,7 +14,7 @@ struct LitteSongView: View {
     var body: some View {
         VStack(alignment:.leading,spacing: 4){
             NavigationLink {
-                SongDetailView(detailSongId: self.song.id)
+                SongDetailView(songId: self.song.id)
             } label: {
                 VStack(alignment:.leading,spacing:4){
                     AsyncImage(url: self.song.songImage) { image in
