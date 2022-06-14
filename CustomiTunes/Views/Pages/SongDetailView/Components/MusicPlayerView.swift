@@ -50,6 +50,7 @@ struct MusicPlayerView: View {
                     .tint(.accentColor)
             }.frame(width: 100.0.responsiveW, height: 74.0.responsiveW + 8.0.responsiveH, alignment: .top)
         }.onDisappear {
+            viewModel.rotationEffectRadius = 0
             viewModel.player.pause()
             viewModel.player.removeAllItems()
         }

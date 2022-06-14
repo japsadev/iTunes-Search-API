@@ -27,8 +27,10 @@ import AVKit
                 player.removeAllItems()
                 player.insert(AVPlayerItem(url: songPreview),after: nil)
                 player.play()
-                playingState = .active
-                rotateView()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7){
+                    self.playingState = .active
+                    self.rotateView()
+                }
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback)
                 } catch(let error) {
@@ -66,7 +68,7 @@ import AVKit
         DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
             self.rotationEffectRadius = 0
             withAnimation {
-                self.favoriteState = .disActive
+                self.playingState = .disActive
             }
         }
     }
