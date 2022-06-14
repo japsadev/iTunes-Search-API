@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct PopularView: View {
+    @StateObject private var viewModel: PopularViewModel2 = PopularViewModel2()
     
     var body: some View {
         NavigationView{
             ScrollView{
-                HScrollSpecialView(scroolKey: "LOCAL_FIRST_SCROOL_KEY")
+                BigCardsScrollView(scroolKey: "LOCAL_FIRST_SCROOL_KEY")
                 HScroolWithTitleView(title: "LOCAL_COUNTRY_RISERS",contentKey: "LOCAL_COUNTRY_LIST_KEY")
                 HScroolWithTitleView(title: "LOCAL_GLOBAL_HITS",contentKey: "LOCAL_GLOBAL_LIST_KEY")
-                HScrollSpecialView(scroolKey: "LOCAL_SECOND_SCROOL_KEY")
+                BigCardsScrollView(scroolKey: "LOCAL_SECOND_SCROOL_KEY")
             }.navigationTitle("LOCAL_POPULAR_CONTENT")
+                .environmentObject(viewModel)
         }
     }
 }
