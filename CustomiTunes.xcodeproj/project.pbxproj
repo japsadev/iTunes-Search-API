@@ -281,8 +281,7 @@
 		2EA8A81627A85F8D00AECC37 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2EB08F2027AAF31C00F0FC32 /* Components */,
-				2EA8A81727A85F9A00AECC37 /* SongDetailView.swift */,
+				C08C85B02858D45400E7BFFC /* SongDetailView */,
 				2E4715EA27B31674007C564B /* OneSongExpandedView.swift */,
 				2E0506DF27B44100008B73E4 /* ArtistDetailView.swift */,
 			);
@@ -403,6 +402,15 @@
 				2EA8A81927A85FBE00AECC37 /* DetailViewModel.swift */,
 			);
 			path = Deprecated;
+			sourceTree = "<group>";
+		};
+		C08C85B02858D45400E7BFFC /* SongDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				2EB08F2027AAF31C00F0FC32 /* Components */,
+				2EA8A81727A85F9A00AECC37 /* SongDetailView.swift */,
+			);
+			path = SongDetailView;
 			sourceTree = "<group>";
 		};
 		C0D4BBB52856069700DE9E2C /* CommonComponents */ = {

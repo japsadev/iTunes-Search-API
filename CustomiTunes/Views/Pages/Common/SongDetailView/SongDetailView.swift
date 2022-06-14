@@ -13,10 +13,6 @@ import UIKit
 struct SongDetailView: View {
     @StateObject private var viewModel: SongDetailViewModel = SongDetailViewModel()
     private var songId: Double
-//    @ObservedObject private var pageClient = DetailSongClient()
-//    @ObservedObject private var moreThanClient = DetailListSongClient()
-//    @State var player = AVQueuePlayer()
-//    @State private var isHide = false
     
     init (detailSongId : Double){
         self.songId = detailSongId
