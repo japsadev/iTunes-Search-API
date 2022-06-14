@@ -1,7 +1,9 @@
 # Music Preview Application with iTunes Search API
 
-## Goals
+## Important ⛏
+This app is in renewing progress now. Screenshots, information, and more will be changed as soon as possible.
 
+## Goals
 + Create a great network layer
 + Use MVVM Design Pattern
 + Try Mvp
