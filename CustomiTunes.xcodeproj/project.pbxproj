@@ -49,7 +49,6 @@
 		2EF5EBF9279C899200970D5C /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF5EBF8279C899200970D5C /* PopularViewModel.swift */; };
 		2EF900C727A1BDAD0005E54B /* LitteSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF900C627A1BDAC0005E54B /* LitteSongView.swift */; };
 		2EFB358727B1908D007D64F9 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB358627B1908D007D64F9 /* ActionButtonView.swift */; };
-		2EFB358927B19F8A007D64F9 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB358827B19F8A007D64F9 /* WebView.swift */; };
 		C02BA2D928514C87008022AF /* iTunesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BA2D828514C87008022AF /* iTunesServices.swift */; };
 		C069CC3128565E2900DEEB27 /* MusicPlayerView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069CC3028565E2900DEEB27 /* MusicPlayerView-ViewModel.swift */; };
 		C0D4BBB7285606B000DE9E2C /* AnimatedAsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */; };
@@ -120,7 +119,6 @@
 		2EF5EBF8279C899200970D5C /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
 		2EF900C627A1BDAC0005E54B /* LitteSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitteSongView.swift; sourceTree = "<group>"; };
 		2EFB358627B1908D007D64F9 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
-		2EFB358827B19F8A007D64F9 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		C02BA2D828514C87008022AF /* iTunesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesServices.swift; sourceTree = "<group>"; };
 		C069CC3028565E2900DEEB27 /* MusicPlayerView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicPlayerView-ViewModel.swift"; sourceTree = "<group>"; };
 		C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedAsyncImageView.swift; sourceTree = "<group>"; };
@@ -410,7 +408,6 @@
 		C0D4BBB52856069700DE9E2C /* CommonComponents */ = {
 			isa = PBXGroup;
 			children = (
-				2EFB358827B19F8A007D64F9 /* WebView.swift */,
 				C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */,
 			);
 			path = CommonComponents;
@@ -576,7 +573,6 @@
 				2EA8A81A27A85FBE00AECC37 /* DetailViewModel.swift in Sources */,
 				2E0506E427B450AD008B73E4 /* ArtistDetailViewModel.swift in Sources */,
 				2EB08F2427AAF5ED00F0FC32 /* DetailListViewModel.swift in Sources */,
-				2EFB358927B19F8A007D64F9 /* WebView.swift in Sources */,
 				2ECE598427B00B2F000A9D1E /* AccountView.swift in Sources */,
 				2EA8A81527A85F4E00AECC37 /* SearchView.swift in Sources */,
 				2EB45B8D27AEADE500C1DF44 /* SearchBarView.swift in Sources */,

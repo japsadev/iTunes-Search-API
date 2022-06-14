@@ -15,7 +15,6 @@ import AVKit
     @Published var otherArtistSongs: Array<SongData?> = []
     @Published var songIsAvaiable: PageLoadingState = .loading
     @Published var anotherSongsIsAvaible: PageLoadingState = .loading
-    @Published var player = AVQueuePlayer()
     
     func getSongDetail(_ id: Double){
         Task{ @MainActor in
