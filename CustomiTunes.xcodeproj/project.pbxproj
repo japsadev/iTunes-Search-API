@@ -53,6 +53,7 @@
 		C069CC3128565E2900DEEB27 /* MusicPlayerView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069CC3028565E2900DEEB27 /* MusicPlayerView-ViewModel.swift */; };
 		C06C57FF285926CE009A93E1 /* PopularView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C57FE285926CE009A93E1 /* PopularView-ViewModel.swift */; };
 		C06C580628593202009A93E1 /* SmallTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C580528593202009A93E1 /* SmallTrackView.swift */; };
+		C09D6C19285B408A00C7D7D9 /* TrackSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D6C18285B408A00C7D7D9 /* TrackSectionView.swift */; };
 		C0D4BBB7285606B000DE9E2C /* AnimatedAsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */; };
 		C0D4BBB928561CC000DE9E2C /* SongDetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4BBB828561CC000DE9E2C /* SongDetailView-ViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -125,6 +126,7 @@
 		C069CC3028565E2900DEEB27 /* MusicPlayerView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicPlayerView-ViewModel.swift"; sourceTree = "<group>"; };
 		C06C57FE285926CE009A93E1 /* PopularView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopularView-ViewModel.swift"; sourceTree = "<group>"; };
 		C06C580528593202009A93E1 /* SmallTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTrackView.swift; sourceTree = "<group>"; };
+		C09D6C18285B408A00C7D7D9 /* TrackSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSectionView.swift; sourceTree = "<group>"; };
 		C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedAsyncImageView.swift; sourceTree = "<group>"; };
 		C0D4BBB828561CC000DE9E2C /* SongDetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongDetailView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -423,7 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				C06C580428593193009A93E1 /* Components */,
-				C06C580528593202009A93E1 /* SmallTrackView.swift */,
+				C09D6C18285B408A00C7D7D9 /* TrackSectionView.swift */,
 			);
 			path = Tracks;
 			sourceTree = "<group>";
@@ -431,6 +433,7 @@
 		C06C580428593193009A93E1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C06C580528593202009A93E1 /* SmallTrackView.swift */,
 				2EF1083227A59EE400D358E0 /* ExplicitView.swift */,
 			);
 			path = Components;
@@ -634,6 +637,7 @@
 				2EB45B8D27AEADE500C1DF44 /* SearchBarView.swift in Sources */,
 				2ECE598727B00D03000A9D1E /* SongsExpandedView.swift in Sources */,
 				C02BA2D928514C87008022AF /* iTunesServices.swift in Sources */,
+				C09D6C19285B408A00C7D7D9 /* TrackSectionView.swift in Sources */,
 				2E48B85B279C331800455FF1 /* AlbumData.swift in Sources */,
 				2EF900C727A1BDAD0005E54B /* LitteSongView.swift in Sources */,
 				2EEB313627B05AB2000EF2AB /* InformationFieldsView.swift in Sources */,

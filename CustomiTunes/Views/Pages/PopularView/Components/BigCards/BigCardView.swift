@@ -25,7 +25,7 @@ struct BigCardView: View {
                     .frame(width: imageWidth, height: imageHeight, alignment: .center)
                     .cornerRadius(10)
                     .clipped()
-                    .shadow(color: .secondary.opacity(0.3), radius: 2, x: 4, y: 4)
+                    .shadow(radius: 2, x: 4, y: 4)
             } errorView: {
                 Image(systemName: "xmark.circle")
                     .background(

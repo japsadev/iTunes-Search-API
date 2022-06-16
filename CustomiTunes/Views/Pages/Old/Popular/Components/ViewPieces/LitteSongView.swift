@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+@available(*, deprecated, message: "Moved to SmallTrackView")
 struct LitteSongView: View {
     var song : PopularViewModel
     @State var selection = 0

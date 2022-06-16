@@ -16,7 +16,7 @@ struct ExplicitView: View {
                     .font(.caption2)
                     .foregroundColor(.primary)
                     .frame(width: 4.5.responsiveW, height: 4.5.responsiveW, alignment: .center)
-                    .background(RoundedRectangle(cornerRadius: 2).foregroundColor(.secondary))
+                    .background(RoundedRectangle(cornerRadius: 2).foregroundColor(.gray))
             }
         }
     }
