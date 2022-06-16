@@ -13,10 +13,12 @@ struct PopularView: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                BigCardsScrollView(scroolKey: "LOCAL_FIRST_SCROOL_KEY")
-                HScroolWithTitleView(title: "LOCAL_COUNTRY_RISERS",contentKey: "LOCAL_COUNTRY_LIST_KEY")
-                HScroolWithTitleView(title: "LOCAL_GLOBAL_HITS",contentKey: "LOCAL_GLOBAL_LIST_KEY")
-                BigCardsScrollView(scroolKey: "LOCAL_SECOND_SCROOL_KEY")
+                VStack(spacing: 0){
+                    BigCardsScrollView(scroolKey: "LOCAL_FIRST_SCROOL_KEY")
+                    TrackSectionView(title: "LOCAL_COUNTRY_RISERS", contentKey: "LOCAL_COUNTRY_LIST_KEY")
+                    TrackSectionView(title: "LOCAL_GLOBAL_HITS", contentKey: "LOCAL_GLOBAL_LIST_KEY")
+                    BigCardsScrollView(scroolKey: "LOCAL_SECOND_SCROOL_KEY")
+                }
             }.navigationTitle("LOCAL_POPULAR_CONTENT")
                 .environmentObject(viewModel)
         }
