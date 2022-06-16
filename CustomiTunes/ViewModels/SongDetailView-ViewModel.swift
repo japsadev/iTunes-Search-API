@@ -80,5 +80,17 @@ import AVKit
         }
         otherArtistSongs.sort{ $0!.wrappedTrackName > $1!.wrappedTrackName}
     }
+    
+    func getLocalizedArtistName(artistName: String) -> String{
+        let key = NSLocalizedString("LOCAL_CODE", comment: "for county code")
+        switch key{
+        case "TR":
+            return artistName + NSLocalizedString("LOCAL_MORE_THAN", comment: "for order")
+        case "US":
+            return NSLocalizedString("LOCAL_MORE_THAN", comment: "for order") + artistName
+        default :
+            return NSLocalizedString("LOCAL_MORE_THAN", comment: "for order") + artistName
+        }
+    }
 }
 

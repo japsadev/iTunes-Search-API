@@ -26,7 +26,14 @@ struct SongDetailView: View {
                 ScrollView{
                     MusicPlayerView(songData: songData)
                     if viewModel.anotherSongsIsAvaible == .successful{
-                        VStack{
+                        VStack(alignment: .leading){
+                            NavigationLink {
+                                
+                            } label: {
+                                Text(viewModel.getLocalizedArtistName(artistName: songData.wrappedArtistName))
+                                    .font(.title3)
+                                    .lineLimit(1)
+                            }
                             ForEach(viewModel.otherArtistSongs, id: \.self?.id){
                                 ListSongView(songData: $0!)
                             }
