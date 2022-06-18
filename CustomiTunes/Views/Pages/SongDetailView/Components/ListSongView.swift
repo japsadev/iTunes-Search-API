@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListSongView: View { // TODO: Replace this async image
+struct ListSongView: View {
     private let contentSize: CGFloat = 15.0.responsiveW
     var songData: SongData
     
@@ -25,7 +25,18 @@ struct ListSongView: View { // TODO: Replace this async image
                             .clipped()
                             .cornerRadius(10)
                     } errorView: {
-                        
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: contentSize, height: contentSize, alignment: .center)
+                            .clipped()
+                            .cornerRadius(10)
+                            .background(
+                                Rectangle()
+                                    .frame(width: contentSize, height: contentSize)
+                                    .cornerRadius(10)
+                                    .foregroundColor(.secondary.opacity(0.3))
+                            )
                     } placeHolderView: {
                         ProgressView()
                             .background(

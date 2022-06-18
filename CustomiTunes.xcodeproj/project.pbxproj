@@ -47,8 +47,11 @@
 		2EF5EBF9279C899200970D5C /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF5EBF8279C899200970D5C /* PopularViewModel.swift */; };
 		2EFB358727B1908D007D64F9 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB358627B1908D007D64F9 /* ActionButtonView.swift */; };
 		C02BA2D928514C87008022AF /* iTunesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BA2D828514C87008022AF /* iTunesServices.swift */; };
+		C03E967A285E2B16005F6A43 /* FavoriteTracksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E9679285E2B16005F6A43 /* FavoriteTracksView.swift */; };
 		C069CC3128565E2900DEEB27 /* MusicPlayerView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069CC3028565E2900DEEB27 /* MusicPlayerView-ViewModel.swift */; };
 		C06C3A1D285DDC3900C202FC /* AccountView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C3A1C285DDC3900C202FC /* AccountView-ViewModel.swift */; };
+		C06C3A22285DE84A00C202FC /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C3A21285DE84A00C202FC /* FavoriteView.swift */; };
+		C06C3A24285DE88A00C202FC /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C3A23285DE88A00C202FC /* FavoriteViewModel.swift */; };
 		C06C57FF285926CE009A93E1 /* PopularView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C57FE285926CE009A93E1 /* PopularView-ViewModel.swift */; };
 		C06C580628593202009A93E1 /* SmallTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C580528593202009A93E1 /* SmallTrackView.swift */; };
 		C09D6C19285B408A00C7D7D9 /* TrackSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D6C18285B408A00C7D7D9 /* TrackSectionView.swift */; };
@@ -118,8 +121,11 @@
 		2EF5EBF8279C899200970D5C /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
 		2EFB358627B1908D007D64F9 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		C02BA2D828514C87008022AF /* iTunesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesServices.swift; sourceTree = "<group>"; };
+		C03E9679285E2B16005F6A43 /* FavoriteTracksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTracksView.swift; sourceTree = "<group>"; };
 		C069CC3028565E2900DEEB27 /* MusicPlayerView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicPlayerView-ViewModel.swift"; sourceTree = "<group>"; };
 		C06C3A1C285DDC3900C202FC /* AccountView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountView-ViewModel.swift"; sourceTree = "<group>"; };
+		C06C3A21285DE84A00C202FC /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		C06C3A23285DE88A00C202FC /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		C06C57FE285926CE009A93E1 /* PopularView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopularView-ViewModel.swift"; sourceTree = "<group>"; };
 		C06C580528593202009A93E1 /* SmallTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTrackView.swift; sourceTree = "<group>"; };
 		C09D6C18285B408A00C7D7D9 /* TrackSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSectionView.swift; sourceTree = "<group>"; };
@@ -228,6 +234,7 @@
 				C069CC3028565E2900DEEB27 /* MusicPlayerView-ViewModel.swift */,
 				C06C57FE285926CE009A93E1 /* PopularView-ViewModel.swift */,
 				C06C3A1C285DDC3900C202FC /* AccountView-ViewModel.swift */,
+				C06C3A23285DE88A00C202FC /* FavoriteViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -319,6 +326,7 @@
 		2EF5EBFB279C89BD00970D5C /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				C06C3A20285DE83E00C202FC /* FavoriteView */,
 				C06C3A1E285DDF1600C202FC /* AccountView */,
 				C06C58002859307F009A93E1 /* PopularView */,
 				C08C85B02858D45400E7BFFC /* SongDetailView */,
@@ -343,6 +351,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		C03E9678285E2AFD005F6A43 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C03E9679285E2B16005F6A43 /* FavoriteTracksView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		C069CC2F28565E0C00DEEB27 /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +380,15 @@
 				2ECE598327B00B2F000A9D1E /* AccountView.swift */,
 			);
 			path = AccountView;
+			sourceTree = "<group>";
+		};
+		C06C3A20285DE83E00C202FC /* FavoriteView */ = {
+			isa = PBXGroup;
+			children = (
+				C03E9678285E2AFD005F6A43 /* Components */,
+				C06C3A21285DE84A00C202FC /* FavoriteView.swift */,
+			);
+			path = FavoriteView;
 			sourceTree = "<group>";
 		};
 		C06C58002859307F009A93E1 /* PopularView */ = {
@@ -579,12 +604,15 @@
 				2EF1083127A594BD00D358E0 /* BigCardView.swift in Sources */,
 				2EF1083A27A5A6F900D358E0 /* BigCardsScrollView.swift in Sources */,
 				2E7C247627A0651E0049E518 /* PopularView.swift in Sources */,
+				C06C3A24285DE88A00C202FC /* FavoriteViewModel.swift in Sources */,
 				2EB39A3E27B40C2100461CE3 /* FavoriteListViewModel.swift in Sources */,
 				2EF1083827A5A26A00D358E0 /* Utils.swift in Sources */,
+				C03E967A285E2B16005F6A43 /* FavoriteTracksView.swift in Sources */,
 				2E913076279C832D00DF180B /* TabBarButtonView.swift in Sources */,
 				2EB08F2227AAF32A00F0FC32 /* MusicPlayerView.swift in Sources */,
 				2EFB358727B1908D007D64F9 /* ActionButtonView.swift in Sources */,
 				2EB45B9127AEBED500C1DF44 /* SearchListItemView.swift in Sources */,
+				C06C3A22285DE84A00C202FC /* FavoriteView.swift in Sources */,
 				C069CC3128565E2900DEEB27 /* MusicPlayerView-ViewModel.swift in Sources */,
 				C06C57FF285926CE009A93E1 /* PopularView-ViewModel.swift in Sources */,
 				2EEB313827B05F53000EF2AB /* ToogleSettingsView.swift in Sources */,

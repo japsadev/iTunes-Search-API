@@ -12,7 +12,7 @@ struct ItunesServices{
     
     // MARK: Helper methods
     private func createRequestUrl(endpoint: String, query: String?) -> URL?{
-        return URL(string: self.serviceURL + endpoint + (query ?? "") + "&country=TR")
+        return URL(string: self.serviceURL + endpoint + (query ?? "") + "&sort=recent" + "&country=TR")
     }
     
     private func handleProperties(_ key: String) -> String{
@@ -35,12 +35,12 @@ struct ItunesServices{
         
         if let id = id {
             let formattedId = Int(id)
-            let query: String = isAblum! ? "?id=\(formattedId)&entity=album&limit=\(limit!)&sort=recent": "?id=\(formattedId)&entity=song&limit=\(limit!)&sort=recent"
+            let query: String = isAblum! ? "?id=\(formattedId)&entity=album&limit=\(limit!)": "?id=\(formattedId)&entity=song&limit=\(limit!)"
             guard let handledURL = createRequestUrl(endpoint: "/lookup", query: query) else { return completion(.failure(.wrongUrl(url: requestURL?.query ?? "")))}
             requestURL = handledURL
         }else{
             let handledName = handleProperties(nameOrId)
-            guard let handledURL = createRequestUrl(endpoint: "/search", query: "?term=\(handledName)&limit=\(limit!)&entity=song&sort=recent") else { return completion(.failure(.wrongUrl(url: requestURL?.query ?? "")))}
+            guard let handledURL = createRequestUrl(endpoint: "/search", query: "?term=\(handledName)&limit=\(limit!)&entity=song") else { return completion(.failure(.wrongUrl(url: requestURL?.query ?? "")))}
             requestURL = handledURL
         }
         
