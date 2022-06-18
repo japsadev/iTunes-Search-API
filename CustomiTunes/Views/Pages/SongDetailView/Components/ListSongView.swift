@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ListSongView: View { // TODO: Replace this async image
-    var songData : SongData
+    private let contentSize: CGFloat = 15.0.responsiveW
+    var songData: SongData
     
     var body: some View {
         NavigationLink {
@@ -16,13 +17,25 @@ struct ListSongView: View { // TODO: Replace this async image
         } label: {
             VStack(alignment:.leading,spacing:5){
                 HStack{
-                    AsyncImage(url: songData.smallImageURL) { image in
-                        image.resizable()
-                            .aspectRatio(contentMode: .fit)
+                    AnimatedAsyncImageView(imageURL: songData.smallImageURL) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: contentSize, height: contentSize, alignment: .center)
+                            .clipped()
                             .cornerRadius(10)
-                    } placeholder: {
-                        RoundedRectangle(cornerRadius: 10)
-                    }.frame(width: 15.0.responsiveW, height: 15.0.responsiveW, alignment: .center)
+                    } errorView: {
+                        
+                    } placeHolderView: {
+                        ProgressView()
+                            .background(
+                                Rectangle()
+                                    .frame(width: contentSize, height: contentSize)
+                                    .cornerRadius(10)
+                                    .foregroundColor(.secondary.opacity(0.3))
+                            )
+                    }.frame(width: contentSize, height: contentSize, alignment: .center)
+                    
                     VStack(alignment:.leading){
                         HStack{
                             Text(songData.wrappedTrackName)
