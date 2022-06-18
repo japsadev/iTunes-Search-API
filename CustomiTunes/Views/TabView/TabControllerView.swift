@@ -15,7 +15,7 @@ struct TabControllerView: View {
                 .tag("LOCAL_POPULAR")
             SearchView()
                 .tag("LOCAL_SEARCH")
-            FavoriteListView()
+            FavoriteView()
                 .tag("LOCAL_FAVORITE")
         }.overlay(
             TabBarWideView(selection: self.$selection)

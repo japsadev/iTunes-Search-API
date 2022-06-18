@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(*, deprecated, message: "moved to FavoriteView")
 struct FavoriteListView: View {
     @ObservedObject private var pageClient = FavoriteListClient()
     @State private var isHide = false

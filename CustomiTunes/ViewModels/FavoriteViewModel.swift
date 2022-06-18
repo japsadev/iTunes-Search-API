@@ -2,35 +2,56 @@
 //  FavoriteViewModel.swift
 //  CustomiTunes
 //
-//  Created by Mehmet Ateş on 22.01.2022.
+//  Created by Mehmet Ateş on 18.06.2022.
 //
 
 import Foundation
 
-class FavoriteClient : ObservableObject{
-    @Published var songName : String
-    let iTunesClient = ItunesClient()
+@MainActor class FavoriteViewModel: ObservableObject{
+    @Published var favoriteTracks: Array<SongData> = []
+    private var favoriteTracksIds: Array<Double> = []
+    
+    private let iTunesService = ItunesServices()
+    private let saveKey = "favoriteTracks"
     
     init(){
-        
-    }
-    
-    func getPopular(){
-        iTunesClient.search(for: "rihanna") { (response) in
+        iTunesService.searchByNameOrId("Rihanna", limit: 10) { response in // example
             switch response{
-            case.success(let data):
-                if let nonOData = data{
-                    for song in nonOData{
-                        self.songName = song.trackName ?? ""
+                
+            case .success(let tracksData):
+                if let tracks = tracksData as? [SongData]{
+                    DispatchQueue.main.async {
+                        self.favoriteTracks = tracks
                     }
                 }
-            case .failure(let error):
-                print(error)
+            case .failure(_):
+                print("an error was taken")
             }
         }
     }
+    
+    func saveFavorites(trackId: Double){
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
+            let fileURL = dir.appendingPathComponent(saveKey)
+            
+            do{
+                if let encoded = try? JSONEncoder().encode(favoriteTracksIds) {
+                    try encoded.write(to: fileURL)
+                }
+            } catch{ print("save error") }
+        }
+    }
+    
+    func readData(){
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
+            let fileURL = dir.appendingPathComponent(saveKey)
+            
+            do{
+                let stringContent = try String(contentsOf: fileURL, encoding: .utf8)
+                if let decoded = try? JSONDecoder().decode([Double].self, from: stringContent.data(using: .utf8) ?? Data()) {
+                    self.favoriteTracksIds = decoded
+                }
+            } catch{ print("read error") }
+        }
+    }
 }
-
-
-class PopularClient
-
