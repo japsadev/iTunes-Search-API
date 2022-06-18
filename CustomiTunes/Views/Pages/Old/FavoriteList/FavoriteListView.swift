@@ -31,7 +31,7 @@ struct FavoriteListView: View {
                                 Image(systemName: "person.circle")
                                     .foregroundColor(.accentColor)
                             }.sheet(isPresented: self.$isHide, onDismiss: nil) {
-                                AccountView(isHide: self.$isHide)
+                                AccountView()
                             }
                         }
                     }
@@ -54,7 +54,7 @@ struct FavoriteListView: View {
                                 Image(systemName: "person.circle")
                                     .foregroundColor(.accentColor)
                             }.sheet(isPresented: self.$isHide, onDismiss: nil) {
-                                AccountView(isHide: self.$isHide)
+                                AccountView()
                             }
                         }
                     }
