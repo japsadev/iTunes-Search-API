@@ -10,6 +10,7 @@ import SwiftUI
 struct ListSongView: View {
     private let contentSize: CGFloat = 15.0.responsiveW
     var songData: SongData
+    var fieldSize: CGFloat? = 90.0.responsiveW
     
     var body: some View {
         NavigationLink {
@@ -60,7 +61,7 @@ struct ListSongView: View {
                     }
                 }
                 Divider()
-            }.frame(width: 90.0.responsiveW, height: 15.0.responsiveW, alignment: .center)
+            }.frame(width: self.fieldSize, height: contentSize, alignment: .center)
                 .foregroundColor(.primary)
         }
     }
