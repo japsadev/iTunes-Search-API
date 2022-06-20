@@ -17,7 +17,7 @@ struct BigCardView: View {
     
     var body: some View {
         NavigationLink {
-            SongsExpandedView(contentKey: self.contentKey, pageTitle: self.branchPageTitle)
+            TrackListView(contentKey: contentKey, pageTitle: branchPageTitle)
         } label: {
             AnimatedAsyncImageView(imageURL: contentURL) { image in
                 image.resizable()

@@ -21,7 +21,7 @@ struct TrackSectionView: View {
                     .bold()
                 Spacer()
                 NavigationLink {
-                    // Song lists view
+                    TrackListView(contentKey: contentKey, pageTitle: title)
                 } label: {
                     HStack(spacing: 5){
                         Text(LocalizedStringKey("LOCAL_DETAIL"))

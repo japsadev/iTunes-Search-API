@@ -16,7 +16,7 @@ struct BigCardsScrollView: View {
             HStack(spacing:0){
                 if let cards = viewModel.getCards(scroolKey){
                     ForEach(cards, id: \.contentKey) { card in
-                        BigCardView(contentURL: card.cardURL,contentKey: card.contentKey,branchPageTitle: card.pageTitle)
+                        BigCardView(contentURL: card.cardURL,contentKey: card.contentKey, branchPageTitle: card.pageTitle)
                             .padding([.leading, .bottom, .top])
                     }
                     Rectangle()
