@@ -30,7 +30,7 @@
 "LOCAL_FAVORITE_DEACTIVE" = "Add";
 "LOCAL_PLAY" = "Play";
 "LOCAL_PAUSE" = "Pause";
-"LOCAL_WEB_VIEW" = "Wiew on Web";
+"LOCAL_WEB_VIEW" = "View on Web";
 
 // Search Recommends
 "LOCAL_SEARCHTIPS_1" = "future";

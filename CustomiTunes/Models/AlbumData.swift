@@ -8,6 +8,14 @@
 import Foundation
 
 struct AlbumData : Codable {
+    var wrappedName: String{
+        artistName ?? "LOCAL_UNKNOWED"
+    }
+    
+    var wrappedArtistImage: URL{
+        URL(string: artworkUrl1000 ?? "https://www.thewikifeed.com/wp-content/uploads/2021/09/tate-mcrae-1.jpg")!
+    }
+    
     var wrapperType : String?
     var artistType : String?
     var artistLinkUrl : String?
