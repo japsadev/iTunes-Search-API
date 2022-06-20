@@ -45,6 +45,8 @@ struct FavoriteView: View {
             viewModel.getFavoriteTracks(tracks: favoriteService.favoriteTrackIds)
         }.sheet(isPresented: $viewModel.accountSheet) {
             AccountView()
+        }.onChange(of: favoriteService.favoriteTrackIds) { newFavoriteList in
+            viewModel.getFavoriteTracks(tracks: newFavoriteList)
         }
     }
 }

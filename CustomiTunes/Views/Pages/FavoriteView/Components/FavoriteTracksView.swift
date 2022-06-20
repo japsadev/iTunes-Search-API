@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct FavoriteTracksView: View {
+    @EnvironmentObject private var favoriteService: FavoriteService
     private let contentSize = 20.0.responsiveW
     var trackData: SongData
     
     var body: some View {
         HStack{
             Button {
-                
+                favoriteService.addOrRemoveFavorite(trackData.wrappedId)
             } label: {
-                Image(systemName: "heart")
+                Image(systemName: "heart.fill")
             }
 
             AnimatedAsyncImageView(imageURL: trackData.middleImageURL) { image in
@@ -55,7 +56,7 @@ struct FavoriteTracksView: View {
                     .lineLimit(1)
                 
                 NavigationLink {
-                    
+                    ArtistDetailView(artistID: trackData.artistId)
                 } label: {
                     Text(trackData.wrappedArtistName)
                         .font(.footnote)                    
