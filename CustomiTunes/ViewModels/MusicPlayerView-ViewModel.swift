@@ -47,10 +47,6 @@ import AVKit
         }
     }
     
-    func musicEndAction(){
-        
-    }
-    
     func favoriteButtonAction() -> Void{
         withAnimation {
             if favoriteState == .active{
@@ -69,6 +65,16 @@ import AVKit
             self.rotationEffectRadius = 0
             withAnimation {
                 self.playingState = .disActive
+            }
+        }
+    }
+    
+    func setFavoriteButtonState(state: Bool){
+        withAnimation {
+            if state{
+                favoriteState = .active
+            }else{
+                favoriteState = .disActive
             }
         }
     }
