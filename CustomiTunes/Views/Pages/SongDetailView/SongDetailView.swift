@@ -13,7 +13,6 @@ struct SongDetailView: View {
     @StateObject private var viewModel: SongDetailViewModel = SongDetailViewModel()
     var songId: Double
     
-    
     var body: some View {
         Group{
             if viewModel.songIsAvaiable == .loading{
@@ -28,12 +27,13 @@ struct SongDetailView: View {
                     if viewModel.anotherSongsIsAvaible == .successful{
                         VStack(alignment: .leading){
                             NavigationLink {
-                                
+                                ArtistDetailView(artistID: songData.artistId)
                             } label: {
                                 Text(viewModel.getLocalizedArtistName(artistName: songData.wrappedArtistName))
                                     .font(.title3)
                                     .lineLimit(1)
-                            }
+                            }.frame(width: 90.0.responsiveW, alignment: .leading)
+                               
                             ForEach(viewModel.otherArtistSongs, id: \.self?.id){
                                 ListSongView(songData: $0!)
                             }

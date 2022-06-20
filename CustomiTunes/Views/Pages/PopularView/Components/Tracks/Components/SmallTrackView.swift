@@ -51,7 +51,7 @@ struct SmallTrackView: View {
                     .lineLimit(2)
                 
                 NavigationLink {
-                    // ArtistView
+                    ArtistDetailView(artistID: trackData.artistId)
                 } label: {
                     Text(trackData.wrappedArtistName)
                         .font(.caption2)
