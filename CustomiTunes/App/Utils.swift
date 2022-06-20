@@ -30,9 +30,21 @@ enum PageLoadingState{
     case loading
     case failed
     case successful
+    case disable
 }
 
 struct StaticAppData{
+    let recommendedList  = [
+        "LOCAL_SEARCHTIPS_1",
+        "LOCAL_SEARCHTIPS_2",
+        "LOCAL_SEARCHTIPS_3",
+        "LOCAL_SEARCHTIPS_4",
+        "LOCAL_SEARCHTIPS_5",
+        "LOCAL_SEARCHTIPS_6",
+        "LOCAL_SEARCHTIPS_7",
+        "LOCAL_SEARCHTIPS_8",
+    ]
+    
     let listsBySearchKey = [
         "turkeySongs" : [
             "Bul Beni",
