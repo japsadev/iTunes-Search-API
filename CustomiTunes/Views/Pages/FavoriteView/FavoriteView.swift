@@ -8,24 +8,43 @@
 import SwiftUI
 
 struct FavoriteView: View {
+    @EnvironmentObject private var favoriteService: FavoriteService
     @ObservedObject private var viewModel: FavoriteViewModel =  FavoriteViewModel()
     
     var body: some View {
         NavigationView{
-            ScrollView{
-                ForEach(viewModel.favoriteTracks, id: \.self.wrappedId){ track in
-                    NavigationLink{
-                        SongDetailView(songId: track.wrappedId)
-                    } label: {
-                        FavoriteTracksView(trackData: track)
-                    }.buttonStyle(.plain)
-                        .listRowSeparator(.hidden)
+            Group{
+                if viewModel.pageState == .loading{
+                    VStack{
+                        ProgressView()
+                    }
+                }else{
+                    ScrollView{
+                        ForEach(viewModel.favoriteTracks, id: \.self.wrappedId){ track in
+                            NavigationLink{
+                                SongDetailView(songId: track.wrappedId)
+                            } label: {
+                                FavoriteTracksView(trackData: track)
+                            }.buttonStyle(.plain)
+                                .listRowSeparator(.hidden)
+                        }
+                    }.listStyle(.plain)
                 }
             }.navigationTitle(LocalizedStringKey("LOCAL_FAVORITE_TITLE"))
-                .listStyle(.plain)
-                
-                
-                
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            viewModel.accountSheet.toggle()
+                        } label: {
+                            Image(systemName: "person.circle")
+                                .foregroundColor(.accentColor)
+                        }
+                    }
+                }
+        }.onAppear{
+            viewModel.getFavoriteTracks(tracks: favoriteService.favoriteTrackIds)
+        }.sheet(isPresented: $viewModel.accountSheet) {
+            AccountView()
         }
     }
 }

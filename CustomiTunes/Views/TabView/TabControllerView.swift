@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabControllerView: View {
+    @ObservedObject private var favoriteService = FavoriteService()
     @State private var selection = "LOCAL_POPULAR"
     var body: some View {
         TabView(selection: self.$selection){
@@ -22,7 +23,7 @@ struct TabControllerView: View {
                 .padding(.top,5)
                 .background(.ultraThinMaterial)
             ,alignment: .bottom
-        )
+        ).environmentObject(favoriteService)
     }
 }
 

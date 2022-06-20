@@ -44,8 +44,8 @@ import Foundation
                         }
                     }
                     
-                case .failure(_):
-                    print("an error was taked")
+                case .failure(let error):
+                    print("an error was taked: \(error)")
                 }
             }
         }

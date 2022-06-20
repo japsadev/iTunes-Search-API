@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MusicPlayerView: View {
+    @EnvironmentObject private var favoriteService: FavoriteService
     @Environment(\.openURL) var openURL
     @ObservedObject private var viewModel: MusicPlayerViewModel = MusicPlayerViewModel()
     var songData: SongData
@@ -24,7 +25,10 @@ struct MusicPlayerView: View {
                         .overlay(ClearCircle())
                     HStack{
                         ActionButtonView(isValue: $viewModel.favoriteState, activeIcon: "heart.fill", disActiveIcon: "heart", activeTitle: "Remove", disActiveTitle: "Add") {
+                            favoriteService.addOrRemoveFavorite(songData.wrappedId)
                             viewModel.favoriteButtonAction()
+                        }.onAppear{
+                            viewModel.setFavoriteButtonState(state: favoriteService.isFavorite(songData.wrappedId))
                         }
                         ActionButtonView(isValue: $viewModel.playingState, activeIcon: "stop.fill", disActiveIcon: "play", activeTitle: "Stop", disActiveTitle: "Play"){
                             viewModel.playButtonAction(songPreview: songData.wrappedTrackPreview)

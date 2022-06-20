@@ -9,49 +9,37 @@ import Foundation
 
 @MainActor class FavoriteViewModel: ObservableObject{
     @Published var favoriteTracks: Array<SongData> = []
-    private var favoriteTracksIds: Array<Double> = []
+    @Published var accountSheet: Bool = false
+    @Published var pageState: PageLoadingState = .loading
     
     private let iTunesService = ItunesServices()
-    private let saveKey = "favoriteTracks"
+
+    func getFavoriteTracks(tracks: Array<Double>){
+        favoriteTracks.removeAll(keepingCapacity: true)
+        for trackId in tracks {
+            getOneTrack(trackId)
+        }
+        self.pageState = .successful
+    }
     
-    init(){
-        iTunesService.searchByNameOrId("Rihanna", limit: 10) { response in // example
-            switch response{
-                
-            case .success(let tracksData):
-                if let tracks = tracksData as? [SongData]{
-                    DispatchQueue.main.async {
-                        self.favoriteTracks = tracks
+    func getOneTrack(_ id: Double){
+        Task{ @MainActor in
+            iTunesService.searchByNameOrId(String(id)) { response in
+                switch response{
+                    
+                case .success(let tracksData):
+                    if let tracks = tracksData as? [SongData?]{
+                        if let track = tracks[0]{
+                            DispatchQueue.main.async {
+                                self.favoriteTracks.append(track)
+                            }
+                        }
                     }
+                case .failure(_):
+                    self.pageState = .failed
+                    print("an error was taken")
                 }
-            case .failure(_):
-                print("an error was taken")
             }
-        }
-    }
-    
-    func saveFavorites(trackId: Double){
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
-            let fileURL = dir.appendingPathComponent(saveKey)
-            
-            do{
-                if let encoded = try? JSONEncoder().encode(favoriteTracksIds) {
-                    try encoded.write(to: fileURL)
-                }
-            } catch{ print("save error") }
-        }
-    }
-    
-    func readData(){
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
-            let fileURL = dir.appendingPathComponent(saveKey)
-            
-            do{
-                let stringContent = try String(contentsOf: fileURL, encoding: .utf8)
-                if let decoded = try? JSONDecoder().decode([Double].self, from: stringContent.data(using: .utf8) ?? Data()) {
-                    self.favoriteTracksIds = decoded
-                }
-            } catch{ print("read error") }
         }
     }
 }
