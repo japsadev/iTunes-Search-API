@@ -36,7 +36,7 @@ struct MusicPlayerView: View {
                         ActionButtonView(isValue: $viewModel.webState, activeIcon: "safari", activeTitle: "Web") {
                             openURL.callAsFunction(songData.wrappedTrackViewURL)
                         }
-                    }
+                    }.padding(.top)
                 }
             } errorView: {
                 Image(systemName: "xmark")
