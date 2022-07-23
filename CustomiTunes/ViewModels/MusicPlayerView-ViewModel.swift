@@ -24,10 +24,10 @@ import AVKit
         if playingState == .disActive{
             playingState = .inProgress
             Task{ @MainActor in
-                player.removeAllItems()
-                player.insert(AVPlayerItem(url: songPreview),after: nil)
-                player.play()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7){
+                DispatchQueue.main.async {
+                    self.player.removeAllItems()
+                    self.player.insert(AVPlayerItem(url: songPreview),after: nil)
+                    self.player.play()
                     self.playingState = .active
                     self.rotateView()
                 }
