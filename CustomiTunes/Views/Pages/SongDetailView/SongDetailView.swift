@@ -24,6 +24,7 @@ struct SongDetailView: View {
                 let songData = viewModel.songData!
                 ScrollView{
                     MusicPlayerView(songData: songData)
+                        .padding(.bottom)
                     if viewModel.anotherSongsIsAvaible == .successful{
                         VStack(alignment: .leading){
                             NavigationLink {
