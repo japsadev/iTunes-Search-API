@@ -7,38 +7,33 @@
 
 import Foundation
 
-@MainActor class SearchViewModel: ObservableObject{
+@MainActor class SearchViewModel: ObservableObject {
     private let iTunesService: ItunesServices = ItunesServices()
     let staticAppData = StaticAppData()
-    @Published var searchResult: Array<SongData> = []
+    @Published var searchResult: [SongData] = []
     @Published var searchKey: String = ""{
-        didSet{
+        didSet {
             searchTrackOrSinger()
         }
     }
-    
-    func searchTrackOrSinger(){
+
+    func searchTrackOrSinger() {
         DispatchQueue.main.async {
             self.searchResult.removeAll(keepingCapacity: true)
         }
-        Task{ @MainActor in
-            iTunesService.searchByNameOrId(searchKey, limit: 10){ response in
-                switch response{
-                    
-                case .success(let _trackData):
-                    if let trackData = _trackData as? [SongData]{
+        Task { @MainActor in
+            iTunesService.searchByNameOrId(searchKey, limit: 10) { response in
+                switch response {
+                case .success(let trackData):
+                    if let trackData = trackData as? [SongData] {
                         DispatchQueue.main.async {
                             self.searchResult = trackData
                         }
                     }
-                case .failure(_):
-                    DispatchQueue.main.async {
-                    }
+                case .failure:
                     print("an error was taked on SearchViewModel")
                 }
-                
             }
         }
     }
-    
 }

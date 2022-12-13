@@ -10,11 +10,10 @@ import SwiftUI
 struct BigCardView: View {
     private let imageWidth: CGFloat = 85.0.responsiveW
     private let imageHeight: CGFloat = 50.0.responsiveW
-    
-    let contentURL : URL
-    let contentKey : String
-    let branchPageTitle : String
-    
+    let contentURL: URL
+    let contentKey: String
+    let branchPageTitle: String
+
     var body: some View {
         NavigationLink {
             TrackListView(contentKey: contentKey, pageTitle: branchPageTitle)
@@ -49,6 +48,12 @@ struct BigCardView: View {
 
 struct BigCardView_Previews: PreviewProvider {
     static var previews: some View {
-        BigCardView(contentURL: URL(string: "https://is5-ssl.mzstatic.com/image/thumb/Features114/v4/01/e7/76/01e7760b-03e9-46c0-7579-0614e51db340/source/1000x611sr-60.jpg")!, contentKey: "turkeySongs", branchPageTitle: "")
+        BigCardView(
+            // swiftlint: disable line_length
+            contentURL: URL(string: "https://is5-ssl.mzstatic.com/image/thumb/Features114/v4/01/e7/76/01e7760b-03e9-46c0-7579-0614e51db340/source/1000x611sr-60.jpg")!,
+            // swiftlint: enable line_length
+            contentKey: "turkeySongs",
+            branchPageTitle: ""
+        )
     }
 }

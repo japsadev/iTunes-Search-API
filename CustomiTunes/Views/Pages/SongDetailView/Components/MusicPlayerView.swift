@@ -12,25 +12,37 @@ struct MusicPlayerView: View {
     @Environment(\.openURL) var openURL
     @ObservedObject private var viewModel: MusicPlayerViewModel = MusicPlayerViewModel()
     var songData: SongData
-    
+
     var body: some View {
-        VStack{
+        VStack {
             AnimatedAsyncImageView(imageURL: songData.bigImageURL) { image in
-                VStack{
+                VStack {
                     image.resizable()
                         .scaledToFill()
                         .frame(width: viewModel.imageContentSize, height: viewModel.imageContentSize, alignment: .center)
                         .clipShape(Circle())
                         .rotationEffect(Angle(degrees: viewModel.rotationEffectRadius))
                         .overlay(ClearCircle())
-                    HStack{
-                        ActionButtonView(isValue: $viewModel.favoriteState, activeIcon: "heart.fill", disActiveIcon: "heart", activeTitle: "Remove", disActiveTitle: "Add") {
+                    HStack {
+                        ActionButtonView(
+                            isValue: $viewModel.favoriteState,
+                            activeIcon: "heart.fill",
+                            disActiveIcon: "heart",
+                            activeTitle: "Remove",
+                            disActiveTitle: "Add"
+                        ) {
                             favoriteService.addOrRemoveFavorite(songData.wrappedId)
                             viewModel.favoriteButtonAction()
-                        }.onAppear{
+                        }.onAppear {
                             viewModel.setFavoriteButtonState(state: favoriteService.isFavorite(songData.wrappedId))
                         }
-                        ActionButtonView(isValue: $viewModel.playingState, activeIcon: "stop.fill", disActiveIcon: "play", activeTitle: "Stop", disActiveTitle: "Play"){
+                        ActionButtonView(
+                            isValue: $viewModel.playingState,
+                            activeIcon: "stop.fill",
+                            disActiveIcon: "play",
+                            activeTitle: "Stop",
+                            disActiveTitle: "Play"
+                        ) {
                             viewModel.playButtonAction(songPreview: songData.wrappedTrackPreview)
                         }
                         ActionButtonView(isValue: $viewModel.webState, activeIcon: "safari", activeTitle: "Web") {
@@ -61,17 +73,17 @@ struct MusicPlayerView: View {
     }
 }
 
-struct MusicPlayerView_Preview: PreviewProvider {
+struct MusicPlayerViewPreview: PreviewProvider {
     static var previews: some View {
         SongDetailView(songId: 1621475284.0)
     }
 }
 
-struct ClearCircle: View{
+struct ClearCircle: View {
     @Environment(\.colorScheme) private var colorScheme
     var radius: CGFloat? = 6.0.responsiveW
-    
-    var body: some View{
+
+    var body: some View {
         Circle()
             .foregroundColor(colorScheme == .dark ? .black : .white)
             .frame(width: radius, height: radius, alignment: .center)
