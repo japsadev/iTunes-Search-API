@@ -10,7 +10,7 @@ import Foundation
 @MainActor class SearchViewModel: ObservableObject {
     let staticAppData = StaticAppData()
     @Published var searchResult: [SongData] = []
-    @Published var searchKey: String = ""{
+    @Published var searchKey: String = "" {
         didSet {
             searchTrackOrSinger()
         }
