@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BigCardsScrollView: View {
-    @EnvironmentObject private var viewModel: PopularViewModel2
-    var scroolKey : String
+    @EnvironmentObject private var viewModel: PopularViewModel
+    var scroolKey: String
     
     var body: some View {
         ScrollView(.horizontal){
