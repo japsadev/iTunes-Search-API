@@ -41,7 +41,7 @@ import AVKit
     func getAnotherSongsForArtist(for singerID: Double) {
         Task { @MainActor in
             let service = ItunesServices<SearchSongData>()
-            service.searchWithKey(String(singerID)) { response in
+            service.searchWithKey(String(singerID), limit: 20) { response in
                 switch response {
                 case .success(let songs):
                     guard var songs = songs.results else { return }
