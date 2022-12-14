@@ -22,9 +22,10 @@ import AVKit
                 case .success(let songs):
                     guard let songs = songs.results else { return }
                     if !songs.isEmpty {
-                        DispatchQueue.main.async {
-                            self.songData = songs[0]
-                            self.getAnotherSongsForArtist(for: songs[0].artistId)
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self, let song = songs.first else { return }
+                            self.songData = song
+                            self.getAnotherSongsForArtist(for: song.artistId)
                             self.songIsAvaiable = .successful
                         }
                     } else {
