@@ -74,7 +74,7 @@ import Foundation
     func checkSongIsAlreadyTaked(_ song: SongData){
         var count = 0
         for compareSong in artistSongs{
-            if song.id == compareSong.id{
+            if song.wrappedId == compareSong.wrappedId{
                 count += 1
             }else if song.wrappedTrackName == compareSong.wrappedTrackName{
                 count += 1

@@ -14,7 +14,7 @@ struct SongDetailView: View {
     var songId: Double
     
     var body: some View {
-        Group{
+        Group {
             if viewModel.songIsAvaiable == .loading{
                 VStack{
                     ProgressView()
@@ -35,7 +35,7 @@ struct SongDetailView: View {
                                     .lineLimit(1)
                             }.frame(width: 90.0.responsiveW, alignment: .leading)
                                
-                            ForEach(viewModel.otherArtistSongs, id: \.self?.id){
+                            ForEach(viewModel.otherArtistSongs, id: \.self?.wrappedId){
                                 ListSongView(songData: $0!)
                             }
                         }.padding(.bottom)

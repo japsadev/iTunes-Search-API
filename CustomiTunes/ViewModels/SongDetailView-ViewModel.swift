@@ -69,7 +69,7 @@ import AVKit
     func checkSongIsAlreadyTaked(_ song: SongData) {
         var count = 0
         for compareSong in otherArtistSongs {
-            if song.id == compareSong?.id {
+            if song.wrappedId == compareSong?.wrappedId {
                 count += 1
             } else if song.wrappedTrackName == compareSong?.wrappedTrackName {
                 count += 1

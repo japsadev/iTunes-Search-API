@@ -34,7 +34,7 @@ import Foundation
                         if let trackData = trackDatas[0]{
                             DispatchQueue.main.async {
                                 var trackList = self.songsByKey[listKey] ?? []
-                                if trackList.contains(where: { $0.id == trackData.wrappedId }){
+                                if trackList.contains(where: { $0.wrappedId == trackData.wrappedId }){
                                     // track already added the list
                                 }else{
                                     trackList.append(trackData)
