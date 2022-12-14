@@ -7,10 +7,42 @@
 
 import Foundation
 
-struct ItunesServices {
+struct ItunesServices<T: Codable> {
     private let serviceURL = "https://itunes.apple.com"
 
-    // MARK: Helper methods
+    func searchWithKey(
+        _ searchKey: String,
+        isAlbum: Bool = false,
+        limit: Int = 10,
+        completion: @escaping(Result<T, DownloadError>) -> Void
+    ) {
+        guard let requestURL = handleUrlParematerForRequest(searchKey, isAlbum: isAlbum, limit: limit) else { return }
+        URLSession.shared.dataTask(with: requestURL) { responseData, _, _ in
+            guard let responseData else { return completion(.failure(.unload(url: requestURL.query ?? ""))) }
+            guard let handledData = try? JSONDecoder().decode(T.self, from: responseData) else {
+                return completion(.failure(.unbuild(url: requestURL.query ?? "")))
+            }
+            return completion(.success(handledData))
+        }.resume()
+    }
+}
+
+// MARK: - Helper method(s)
+extension ItunesServices {
+    private func handleUrlParematerForRequest(_ searchKey: String, isAlbum: Bool, limit: Int) -> URL? {
+        if let id = Double(searchKey) {
+            let formattedId = Int(id)
+            let query: String = "?id=\(formattedId)&entity=\(isAlbum ? "album" : "song")&limit=\(limit)"
+            guard let handledURL = createRequestUrl(endpoint: "/lookup", query: query) else { return nil }
+            return handledURL
+        }
+
+        let handledName = handleProperties(searchKey)
+        let query = "?term=\(handledName)&limit=\(limit)&entity=song"
+        guard let handledURL = createRequestUrl(endpoint: "/search", query: query) else { return nil }
+        return handledURL
+    }
+
     private func createRequestUrl(endpoint: String, query: String?) -> URL? {
         return URL(string: self.serviceURL + endpoint + (query ?? "") + "&sort=recent" + "&country=TR")
     }
@@ -26,50 +58,5 @@ struct ItunesServices {
         }
 
         return resultKey
-    }
-
-    // MARK: Request method
-    func searchByNameOrId(
-        _ nameOrId: String,
-        limit: Int = 10,
-        isAblum: Bool = false,
-        completion: @escaping(Result<Any?, DownloadError>) -> Void
-    ) {
-        let id: Double? = Double(nameOrId)
-        var requestURL: URL?
-
-        if let id = id {
-            let formattedId = Int(id)
-            let query: String = "?id=\(formattedId)&entity=\(isAblum ? "album" : "song")&limit=\(limit)"
-            guard let handledURL = createRequestUrl(endpoint: "/lookup", query: query) else {
-                return completion(.failure(.wrongUrl(url: requestURL?.query ?? "")))
-            }
-            requestURL = handledURL
-        } else {
-            let handledName = handleProperties(nameOrId)
-            let query = "?term=\(handledName)&limit=\(limit)&entity=song"
-            guard let handledURL = createRequestUrl(endpoint: "/search", query: query) else {
-                return completion(.failure(.wrongUrl(url: requestURL?.query ?? "")))
-            }
-            requestURL = handledURL
-        }
-
-        guard let requestURL else { return }
-        URLSession.shared.dataTask(with: requestURL) { responseData, _, _ in
-            guard let responseData else { return completion(.failure(.unload(url: requestURL.query ?? ""))) }
-
-            // TODO: Use T type
-            if isAblum {
-                guard let handledData = try? JSONDecoder().decode(SearchAlbumData.self, from: responseData) else {
-                    return completion(.failure(.unbuild(url: requestURL.query ?? "")))
-                }
-                return completion(.success(handledData.results))
-            } else {
-                guard let handledData = try? JSONDecoder().decode(SearchSongData.self, from: responseData) else {
-                    return completion(.failure(.unbuild(url: requestURL.query ?? "")))
-                }
-                return completion(.success(handledData.results))
-            }
-        }.resume()
     }
 }

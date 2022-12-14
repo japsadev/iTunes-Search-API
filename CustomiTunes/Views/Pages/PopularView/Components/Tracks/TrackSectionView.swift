@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrackSectionView: View {
-    @EnvironmentObject private var viewModel: PopularViewModel2
+    @EnvironmentObject private var viewModel: PopularViewModel
     let title: String
     let contentKey: String
     

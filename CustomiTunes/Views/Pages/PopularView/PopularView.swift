@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PopularView: View {
-    @StateObject private var viewModel: PopularViewModel2 = PopularViewModel2()
+    @StateObject private var viewModel: PopularViewModel = PopularViewModel()
     
     var body: some View {
         NavigationView{

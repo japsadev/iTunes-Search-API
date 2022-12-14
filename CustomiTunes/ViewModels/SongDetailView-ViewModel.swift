@@ -9,8 +9,6 @@ import Foundation
 import AVKit
 
 @MainActor class SongDetailViewModel: ObservableObject {
-    private let requestService: ItunesServices = ItunesServices()
-
     @Published var songData: SongData?
     @Published var otherArtistSongs: [SongData?] = []
     @Published var songIsAvaiable: PageLoadingState = .loading
@@ -18,19 +16,19 @@ import AVKit
 
     func getSongDetail(_ id: Double) {
         Task { @MainActor in
-            requestService.searchByNameOrId(String(id)) { requestResponse in
-                switch requestResponse {
-                case .success(let songData):
-                    if let songData = songData as? [SongData] {
-                        if !songData.isEmpty {
-                            DispatchQueue.main.async {
-                                self.songData = songData[0]
-                                self.getAnotherSongsForArtist(for: songData[0].artistId)
-                                self.songIsAvaiable = .successful
-                            }
-                        } else {
-                            self.songIsAvaiable = .failed
+            let service = ItunesServices<SearchSongData>()
+            service.searchWithKey(String(id)) { response in
+                switch response {
+                case .success(let songs):
+                    guard let songs = songs.results else { return }
+                    if !songs.isEmpty {
+                        DispatchQueue.main.async {
+                            self.songData = songs[0]
+                            self.getAnotherSongsForArtist(for: songs[0].artistId)
+                            self.songIsAvaiable = .successful
                         }
+                    } else {
+                        self.songIsAvaiable = .failed
                     }
                 case .failure:
                     self.songIsAvaiable = .failed
@@ -41,26 +39,24 @@ import AVKit
 
     func getAnotherSongsForArtist(for singerID: Double) {
         Task { @MainActor in
-            requestService.searchByNameOrId(String(singerID), limit: 20) { (response) in
+            let service = ItunesServices<SearchSongData>()
+            service.searchWithKey(String(singerID)) { response in
                 switch response {
-                case.failure:
-                    DispatchQueue.main.async {
-                        self.anotherSongsIsAvaible = .failed
-                    }
-                case .success(let songsData):
-                    if var songsData = songsData as? [SongData] {
-                        songsData.remove(at: 0)
-                        for song in songsData {
-                            DispatchQueue.main.async {
-                                if song.wrappedTrackKind == "song" {
-                                    self.checkSongIsAlreadyTaked(song)
-                                }
+                case .success(let songs):
+                    guard var songs = songs.results else { return }
+                    songs.remove(at: 0)
+                    for song in songs {
+                        DispatchQueue.main.async {
+                            if song.wrappedTrackKind == "song" {
+                                self.checkSongIsAlreadyTaked(song)
                             }
                         }
-                        DispatchQueue.main.async {
-                            self.anotherSongsIsAvaible = .successful
-                        }
                     }
+                    DispatchQueue.main.async {
+                        self.anotherSongsIsAvaible = .successful
+                    }
+                case .failure:
+                    self.anotherSongsIsAvaible = .failed
                 }
             }
         }

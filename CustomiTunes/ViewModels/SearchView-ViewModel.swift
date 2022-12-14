@@ -8,7 +8,6 @@
 import Foundation
 
 @MainActor class SearchViewModel: ObservableObject {
-    private let iTunesService: ItunesServices = ItunesServices()
     let staticAppData = StaticAppData()
     @Published var searchResult: [SongData] = []
     @Published var searchKey: String = ""{
@@ -22,13 +21,13 @@ import Foundation
             self.searchResult.removeAll(keepingCapacity: true)
         }
         Task { @MainActor in
-            iTunesService.searchByNameOrId(searchKey, limit: 10) { response in
+            let service = ItunesServices<SearchSongData>()
+            service.searchWithKey(searchKey) { response in
                 switch response {
-                case .success(let trackData):
-                    if let trackData = trackData as? [SongData] {
-                        DispatchQueue.main.async {
-                            self.searchResult = trackData
-                        }
+                case .success(let songs):
+                    guard let songs = songs.results else { return }
+                    DispatchQueue.main.async {
+                        self.searchResult = songs
                     }
                 case .failure:
                     print("an error was taked on SearchViewModel")
