@@ -10,18 +10,18 @@ import SwiftUI
 struct FavoriteView: View {
     @EnvironmentObject private var favoriteService: FavoriteService
     @ObservedObject private var viewModel: FavoriteViewModel =  FavoriteViewModel()
-    
+
     var body: some View {
-        NavigationView{
-            Group{
-                if viewModel.pageState == .loading{
-                    VStack{
+        NavigationView {
+            Group {
+                if viewModel.pageState == .loading {
+                    VStack {
                         ProgressView()
                     }
-                }else{
-                    ScrollView{
-                        ForEach(viewModel.favoriteTracks, id: \.self.wrappedId){ track in
-                            NavigationLink{
+                } else {
+                    ScrollView {
+                        ForEach(viewModel.favoriteTracks, id: \.self.wrappedId) { track in
+                            NavigationLink {
                                 SongDetailView(songId: track.wrappedId)
                             } label: {
                                 FavoriteTracksView(trackData: track)
@@ -41,7 +41,7 @@ struct FavoriteView: View {
                         }
                     }
                 }
-        }.onAppear{
+        }.onAppear {
             viewModel.getFavoriteTracks(tracks: favoriteService.favoriteTrackIds)
         }.sheet(isPresented: $viewModel.accountSheet) {
             AccountView()

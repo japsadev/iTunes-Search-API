@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct InformationFieldsView: View {
-    @Binding var value: String    
-    var title : String
-    var hint : String
-    
+    @Binding var value: String
+    var title: String
+    var hint: String
+
     var body: some View {
-        HStack(spacing:0){
+        HStack(spacing: 0) {
             Text(LocalizedStringKey(title))
             TextField(LocalizedStringKey(hint), text: self.$value)
         }

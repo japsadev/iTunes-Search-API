@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ExplicitView: View {
-    let explicitState : String
+    let explicitState: String
     var body: some View {
-        if let firstLabel = explicitState.first?.uppercased(){
+        if let firstLabel = explicitState.first?.uppercased() {
             if firstLabel == "E" || firstLabel == "C"{
                 Text(firstLabel)
                     .font(.caption2)

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TabBarWideView: View {
-    @Binding var selection : String
-    
+    @Binding var selection: String
+
     var body: some View {
-        HStack(spacing:0){
+        HStack(spacing: 0) {
             TabBarButtonView(title: "LOCAL_POPULAR", image: "star", currentTab: self.$selection)
             TabBarButtonView(title: "LOCAL_SEARCH", image: "magnifyingglass", currentTab: self.$selection)
             TabBarButtonView(title: "LOCAL_FAVORITE", image: "heart", currentTab: self.$selection)

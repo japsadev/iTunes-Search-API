@@ -11,13 +11,13 @@ struct ListSongView: View {
     private let contentSize: CGFloat = 15.0.responsiveW
     var songData: SongData
     var fieldSize: CGFloat? = 90.0.responsiveW
-    
+
     var body: some View {
         NavigationLink {
             SongDetailView(songId: songData.wrappedId)
         } label: {
-            VStack(alignment:.leading,spacing:5){
-                HStack{
+            VStack(alignment: .leading, spacing: 5) {
+                HStack {
                     AnimatedAsyncImageView(imageURL: songData.smallImageURL) { image in
                         image
                             .resizable()
@@ -47,9 +47,8 @@ struct ListSongView: View {
                                     .foregroundColor(.secondary.opacity(0.3))
                             )
                     }.frame(width: contentSize, height: contentSize, alignment: .center)
-                    
-                    VStack(alignment:.leading){
-                        HStack{
+                    VStack(alignment: .leading) {
+                        HStack {
                             Text(songData.wrappedTrackName)
                                 .font(.title3)
                             ExplicitView(explicitState: songData.wrappedTrackExplicitness)

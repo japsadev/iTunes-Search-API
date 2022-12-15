@@ -11,9 +11,9 @@ struct FavoriteTracksView: View {
     @EnvironmentObject private var favoriteService: FavoriteService
     private let contentSize = 20.0.responsiveW
     var trackData: SongData
-    
+
     var body: some View {
-        HStack{
+        HStack {
             Button {
                 favoriteService.addOrRemoveFavorite(trackData.wrappedId)
             } label: {
@@ -50,16 +50,16 @@ struct FavoriteTracksView: View {
                             .foregroundColor(.secondary.opacity(0.3))
                     )
             }.frame(width: contentSize, height: contentSize, alignment: .center)
-            VStack(alignment: .leading, spacing: 5){
+            VStack(alignment: .leading, spacing: 5) {
                 Text(trackData.wrappedTrackName)
                     .font(.headline)
                     .lineLimit(1)
-                
+
                 NavigationLink {
                     ArtistDetailView(artistID: trackData.artistId)
                 } label: {
                     Text(trackData.wrappedArtistName)
-                        .font(.footnote)                    
+                        .font(.footnote)
                 }
                 Spacer()
             }.padding(.top, 2)

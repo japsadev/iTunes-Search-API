@@ -9,15 +9,15 @@ import SwiftUI
 
 struct SearchView: View {
     @ObservedObject private var viewModel: SearchViewModel = SearchViewModel()
-    
+
     var body: some View {
-        NavigationView{
-            List{
+        NavigationView {
+            List {
                 ForEach(viewModel.searchResult, id: \.self.wrappedId) { track in
                     ListSongView(songData: track, fieldSize: 80.0.responsiveW)
                 }.listRowSeparator(.hidden)
             }.navigationTitle("Search")
-                .searchable(text: $viewModel.searchKey, prompt: "Search an Song or Artist" ,suggestions: {
+                .searchable(text: $viewModel.searchKey, prompt: "Search an Song or Artist", suggestions: {
                     ForEach(viewModel.staticAppData.recommendedList, id: \.self) { suggestion in
                         Button(LocalizedStringKey(suggestion)) {
                             viewModel.searchKey = NSLocalizedString(suggestion, comment: "for good search")

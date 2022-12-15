@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ToogleSettingsView: View {
-    @Binding var value : Bool
-    var title : String
-    
+    @Binding var value: Bool
+    var title: String
+
     var body: some View {
         Toggle(LocalizedStringKey(title), isOn: self.$value)
             .onChange(of: self.value) { newValue in
