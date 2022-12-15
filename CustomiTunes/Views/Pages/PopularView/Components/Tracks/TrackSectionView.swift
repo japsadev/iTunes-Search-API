@@ -11,11 +11,11 @@ struct TrackSectionView: View {
     @EnvironmentObject private var viewModel: PopularViewModel
     let title: String
     let contentKey: String
-    
+
     var body: some View {
-        VStack(spacing: 0){
+        VStack(spacing: 0) {
             // MARK: Title and navigation link
-            HStack{
+            HStack {
                 Text(LocalizedStringKey(title))
                     .font(.largeTitle)
                     .bold()
@@ -23,17 +23,17 @@ struct TrackSectionView: View {
                 NavigationLink {
                     TrackListView(contentKey: contentKey, pageTitle: title)
                 } label: {
-                    HStack(spacing: 5){
+                    HStack(spacing: 5) {
                         Text(LocalizedStringKey("LOCAL_DETAIL"))
                         Image(systemName: "chevron.right")
                             .font(.caption)
                     }
                 }
             }.padding()
-            
+
             // MARK: Track List
-            ScrollView(.horizontal){
-                HStack(spacing: 0){
+            ScrollView(.horizontal) {
+                HStack(spacing: 0) {
                     ForEach(viewModel.songsByKey[contentKey] ?? [], id: \.self.wrappedId) { track in
                         NavigationLink {
                             SongDetailView(songId: track.wrappedId)
@@ -47,7 +47,7 @@ struct TrackSectionView: View {
                         .padding(.trailing)
                 }
             }
-        }.onAppear{
+        }.onAppear {
             self.viewModel.getTracksByKey(contentKey)
         }
     }

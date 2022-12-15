@@ -9,17 +9,16 @@ import SwiftUI
 
 struct SmallTrackView: View {
     let contentSize: CGFloat = 25.0.responsiveW
-    var completedViewSize: CGFloat{
+    var completedViewSize: CGFloat {
         contentSize + 15.0.responsiveW
     }
-    
+
     let trackData: SongData
-    
-    
+
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .leading) {
             AnimatedAsyncImageView(imageURL: trackData.middleImageURL) { image in
-                ZStack(alignment: .bottomTrailing){
+                ZStack(alignment: .bottomTrailing) {
                     image.resizable()
                         .scaledToFill()
                         .frame(width: contentSize, height: contentSize)
@@ -44,12 +43,10 @@ struct SmallTrackView: View {
                             .foregroundColor(.secondary.opacity(0.3))
                     )
             }.frame(width: contentSize, height: contentSize)
-            
-            VStack(alignment: .leading, spacing: 3){
+            VStack(alignment: .leading, spacing: 3) {
                 Text(trackData.wrappedTrackName)
                     .font(.caption2)
                     .lineLimit(2)
-                
                 NavigationLink {
                     ArtistDetailView(artistID: trackData.artistId)
                 } label: {

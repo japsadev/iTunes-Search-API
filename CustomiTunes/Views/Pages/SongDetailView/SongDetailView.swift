@@ -12,21 +12,21 @@ import UIKit
 struct SongDetailView: View {
     @StateObject private var viewModel: SongDetailViewModel = SongDetailViewModel()
     var songId: Double
-    
+
     var body: some View {
         Group {
-            if viewModel.songIsAvaiable == .loading{
-                VStack{
+            if viewModel.songIsAvaiable == .loading {
+                VStack {
                     ProgressView()
                     Text("LOCAL_LOADING")
                 }
-            }else if viewModel.songIsAvaiable == .successful{
+            } else if viewModel.songIsAvaiable == .successful {
                 let songData = viewModel.songData!
-                ScrollView{
+                ScrollView {
                     MusicPlayerView(songData: songData)
                         .padding(.bottom)
-                    if viewModel.anotherSongsIsAvaible == .successful{
-                        VStack(alignment: .leading){
+                    if viewModel.anotherSongsIsAvaible == .successful {
+                        VStack(alignment: .leading) {
                             NavigationLink {
                                 ArtistDetailView(artistID: songData.artistId)
                             } label: {
@@ -34,27 +34,27 @@ struct SongDetailView: View {
                                     .font(.title3)
                                     .lineLimit(1)
                             }.frame(width: 90.0.responsiveW, alignment: .leading)
-                               
-                            ForEach(viewModel.otherArtistSongs, id: \.self?.wrappedId){
+
+                            ForEach(viewModel.otherArtistSongs, id: \.self?.wrappedId) {
                                 ListSongView(songData: $0!)
                             }
                         }.padding(.bottom)
-                    }else if viewModel.anotherSongsIsAvaible == .loading{
+                    } else if viewModel.anotherSongsIsAvaible == .loading {
                         ProgressView()
-                    }else if viewModel.anotherSongsIsAvaible == .failed{
-                        Button("LOCAL_FAILED"){
+                    } else if viewModel.anotherSongsIsAvaible == .failed {
+                        Button("LOCAL_FAILED") {
                             viewModel.getAnotherSongsForArtist(for: songData.artistId)
                         }
                     }
                 }.navigationTitle(songData.wrappedTrackName)
-            }else{
-                VStack{
-                    Button("LOCAL_FAILED"){
+            } else {
+                VStack {
+                    Button("LOCAL_FAILED") {
                         viewModel.getSongDetail(songId)
                     }
                 }
             }
-        }.onAppear{
+        }.onAppear {
             viewModel.getSongDetail(songId)
         }.navigationBarTitleDisplayMode(.inline)
     }
@@ -65,5 +65,3 @@ struct SongDetailPage_Previews: PreviewProvider {
         SongDetailView(songId: 1621475284.0)
     }
 }
-
-

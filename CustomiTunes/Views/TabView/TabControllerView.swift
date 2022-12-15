@@ -11,7 +11,7 @@ struct TabControllerView: View {
     @ObservedObject private var favoriteService = FavoriteService()
     @State private var selection = "LOCAL_POPULAR"
     var body: some View {
-        TabView(selection: self.$selection){
+        TabView(selection: self.$selection) {
             PopularView()
                 .tag("LOCAL_POPULAR")
             SearchView()
@@ -20,9 +20,9 @@ struct TabControllerView: View {
                 .tag("LOCAL_FAVORITE")
         }.overlay(
             TabBarWideView(selection: self.$selection)
-                .padding(.top,5)
-                .background(.ultraThinMaterial)
-            ,alignment: .bottom
+                .padding(.top, 5)
+                .background(.ultraThinMaterial),
+            alignment: .bottom
         ).environmentObject(favoriteService)
     }
 }
