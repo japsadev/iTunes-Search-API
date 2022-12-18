@@ -15,15 +15,15 @@ struct AccountView: View {
         NavigationView {
             List {
                 Section(LocalizedStringKey("LOCAL_ACCOUNT_INFO")) {
-                    InformationFieldsView(value: $viewModel.name, title: "LOCAL_ACCOUNT_NAME", hint: "LOCAL_ACCOUNT_NAME_HINT")
-                    InformationFieldsView(value: $viewModel.surname, title: "LOCAL_ACCOUNT_SURNAME", hint: "LOCAL_ACCOUNT_SURNAME_HINT")
-                    InformationFieldsView(value: $viewModel.email, title: "LOCAL_ACCOUNT_EMAIL", hint: "LOCAL_ACCOUNT_EMAIL_HINT")
+                    InformationFieldsView(value: $viewModel.userPreference.name, title: "LOCAL_ACCOUNT_NAME", hint: "LOCAL_ACCOUNT_NAME_HINT")
+                    InformationFieldsView(value: $viewModel.userPreference.surname, title: "LOCAL_ACCOUNT_SURNAME", hint: "LOCAL_ACCOUNT_SURNAME_HINT")
+                    InformationFieldsView(value: $viewModel.userPreference.email, title: "LOCAL_ACCOUNT_EMAIL", hint: "LOCAL_ACCOUNT_EMAIL_HINT")
                 }
                 Section(LocalizedStringKey("LOCAL_ACCOUNT_SETTINGS")) {
-                    ToogleSettingsView(value: $viewModel.notificationSettings, title: "LOCAL_ACOOUNT_NOTIFICATION")
+                    ToogleSettingsView(value: $viewModel.userPreference.notifications, title: "LOCAL_ACOOUNT_NOTIFICATION")
                 }
                 Section(LocalizedStringKey("LOCAL_ACCOUNT_PRIVACY")) {
-                    ToogleSettingsView(value: $viewModel.dataPrivacy, title: "LOCAL_ACCOUNT_SHARE_DATA")
+                    ToogleSettingsView(value: $viewModel.userPreference.privacy, title: "LOCAL_ACCOUNT_SHARE_DATA")
                 }
             }.listStyle(.grouped)
             .navigationTitle("LOCAL_ACCOUNT_TITLE")

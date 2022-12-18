@@ -8,27 +8,7 @@
 import Foundation
 
 @MainActor class AccountViewModel: ObservableObject {
-    @Published var name = "" {
-        didSet {
-            saveData()
-        }
-    }
-    @Published var surname = "" {
-        didSet {
-            saveData()
-        }
-    }
-    @Published var email = "" {
-        didSet {
-            saveData()
-        }
-    }
-    @Published var notificationSettings = true {
-        didSet {
-            saveData()
-        }
-    }
-    @Published var dataPrivacy = true {
+    @Published var userPreference: PreferenceModel = PreferenceModel(name: "", surname: "", email: "", notifications: false, privacy: false) {
         didSet {
             saveData()
         }
@@ -40,9 +20,7 @@ import Foundation
             let fileURL = dir.appendingPathComponent(saveKey)
 
             do {
-                let model = PreferenceModel(name: name, surname: surname, email: email, notifications: notificationSettings, privacy: dataPrivacy)
-
-                if let encoded = try? JSONEncoder().encode(model) {
+                if let encoded = try? JSONEncoder().encode(userPreference) {
                     try encoded.write(to: fileURL)
                 }
             } catch { print("save error") }
@@ -56,11 +34,7 @@ import Foundation
             do {
                 let stringContent = try String(contentsOf: fileURL, encoding: .utf8)
                 if let decoded = try? JSONDecoder().decode(PreferenceModel.self, from: stringContent.data(using: .utf8) ?? Data()) {
-                    self.name = decoded.name
-                    self.surname = decoded.surname
-                    self.email = decoded.email
-                    self.notificationSettings = decoded.notifications
-                    self.dataPrivacy = decoded.privacy
+                    self.userPreference = decoded
                 }
             } catch { print("read error") }
         }
@@ -71,7 +45,7 @@ import Foundation
     }
 }
 
-private struct PreferenceModel: Codable {
+struct PreferenceModel: Codable {
     var name: String
     var surname: String
     var email: String
