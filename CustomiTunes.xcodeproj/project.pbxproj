@@ -167,10 +167,9 @@
 		2E48B829279C2F6B00455FF1 /* CustomiTunes */ = {
 			isa = PBXGroup;
 			children = (
+				C0F6FC9A2951E93300674154 /* Modules */,
 				2E913070279C823200DF180B /* App */,
 				C02BA2D728514C59008022AF /* Services */,
-				2E48B856279C308300455FF1 /* Views */,
-				2E48B855279C307900455FF1 /* ViewModels */,
 				2E48B854279C307400455FF1 /* Models */,
 				2E48B82E279C2F6C00455FF1 /* Assets.xcassets */,
 				2E48B830279C2F6C00455FF1 /* Preview Content */,
@@ -212,32 +211,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		2E48B855279C307900455FF1 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				C0D4BBB828561CC000DE9E2C /* SongDetailView-ViewModel.swift */,
-				C069CC3028565E2900DEEB27 /* MusicPlayerView-ViewModel.swift */,
-				C06C57FE285926CE009A93E1 /* PopularView-ViewModel.swift */,
-				C06C3A1C285DDC3900C202FC /* AccountView-ViewModel.swift */,
-				C06C3A23285DE88A00C202FC /* FavoriteViewModel-ViewModel.swift */,
-				C011DB3B2860778500464535 /* ArtistDetailView-ViewModel.swift */,
-				C011DB402860983400464535 /* TrackListView-ViewModel.swift */,
-				C011DB462860A31600464535 /* SearchView-ViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		2E48B856279C308300455FF1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C0D4BBB52856069700DE9E2C /* CommonComponents */,
-				2EF5EBFB279C89BD00970D5C /* Pages */,
-				2EF5EBFA279C899A00970D5C /* TabView */,
-				2E0506DD27B43903008B73E4 /* SplashView.storyboard */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		2E913070279C823200DF180B /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				2EB08F2127AAF32A00F0FC32 /* MusicPlayerView.swift */,
+				C069CC3028565E2900DEEB27 /* MusicPlayerView-ViewModel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -275,24 +249,11 @@
 			path = TabView;
 			sourceTree = "<group>";
 		};
-		2EF5EBFB279C89BD00970D5C /* Pages */ = {
-			isa = PBXGroup;
-			children = (
-				C011DB422860A27D00464535 /* SearchView */,
-				C011DB3D286097D500464535 /* TrackListView */,
-				C011DB38286074CA00464535 /* ArtistDetailView */,
-				C06C3A20285DE83E00C202FC /* FavoriteView */,
-				C06C3A1E285DDF1600C202FC /* AccountView */,
-				C06C58002859307F009A93E1 /* PopularView */,
-				C08C85B02858D45400E7BFFC /* SongDetailView */,
-			);
-			path = Pages;
-			sourceTree = "<group>";
-		};
 		C011DB38286074CA00464535 /* ArtistDetailView */ = {
 			isa = PBXGroup;
 			children = (
 				C011DB39286074ED00464535 /* ArtistDetailView.swift */,
+				C011DB3B2860778500464535 /* ArtistDetailView-ViewModel.swift */,
 			);
 			path = ArtistDetailView;
 			sourceTree = "<group>";
@@ -301,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				C011DB3E286097E400464535 /* TrackListView.swift */,
+				C011DB402860983400464535 /* TrackListView-ViewModel.swift */,
 			);
 			path = TrackListView;
 			sourceTree = "<group>";
@@ -309,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				C011DB432860A29300464535 /* SearchView.swift */,
+				C011DB462860A31600464535 /* SearchView-ViewModel.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -335,6 +298,7 @@
 			children = (
 				2EEB313427B05AA0000EF2AB /* Components */,
 				2ECE598327B00B2F000A9D1E /* AccountView.swift */,
+				C06C3A1C285DDC3900C202FC /* AccountView-ViewModel.swift */,
 			);
 			path = AccountView;
 			sourceTree = "<group>";
@@ -344,6 +308,7 @@
 			children = (
 				C03E9678285E2AFD005F6A43 /* Components */,
 				C06C3A21285DE84A00C202FC /* FavoriteView.swift */,
+				C06C3A23285DE88A00C202FC /* FavoriteViewModel-ViewModel.swift */,
 			);
 			path = FavoriteView;
 			sourceTree = "<group>";
@@ -353,6 +318,7 @@
 			children = (
 				C06C58012859309B009A93E1 /* Components */,
 				2E7C247527A0651E0049E518 /* PopularView.swift */,
+				C06C57FE285926CE009A93E1 /* PopularView-ViewModel.swift */,
 			);
 			path = PopularView;
 			sourceTree = "<group>";
@@ -398,6 +364,7 @@
 			children = (
 				2EB08F2027AAF31C00F0FC32 /* Components */,
 				2EA8A81727A85F9A00AECC37 /* SongDetailView.swift */,
+				C0D4BBB828561CC000DE9E2C /* SongDetailView-ViewModel.swift */,
 			);
 			path = SongDetailView;
 			sourceTree = "<group>";
@@ -410,6 +377,23 @@
 				C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */,
 			);
 			path = CommonComponents;
+			sourceTree = "<group>";
+		};
+		C0F6FC9A2951E93300674154 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				2E0506DD27B43903008B73E4 /* SplashView.storyboard */,
+				2EF5EBFA279C899A00970D5C /* TabView */,
+				C0D4BBB52856069700DE9E2C /* CommonComponents */,
+				C08C85B02858D45400E7BFFC /* SongDetailView */,
+				C06C58002859307F009A93E1 /* PopularView */,
+				C06C3A1E285DDF1600C202FC /* AccountView */,
+				C06C3A20285DE83E00C202FC /* FavoriteView */,
+				C011DB38286074CA00464535 /* ArtistDetailView */,
+				C011DB3D286097D500464535 /* TrackListView */,
+				C011DB422860A27D00464535 /* SearchView */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
