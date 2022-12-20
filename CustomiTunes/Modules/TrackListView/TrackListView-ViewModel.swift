@@ -9,13 +9,11 @@ import Foundation
 
 @MainActor class TrackListViewModel: ObservableObject {
     @Published var pageState: PageLoadingState = .loading
-    private let staticAppData = StaticAppData()
-
     @Published var trackList: [SongData] = []
 
     func getListTracks(by key: String) {
         let localizedKey = NSLocalizedString(key, comment: "Localized Key") + "Expanded"
-        let trackList = staticAppData.listsBySearchKey[localizedKey] ?? []
+        let trackList = AppConstants.shared.listsBySearchKey[localizedKey] ?? []
         for track in trackList {
             getSongByName(track)
         }

@@ -28,7 +28,7 @@
 		2EEB313827B05F53000EF2AB /* ToogleSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB313727B05F53000EF2AB /* ToogleSettingsView.swift */; };
 		2EF1083127A594BD00D358E0 /* BigCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1083027A594BD00D358E0 /* BigCardView.swift */; };
 		2EF1083327A59EE400D358E0 /* ExplicitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1083227A59EE400D358E0 /* ExplicitView.swift */; };
-		2EF1083827A5A26A00D358E0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1083727A5A26A00D358E0 /* Utils.swift */; };
+		2EF1083827A5A26A00D358E0 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1083727A5A26A00D358E0 /* AppConstants.swift */; };
 		2EF1083A27A5A6F900D358E0 /* BigCardsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1083927A5A6F900D358E0 /* BigCardsScrollView.swift */; };
 		2EF5EBF5279C849A00970D5C /* TabBarWideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF5EBF4279C849A00970D5C /* TabBarWideView.swift */; };
 		2EFB358727B1908D007D64F9 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB358627B1908D007D64F9 /* ActionButtonView.swift */; };
@@ -50,6 +50,9 @@
 		C09D6C19285B408A00C7D7D9 /* TrackSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D6C18285B408A00C7D7D9 /* TrackSectionView.swift */; };
 		C0D4BBB7285606B000DE9E2C /* AnimatedAsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */; };
 		C0D4BBB928561CC000DE9E2C /* SongDetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4BBB828561CC000DE9E2C /* SongDetailView-ViewModel.swift */; };
+		C0F6FC9D2951EA1000674154 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F6FC9C2951EA1000674154 /* String + Ext.swift */; };
+		C0F6FC9F2951EA4200674154 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F6FC9E2951EA4200674154 /* Enums.swift */; };
+		C0F6FCA12951EA5B00674154 /* Double + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F6FCA02951EA5B00674154 /* Double + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +98,7 @@
 		2EEB313727B05F53000EF2AB /* ToogleSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleSettingsView.swift; sourceTree = "<group>"; };
 		2EF1083027A594BD00D358E0 /* BigCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCardView.swift; sourceTree = "<group>"; };
 		2EF1083227A59EE400D358E0 /* ExplicitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplicitView.swift; sourceTree = "<group>"; };
-		2EF1083727A5A26A00D358E0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		2EF1083727A5A26A00D358E0 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		2EF1083927A5A6F900D358E0 /* BigCardsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCardsScrollView.swift; sourceTree = "<group>"; };
 		2EF5EBF4279C849A00970D5C /* TabBarWideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarWideView.swift; sourceTree = "<group>"; };
 		2EFB358627B1908D007D64F9 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
@@ -117,6 +120,9 @@
 		C09D6C18285B408A00C7D7D9 /* TrackSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSectionView.swift; sourceTree = "<group>"; };
 		C0D4BBB6285606B000DE9E2C /* AnimatedAsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedAsyncImageView.swift; sourceTree = "<group>"; };
 		C0D4BBB828561CC000DE9E2C /* SongDetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongDetailView-ViewModel.swift"; sourceTree = "<group>"; };
+		C0F6FC9C2951EA1000674154 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
+		C0F6FC9E2951EA4200674154 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		C0F6FCA02951EA5B00674154 /* Double + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +173,7 @@
 		2E48B829279C2F6B00455FF1 /* CustomiTunes */ = {
 			isa = PBXGroup;
 			children = (
+				C0F6FC9B2951E9FE00674154 /* Utils */,
 				C0F6FC9A2951E93300674154 /* Modules */,
 				2E913070279C823200DF180B /* App */,
 				C02BA2D728514C59008022AF /* Services */,
@@ -216,7 +223,7 @@
 			children = (
 				2EE75DE727AFE571003ADB70 /* Localizable.strings */,
 				2E48B82A279C2F6B00455FF1 /* CustomiTunesApp.swift */,
-				2EF1083727A5A26A00D358E0 /* Utils.swift */,
+				2EF1083727A5A26A00D358E0 /* AppConstants.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -396,6 +403,16 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		C0F6FC9B2951E9FE00674154 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C0F6FC9C2951EA1000674154 /* String + Ext.swift */,
+				C0F6FC9E2951EA4200674154 /* Enums.swift */,
+				C0F6FCA02951EA5B00674154 /* Double + Ext.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -557,8 +574,9 @@
 				2E7C247627A0651E0049E518 /* PopularView.swift in Sources */,
 				C011DB3A286074ED00464535 /* ArtistDetailView.swift in Sources */,
 				C06C3A24285DE88A00C202FC /* FavoriteViewModel-ViewModel.swift in Sources */,
+				C0F6FCA12951EA5B00674154 /* Double + Ext.swift in Sources */,
 				C011DB412860983400464535 /* TrackListView-ViewModel.swift in Sources */,
-				2EF1083827A5A26A00D358E0 /* Utils.swift in Sources */,
+				2EF1083827A5A26A00D358E0 /* AppConstants.swift in Sources */,
 				C03E967A285E2B16005F6A43 /* FavoriteTracksView.swift in Sources */,
 				2E913076279C832D00DF180B /* TabBarButtonView.swift in Sources */,
 				2EB08F2227AAF32A00F0FC32 /* MusicPlayerView.swift in Sources */,
@@ -569,6 +587,7 @@
 				2EEB313827B05F53000EF2AB /* ToogleSettingsView.swift in Sources */,
 				2EF1083327A59EE400D358E0 /* ExplicitView.swift in Sources */,
 				C06C580628593202009A93E1 /* SmallTrackView.swift in Sources */,
+				C0F6FC9F2951EA4200674154 /* Enums.swift in Sources */,
 				2EF5EBF5279C849A00970D5C /* TabBarWideView.swift in Sources */,
 				2EB08F2627AAFFA400F0FC32 /* ListSongView.swift in Sources */,
 				2EA8A81827A85F9A00AECC37 /* SongDetailView.swift in Sources */,
@@ -583,6 +602,7 @@
 				C011DB3C2860778500464535 /* ArtistDetailView-ViewModel.swift in Sources */,
 				C011DB442860A29300464535 /* SearchView.swift in Sources */,
 				2E913074279C831E00DF180B /* TabControllerView.swift in Sources */,
+				C0F6FC9D2951EA1000674154 /* String + Ext.swift in Sources */,
 				2E0680B127B6C86A001B3FD9 /* SongData.swift in Sources */,
 				C0D4BBB928561CC000DE9E2C /* SongDetailView-ViewModel.swift in Sources */,
 				C06C3A1D285DDC3900C202FC /* AccountView-ViewModel.swift in Sources */,

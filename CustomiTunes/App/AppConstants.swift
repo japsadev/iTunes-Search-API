@@ -1,40 +1,16 @@
 //
-//  Utils.swift
+//  AppConstants.swift
 //  CustomiTunes
 //
 //  Created by Mehmet Ateş on 29.01.2022.
 //
 
 import Foundation
-import UIKit
-import SwiftUI
 
-extension Double {
-    var responsiveW: Double { return (UIScreen.main.bounds.size.width * self) / 100}
-    var responsiveH: Double { return (UIScreen.main.bounds.size.height * self) / 100}
-}
+struct AppConstants {
+    static let shared = AppConstants()
 
-extension String {
-    func keyToLocalizedValue() -> String {
-        NSLocalizedString(self, comment: "key to localized value")
-    }
-}
-
-enum DownloadError: Error {
-    case wrongUrl(url: String)
-    case unload(url: String)
-    case unbuild(url: String)
-}
-
-enum PageLoadingState {
-    case loading
-    case failed
-    case successful
-    case disable
-}
-
-struct StaticAppData {
-    let recommendedList  = [
+     let recommendedList  = [
         "LOCAL_SEARCHTIPS_1",
         "LOCAL_SEARCHTIPS_2",
         "LOCAL_SEARCHTIPS_3",
