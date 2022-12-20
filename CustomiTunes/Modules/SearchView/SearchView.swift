@@ -18,7 +18,7 @@ struct SearchView: View {
                 }.listRowSeparator(.hidden)
             }.navigationTitle("Search")
                 .searchable(text: $viewModel.searchKey, prompt: "Search an Song or Artist", suggestions: {
-                    ForEach(viewModel.staticAppData.recommendedList, id: \.self) { suggestion in
+                    ForEach(AppConstants.shared.recommendedList, id: \.self) { suggestion in
                         Button(LocalizedStringKey(suggestion)) {
                             viewModel.searchKey = NSLocalizedString(suggestion, comment: "for good search")
                         }

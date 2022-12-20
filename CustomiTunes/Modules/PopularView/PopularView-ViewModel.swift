@@ -9,14 +9,13 @@ import Foundation
 
 @MainActor class PopularViewModel: ObservableObject {
     @Published var songsByKey: [String: [SongData]] = [:]
-    let staticAppDatas = StaticAppData()
 
     func getCards(_ key: String) -> [(contentKey: String, cardURL: URL, pageTitle: String)] {
-        staticAppDatas.popularContentUrls[key.keyToLocalizedValue()] ?? []
+        AppConstants.shared.popularContentUrls[key.keyToLocalizedValue()] ?? []
     }
 
     func getTracksByKey(_ key: String) {
-        let songSearchKeys = staticAppDatas.listsBySearchKey[key.keyToLocalizedValue()] ?? []
+        let songSearchKeys = AppConstants.shared.listsBySearchKey[key.keyToLocalizedValue()] ?? []
         for songSearchKey in songSearchKeys {
             getTrackBySearchKey(for: songSearchKey, by: key)
         }
